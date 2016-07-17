@@ -1,2 +1,2 @@
 # SOC
-Simulación, Optimización y Control de Procesos Químicos; Grado en Ingeniería Química
+ Simulación, Optimización y Control de Procesos Químicos (Máster en Ingeniería Química)
