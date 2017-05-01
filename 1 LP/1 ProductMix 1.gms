@@ -22,7 +22,7 @@ R2..     X1 + 1.5*X2 =L= 21;
 R3..     3*X1 + X2 =L= 24;
 
 
-MODEL ProductMix1 /all/;
+MODEL ProductMix /all/;
 
 
-SOLVE ProductMix1 using LP maximizing Z;
+SOLVE ProductMix using LP maximizing Z;
