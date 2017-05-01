@@ -10,19 +10,19 @@ j        /P1, P2/;
 
 PARAMETERS
 
-c(j)
-/P1       3
-P2        2/
-
-b(i)
+d(i)
 /E1       18
 E2        21
-E3        24/;
+E3        24/
+
+b(j)
+/P1       3
+P2        2/;
 
 
 TABLE
 
-a(i,j)
+u(i,j)
            P1      P2
 E1         2       1
 E2         1       1.5
@@ -43,8 +43,8 @@ EQUATIONS
 
 OBJ, R(i) ;
 
-OBJ..       Z  =E= sum(j,c(j)*x(j)) ;
-R(i)..      sum(j,a(i,j)*x(j)) =L= b(i);
+OBJ..       Z  =E= sum(j,b(j)*x(j)) ;
+R(i)..      sum(j,u(i,j)*x(j)) =L= d(i);
 
 
 MODEL ProductMix /all/;
