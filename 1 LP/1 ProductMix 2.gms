@@ -1,40 +1,53 @@
-*1 ProductMix 2
+*1 ProductMix 2.gms
 *Problema de producción con recursos limitados
 
+
 SETS
-i        equipos         /E1, E2, E3/
-j        productos       /P1, P2/;
+
+i        /E1, E2, E3/
+j        /P1, P2/;
 
 
 PARAMETERS
-b(j)     beneficio unitario
+
+c(j)
 /P1       3
 P2        2/
 
-d(i)     disponibilidad
+b(i)
 /E1       18
 E2        21
 E3        24/;
 
+
 TABLE
-u(i,j)    uso
+
+a(i,j)
            P1      P2
 E1         2       1
 E2         1       1.5
 E3         3       1;
 
+
 VARIABLES
-Z        beneficio total;
+
+Z;
+
 
 POSITIVE VARIABLES
-x(j)     cantidad producida;
+
+x(j);
+
 
 EQUATIONS
-Obj, Disponibilidad(i) ;
 
-Obj..                    Z  =E= sum(j,b(j)*x(j)) ;
-Disponibilidad(i)..      sum(j,u(i,j)*x(j)) =L= d(i);
+OBJ, R(i) ;
+
+OBJ..       Z  =E= sum(j,c(j)*x(j)) ;
+R(i)..      sum(j,a(i,j)*x(j)) =L= b(i);
+
 
 MODEL ProductMix /all/;
+
 
 SOLVE ProductMix using LP maximizing Z;
