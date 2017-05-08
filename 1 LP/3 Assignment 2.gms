@@ -40,4 +40,4 @@ Rf(j)..   sum(i,x(i,j)) =E= 1;
 MODEL Assignment /all/;
 
 
-SOLVE Assignment using MIP minimizing Z;
+SOLVE Assignment using LP minimizing Z;
