@@ -40,7 +40,7 @@ cap1     capacidad de proceso 1
 cap2     capacidad de proceso 2
 cap3     capacidad de proceso 3
 
-obj      función objetivo;
+obj      beneficio;
 
 bala..   a =E= a2 + a3;
 bal1..   c =E= 0.9*b1 ;
