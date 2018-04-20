@@ -26,4 +26,4 @@ R3..     8*X1 + 10*X2 +  2*X3 +  1*X4 +  10*X5 =L= 25;
 MODEL Knapsack /all/;
 
 
-SOLVE Knapsack using MIP maximizing Z
+SOLVE Knapsack using MIP maximizing Z;
