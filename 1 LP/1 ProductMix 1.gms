@@ -1,5 +1,5 @@
-* 1 ProductMix 1.gms
-* Problema de producción con recursos limitados
+*1 ProductMix 1.gms
+*Problema de producción con recursos limitados
 
 
 VARIABLES
