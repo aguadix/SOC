@@ -26,7 +26,7 @@ A25       1
 A35       8
 A45       4/
 
-x.up(j)
+xup(j)
 /A12      30
 A13       10
 A14       35
@@ -55,7 +55,7 @@ Z;
 POSITIVE VARIABLES
 
 x(j);
-*x.up(j) = xup(j);
+x.up(j) = xup(j);
 
 
 EQUATIONS
