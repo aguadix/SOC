@@ -1,4 +1,4 @@
-* 1 Circle.gms
+* 1 Rmin.gms
 * Círculo de radio mínimo conteniendo puntos
 
 
@@ -40,7 +40,7 @@ x0, y0, R;
 
 x0.L = 50;
 y0.L = 50;
-R.L = 50;
+R.L = 25;
 
 
 EQUATIONS
@@ -50,7 +50,7 @@ d(i);
 d(i)..      sqr(x(i)-x0) + sqr(y(i)-y0) =L= sqr(R);
 
 
-MODEL Circle /all/;
+MODEL Rmin /all/;
 
 
-SOLVE Circle using NLP minimizing R;
+SOLVE Rmin using NLP minimizing R;
