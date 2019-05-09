@@ -35,7 +35,7 @@ VARIABLES
 Rad, X0, Y0;
 
 Rad.L = 0.25;
-X0.L = 4.0;
+X0.L = 3.0;
 Y0.L = 1.5;
 
 
