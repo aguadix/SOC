@@ -1,5 +1,8 @@
 * 3 NLR.gms
-* Nonlinear regression
+* Regresión no lineal
+* Sistema de segundo orden subamortiguado
+* Respuesta a escalón unitario
+
 
 SETS
 
