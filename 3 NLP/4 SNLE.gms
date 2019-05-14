@@ -23,7 +23,7 @@ E   /21000/;
 
 VARIABLES
 
-Z, CA, T, k, rA, Q, e1, e2;
+Z, CA, T, k, rA, Q, dCAdt, dTdt;
 
 CA.L = 1.25;
 T.L = 350;
@@ -33,12 +33,12 @@ EQUATIONS
 
 calk, calrA, calQ, BM, BE, OBJ;
 
-calk..    k =E= k0*exp(-E/(R*T));
-calrA..  rA =E= -k*CA;
-calQ..    Q =E= UA*(TJ-T);
-BM..     e1 =E= F*(CA0-CA)/V + rA;
-BE..     e2 =E= F*(T0-T)/V + H*rA/(RHO*CP) + Q/(V*RHO*CP);
-OBJ..     Z =E= sqr(e1) + sqr(e2);
+calk..       k =E= k0*exp(-E/(R*T));
+calrA..     rA =E= -k*CA;
+calQ..       Q =E= UA*(TJ-T);
+BM..     dCAdt =E= F*(CA0-CA)/V + rA;
+BE..      dTdt =E= F*(T0-T)/V + H*rA/(RHO*CP) + Q/(V*RHO*CP);
+OBJ..        Z =E= sqr(dCAdt) + sqr(dTdt);
 
 
 MODEL SNLE /all/;
