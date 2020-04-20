@@ -1,0 +1,13 @@
+B 3 C o m p i l a t i o n
+B 64 Equation Listing    SOLVE ProductMix Using LP From line 53
+D 67 OBJ
+D 72 R
+B 82 Column Listing      SOLVE ProductMix Using LP From line 53
+E 85 Z
+E 92 x
+B 110 Model Statistics    SOLVE ProductMix Using LP From line 53
+B 126 Solution Report     SOLVE ProductMix Using LP From line 53
+F 156 OBJ
+F 158 R
+G 168 Z
+G 170 x

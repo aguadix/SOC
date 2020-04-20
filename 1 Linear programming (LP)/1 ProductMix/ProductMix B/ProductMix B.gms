@@ -1,5 +1,5 @@
-*1 ProductMix 2.gms
-*Problema de producciÃ³n con recursos limitados
+* ProductMix B.gms
+* Problema de producción con recursos limitados
 
 
 SETS
