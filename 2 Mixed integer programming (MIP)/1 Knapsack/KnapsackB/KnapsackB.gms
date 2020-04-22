@@ -1,4 +1,4 @@
-* 1 Knapsack 2.gms
+* KnapsackB.gms
 * Problema de la mochila
 
 
@@ -50,7 +50,7 @@ OBJ..       Z =E= sum(j,b(j)*x(j)) ;
 R(i)..      sum(j,c(i,j)*x(j)) =L= l(i) ;
 
 
-MODEL Knapsack /all/;
+MODEL KnapsackB /all/;
 
 
-SOLVE Knapsack using MIP maximizing Z;
+SOLVE KnapsackB using MIP maximizing Z;

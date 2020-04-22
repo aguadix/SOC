@@ -1,5 +1,5 @@
-* 2 SetCover 2.gms
-*Problema de la cobertura
+* SetCoverB.gms
+* Problema de la cobertura
 
 
 SETS
@@ -48,7 +48,7 @@ OBJ..     Z  =E= SUM(i,c(i)*x(i)) ;
 R(j)..    SUM(i,a(i,j)*x(i)) =G= 1;
 
 
-MODEL SetCover /all/;
+MODEL SetCoverB /all/;
 
 
-SOLVE SetCover using MIP minimizing Z;
+SOLVE SetCoverB using MIP minimizing Z;

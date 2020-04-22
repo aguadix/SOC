@@ -1,4 +1,4 @@
-* 2 SetCover 1.gms
+* SetCoverA.gms
 * Problema de la cobertura
 
 
@@ -28,7 +28,7 @@ A36.. X3 + X6 =G= 1;
 A45.. X4 + X5 =G= 1;
 
 
-MODEL SetCover /all/;
+MODEL SetCoverA /all/;
 
 
-SOLVE SetCover using MIP minimizing Z;
+SOLVE SetCoverA using MIP minimizing Z;

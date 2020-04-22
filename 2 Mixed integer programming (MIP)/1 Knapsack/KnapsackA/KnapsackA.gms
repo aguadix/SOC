@@ -1,4 +1,4 @@
-* 1 Knapsack 1.gms
+* KnapsackA.gms
 * Problema de la mochila
 
 
@@ -23,7 +23,7 @@ R2..     1*X1 +  7*X2 +  9*X3 +  4*X4 +   6*X5 =L= 23;
 R3..     8*X1 + 10*X2 +  2*X3 +  1*X4 +  10*X5 =L= 25;
 
 
-MODEL Knapsack /all/;
+MODEL KnapsackA /all/;
 
 
-SOLVE Knapsack using MIP maximizing Z;
+SOLVE KnapsackA using MIP maximizing Z;

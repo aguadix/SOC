@@ -1,5 +1,5 @@
-* 3 SetPacking 1.gms
-*Problema del empaquetamiento
+* SetPackingA.gms
+* Problema del empaquetamiento
 
 
 VARIABLES
@@ -24,7 +24,7 @@ S45.. X4 + X5 =L= 1;
 S56.. X5 + X6 =L= 1;
 
 
-MODEL SetPacking /all/;
+MODEL SetPackingA /all/;
 
 
-SOLVE SetPacking using MIP maximizing Z;
+SOLVE SetPackingA using MIP maximizing Z;

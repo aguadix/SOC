@@ -1,5 +1,5 @@
-* 3 SetPacking 2.gms
-*Problema del empaquetamiento
+* SetPackingB.gms
+* Problema del empaquetamiento
 
 
 SETS
@@ -48,7 +48,7 @@ OBJ..     Z  =E= sum(j,b(j)*x(j));
 R(i)..    sum(j,a(i,j)*x(j)) =L= 1;
 
 
-MODEL SetPacking /all/;
+MODEL SetPackingB /all/;
 
 
-SOLVE SetPacking using MIP maximizing Z;
+SOLVE SetPackingB using MIP maximizing Z;
