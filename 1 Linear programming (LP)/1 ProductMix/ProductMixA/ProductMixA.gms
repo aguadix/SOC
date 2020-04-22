@@ -1,5 +1,5 @@
-* ProductMix A.gms
-* Problema de producción con recursos limitados
+* ProductMixA.gms
+* Problema de producciï¿½n con recursos limitados
 
 
 VARIABLES
@@ -22,7 +22,7 @@ R2..     X1 + 1.5*X2 =L= 21;
 R3..     3*X1 + X2 =L= 24;
 
 
-MODEL ProductMix /all/;
+MODEL ProductMixA /all/;
 
 
-SOLVE ProductMix using LP maximizing Z;
+SOLVE ProductMixA using LP maximizing Z;

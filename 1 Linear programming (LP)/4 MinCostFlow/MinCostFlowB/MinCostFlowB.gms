@@ -1,4 +1,4 @@
-* MinCostFlow B.gms
+* MinCostFlowB.gms
 * Problema del flujo capacitado con coste mínimo
 
 
@@ -66,7 +66,7 @@ OBJ..       Z =E= sum(j,c(j)*x(j)) ;
 B(i)..      sum(j,a(i,j)*x(j)) =E= d(i);
 
 
-MODEL MinCostFlow /all/;
+MODEL MinCostFlowB /all/;
 
 
-SOLVE MinCostFlow using LP minimizing Z;
+SOLVE MinCostFlowB using LP minimizing Z;

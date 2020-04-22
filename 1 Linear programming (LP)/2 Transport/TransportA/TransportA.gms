@@ -1,4 +1,4 @@
-* Transport A.gms
+* TransportA.gms
 * Problema del transporte
 
 
@@ -32,7 +32,7 @@ M6..     X13 + X23 + X33 =E= 15;
 M7..     X14 + X24 + X34 =E= 15;
 
 
-MODEL Transport /all/;
+MODEL TransportA /all/;
 
 
-SOLVE Transport using LP minimizing Z;
+SOLVE TransportA using LP minimizing Z;

@@ -1,5 +1,5 @@
-* ProductMix B.gms
-* Problema de producción con recursos limitados
+* ProductMixB.gms
+* Problema de producciï¿½n con recursos limitados
 
 
 SETS
@@ -47,7 +47,7 @@ OBJ..       Z  =E= sum(j,b(j)*x(j)) ;
 R(i)..      sum(j,u(i,j)*x(j)) =L= d(i);
 
 
-MODEL ProductMix /all/;
+MODEL ProductMixB /all/;
 
 
-SOLVE ProductMix using LP maximizing Z;
+SOLVE ProductMixB using LP maximizing Z;

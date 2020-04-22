@@ -1,4 +1,4 @@
-* Assignment A.gms
+* AssignmentA.gms
 * Problema de la  asignación
 
 
@@ -35,7 +35,7 @@ F3..     X13 + X23 + X33 + X43 =E= 1;
 F4..     X14 + X24 + X34 + X44 =E= 1;
 
 
-MODEL Assignment /all/;
+MODEL AssignmentA /all/;
 
 
-SOLVE Assignment using LP minimizing Z;
+SOLVE AssignmentA using LP minimizing Z;

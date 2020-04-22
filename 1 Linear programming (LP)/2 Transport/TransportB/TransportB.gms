@@ -1,4 +1,4 @@
-* Transport B.gms
+* TransportB.gms
 * Problema del transporte
 
 
@@ -50,7 +50,7 @@ Ro(i) ..   sum(j, x(i,j))  =E=  o(i) ;
 Rd(j) ..   sum(i, x(i,j))  =E=  d(j) ;
 
 
-MODEL Transport /all/ ;
+MODEL TransportB /all/ ;
 
 
-SOLVE Transport using LP minimizing Z;
+SOLVE TransportB using LP minimizing Z;

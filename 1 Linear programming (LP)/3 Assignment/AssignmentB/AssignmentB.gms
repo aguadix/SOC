@@ -1,4 +1,4 @@
-* Assignment B.gms
+* AssignmentB.gms
 * Problema de la  asignación
 
 
@@ -37,7 +37,7 @@ Rp(i)..   sum(j,x(i,j)) =E= 1;
 Rf(j)..   sum(i,x(i,j)) =E= 1;
 
 
-MODEL Assignment /all/;
+MODEL AssignmentB /all/;
 
 
-SOLVE Assignment using LP minimizing Z;
+SOLVE AssignmentB using LP minimizing Z;

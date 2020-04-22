@@ -1,4 +1,4 @@
-* ShortestPath B.gms
+* ShortestPathB.gms
 * Problema de la ruta más corta
 
 
@@ -56,7 +56,7 @@ OBJ..       Z =E= sum(j,c(j)*x(j)) ;
 B(i)..      sum(j,a(i,j)*x(j)) =E= d(i);
 
 
-MODEL ShortestPath /all/;
+MODEL ShortestPathB /all/;
 
 
-SOLVE ShortestPath using LP minimizing Z;
+SOLVE ShortestPathB using LP minimizing Z;

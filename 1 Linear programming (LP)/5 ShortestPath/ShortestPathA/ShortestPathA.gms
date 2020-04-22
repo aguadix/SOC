@@ -1,4 +1,4 @@
-* ShortestPath A.gms
+* ShortestPathA.gms
 * Problema de la ruta más corta
 
 
@@ -25,7 +25,7 @@ B4..     X24 + X34 - X45            =E=  0;
 B5..     X35 + X45                  =E=  1;
 
 
-MODEL ShortestPath /all/;
+MODEL ShortestPathA /all/;
 
 
-SOLVE ShortestPath using LP minimizing Z;
+SOLVE ShortestPathA using LP minimizing Z;

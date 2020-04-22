@@ -1,4 +1,4 @@
-* MinCostFlow A.gms
+* MinCostFlowA.gms
 * Problema del flujo capacitado con coste mínimo
 
 
@@ -32,7 +32,7 @@ B4..     X14 - X45       =E= 30;
 B5..     X25 + X35 + X45 =E= 60;
 
 
-MODEL MinCostFlow /all/;
+MODEL MinCostFlowA /all/;
 
 
-SOLVE MinCostFlow using LP minimizing Z;
+SOLVE MinCostFlowA using LP minimizing Z;
