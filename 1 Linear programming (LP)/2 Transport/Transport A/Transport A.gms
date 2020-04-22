@@ -1,5 +1,5 @@
-*2 Transport 1.gms
-*Problema del transporte
+* Transport A.gms
+* Problema del transporte
 
 
 VARIABLES

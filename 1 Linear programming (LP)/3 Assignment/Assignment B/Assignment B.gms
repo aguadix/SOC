@@ -1,5 +1,5 @@
-*3 Assignment 2.gms
-*Problema de la  asignación
+* Assignment B.gms
+* Problema de la  asignación
 
 
 SETS

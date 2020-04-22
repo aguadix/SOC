@@ -1,5 +1,5 @@
-*2 Transport 2.gms
-*Problema del transporte
+* Transport B.gms
+* Problema del transporte
 
 
 SETS

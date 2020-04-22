@@ -1,5 +1,5 @@
-*5 MinCostFlow 1.gms
-*Problema del flujo capacitado con coste mínimo
+* MinCostFlow A.gms
+* Problema del flujo capacitado con coste mínimo
 
 
 VARIABLES

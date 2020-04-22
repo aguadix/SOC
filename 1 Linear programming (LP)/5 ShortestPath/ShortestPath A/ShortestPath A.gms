@@ -1,5 +1,5 @@
-*4 ShortestPath 1.gms
-*Problema de la ruta más corta
+* ShortestPath A.gms
+* Problema de la ruta más corta
 
 
 VARIABLES

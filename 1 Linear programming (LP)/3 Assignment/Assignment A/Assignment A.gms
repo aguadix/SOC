@@ -1,5 +1,5 @@
-*3 Assignment 1.gms
-*Problema de la  asignación
+* Assignment A.gms
+* Problema de la  asignación
 
 
 VARIABLES

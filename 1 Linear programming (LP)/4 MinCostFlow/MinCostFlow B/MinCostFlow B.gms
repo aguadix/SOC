@@ -1,5 +1,5 @@
-*5 MinCostFlow 2.gms
-*Problema del flujo capacitado con coste mínimo
+* MinCostFlow B.gms
+* Problema del flujo capacitado con coste mínimo
 
 
 SETS

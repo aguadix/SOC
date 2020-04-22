@@ -1,5 +1,5 @@
-*4 ShortestPath 2.gms
-*Problema de la ruta más corta
+* ShortestPath B.gms
+* Problema de la ruta más corta
 
 
 SETS
