@@ -1,4 +1,4 @@
---- Job BinPackingB.gms Start 04/22/20 10:07:40 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
+--- Job BinPackingB.gms Start 04/22/20 10:09:23 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
 --- GAMS Parameters defined
     Input C:\aguadix\GITHUB\SOC\2 Mixed integer programming (MIP)\3 BinPacking\BinPackingB\BinPackingB.gms
     PageSize 0
@@ -15,13 +15,13 @@ Licensee: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
           aguadix@ugr.es, ANTONIO MARIA GUADIX ESCOBAR                     
           Demo license for demonstration and instructional purposes only
 --- Starting compilation
---- BinPackingB.gms(62) 2 Mb
---- Starting execution: elapsed 0:00:00.010
+--- BinPackingB.gms(64) 2 Mb
+--- Starting execution: elapsed 0:00:00.006
 --- Generating MIP model BinPackingB
---- BinPackingB.gms(62) 3 Mb
+--- BinPackingB.gms(64) 3 Mb
 ---   17 rows  67 columns  133 non-zeroes
 ---   66 discrete-columns
---- Executing CPLEX: elapsed 0:00:00.034
+--- Executing CPLEX: elapsed 0:00:00.029
 
 IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
 *** This solver runs with a demo license. No commercial use.
@@ -100,9 +100,9 @@ Found incumbent of value 6.000000 after 0.00 sec. (0.63 ticks)
 Found incumbent of value 5.000000 after 0.00 sec. (0.67 ticks)
       0     0        4.0000     9        5.0000      Cuts: 27       33   20.00%
 *     0+    0                            4.0000        4.0000             0.00%
-Found incumbent of value 4.000000 after 0.00 sec. (0.97 ticks)
+Found incumbent of value 4.000000 after 0.02 sec. (0.97 ticks)
       0     0        cutoff              4.0000        4.0000       33    0.00%
-Elapsed time = 0.00 sec. (0.97 ticks, tree = 0.01 MB, solutions = 3)
+Elapsed time = 0.02 sec. (0.97 ticks, tree = 0.01 MB, solutions = 3)
 
 Clique cuts applied:  2
 Cover cuts applied:  4
@@ -113,13 +113,13 @@ Lift and project cuts applied:  1
 Gomory fractional cuts applied:  2
 
 Root node processing (before b&c):
-  Real time             =    0.00 sec. (0.98 ticks)
+  Real time             =    0.02 sec. (0.98 ticks)
 Sequential b&c:
   Real time             =    0.00 sec. (0.00 ticks)
                           ------------
-Total (root+branch&cut) =    0.00 sec. (0.98 ticks)
+Total (root+branch&cut) =    0.02 sec. (0.98 ticks)
 MIP status(101): integer optimal solution
-Cplex Time: 0.00sec (det. 0.98 ticks)
+Cplex Time: 0.02sec (det. 0.98 ticks)
 Fixing integer variables, and solving final LP...
 Version identifier: 12.10.0.0 | 2019-11-26 | 843d4de2ae
 CPXPARAM_Advance                                 2
@@ -150,7 +150,7 @@ Absolute gap:            0.000000
 Relative gap:            0.000000
 
 --- Restarting execution
---- BinPackingB.gms(62) 2 Mb
+--- BinPackingB.gms(64) 2 Mb
 --- Reading solution for model BinPackingB
 *** Status: Normal completion
---- Job BinPackingB.gms Stop 04/22/20 10:07:40 elapsed 0:00:00.211
+--- Job BinPackingB.gms Stop 04/22/20 10:09:23 elapsed 0:00:00.150

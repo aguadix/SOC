@@ -1,4 +1,4 @@
---- Job BinPackingB.gms Start 04/22/20 10:06:16 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
+--- Job BinPackingB.gms Start 04/22/20 10:08:30 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
 --- GAMS Parameters defined
     Input C:\aguadix\GITHUB\SOC\2 Mixed integer programming (MIP)\3 BinPacking\BinPackingB\BinPackingB.gms
     PageSize 0
@@ -15,10 +15,10 @@ Licensee: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
           aguadix@ugr.es, ANTONIO MARIA GUADIX ESCOBAR                     
           Demo license for demonstration and instructional purposes only
 --- Starting compilation
---- BinPackingB.gms(64) 2 Mb
---- Starting execution: elapsed 0:00:00.000
+--- BinPackingB.gms(63) 2 Mb
+--- Starting execution: elapsed 0:00:00.007
 --- Generating MIP model BinPackingB
---- BinPackingB.gms(64) 3 Mb
+--- BinPackingB.gms(63) 3 Mb
 ---   17 rows  67 columns  133 non-zeroes
 ---   66 discrete-columns
 --- Executing CPLEX: elapsed 0:00:00.029
@@ -48,13 +48,13 @@ MIP Presolve eliminated 1 rows and 1 columns.
 Reduced MIP has 16 rows, 66 columns, and 126 nonzeros.
 Reduced MIP has 66 binaries, 0 generals, 0 SOSs, and 0 indicators.
 Presolve time = 0.00 sec. (0.09 ticks)
-Found incumbent of value 6.000000 after 0.00 sec. (0.24 ticks)
+Found incumbent of value 6.000000 after 0.02 sec. (0.24 ticks)
 Probing time = 0.00 sec. (0.05 ticks)
 Tried aggregator 1 time.
 Detecting symmetries...
 Reduced MIP has 16 rows, 66 columns, and 126 nonzeros.
 Reduced MIP has 66 binaries, 0 generals, 0 SOSs, and 0 indicators.
-Presolve time = 0.02 sec. (0.14 ticks)
+Presolve time = 0.00 sec. (0.14 ticks)
 Probing time = 0.00 sec. (0.05 ticks)
 Clique table members: 52.
 MIP emphasis: balance optimality and feasibility.
@@ -150,7 +150,7 @@ Absolute gap:            0.000000
 Relative gap:            0.000000
 
 --- Restarting execution
---- BinPackingB.gms(64) 2 Mb
+--- BinPackingB.gms(63) 2 Mb
 --- Reading solution for model BinPackingB
 *** Status: Normal completion
---- Job BinPackingB.gms Stop 04/22/20 10:06:17 elapsed 0:00:00.143
+--- Job BinPackingB.gms Stop 04/22/20 10:08:30 elapsed 0:00:00.170

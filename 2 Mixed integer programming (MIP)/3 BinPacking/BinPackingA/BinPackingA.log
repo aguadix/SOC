@@ -1,4 +1,4 @@
---- Job BinPackingA.gms Start 04/22/20 10:13:20 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
+--- Job BinPackingA.gms Start 04/22/20 11:19:00 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
 --- GAMS Parameters defined
     Input C:\aguadix\GITHUB\SOC\2 Mixed integer programming (MIP)\3 BinPacking\BinPackingA\BinPackingA.gms
     PageSize 0
@@ -15,13 +15,13 @@ Licensee: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
           aguadix@ugr.es, ANTONIO MARIA GUADIX ESCOBAR                     
           Demo license for demonstration and instructional purposes only
 --- Starting compilation
---- BinPackingA.gms(42) 3 Mb
+--- BinPackingA.gms(63) 2 Mb
 --- Starting execution: elapsed 0:00:00.000
---- Generating MIP model BinPackingA
---- BinPackingA.gms(42) 4 Mb
+--- Generating MIP model BinPackingB
+--- BinPackingA.gms(63) 3 Mb
 ---   17 rows  67 columns  133 non-zeroes
 ---   66 discrete-columns
---- Executing CPLEX: elapsed 0:00:00.078
+--- Executing CPLEX: elapsed 0:00:00.016
 
 IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
 *** This solver runs with a demo license. No commercial use.
@@ -48,13 +48,13 @@ MIP Presolve eliminated 1 rows and 1 columns.
 Reduced MIP has 16 rows, 66 columns, and 126 nonzeros.
 Reduced MIP has 66 binaries, 0 generals, 0 SOSs, and 0 indicators.
 Presolve time = 0.00 sec. (0.09 ticks)
-Found incumbent of value 6.000000 after 0.00 sec. (0.24 ticks)
+Found incumbent of value 6.000000 after 0.02 sec. (0.24 ticks)
 Probing time = 0.00 sec. (0.05 ticks)
 Tried aggregator 1 time.
 Detecting symmetries...
 Reduced MIP has 16 rows, 66 columns, and 126 nonzeros.
 Reduced MIP has 66 binaries, 0 generals, 0 SOSs, and 0 indicators.
-Presolve time = 0.02 sec. (0.14 ticks)
+Presolve time = 0.00 sec. (0.14 ticks)
 Probing time = 0.00 sec. (0.05 ticks)
 Clique table members: 52.
 MIP emphasis: balance optimality and feasibility.
@@ -66,56 +66,60 @@ Presolve time = 0.00 sec. (0.02 ticks)
 Initializing dual steep norms . . .
 
 Iteration      Dual Objective            In Variable           Out Variable
-     1               0.000000              x(O10.C2)          Cap(C1) slack
-     2               0.000000               x(O7.C3)          Cap(C3) slack
-     3               0.000000               x(O7.C4)          Cap(C4) slack
-     4               0.000000               x(O7.C5)          Cap(C5) slack
-     5               0.000000               x(O7.C6)          Cap(C6) slack
-     6               4.000000                  y(C2)          Cap(C2) slack
-     7               4.000000                  y(C4)               x(O7.C4)
-     8               4.000000                  y(C5)               x(O7.C5)
-     9               4.000000                  y(C6)               x(O7.C6)
-    10               4.000000              x(O10.C3)               x(O7.C1)
-    11               4.000000                  y(C1)              x(O10.C1)
-    12               4.000000               x(O6.C2)               x(O6.C1)
-    13               4.000000               x(O7.C6)               x(O7.C3)
-    14               4.000000                  y(C3)              x(O10.C3)
-    15               4.000000               x(O9.C2)                  y(C1)
-    16               4.000000              x(O10.C3)                  y(C2)
-    17               4.000000               x(O8.C2)               x(O8.C1)
-    18               4.000000              x(O10.C4)                  y(C3)
-Root relaxation solution time = 0.00 sec. (0.06 ticks)
+     1               0.000000                   X104             Cap1 slack
+     2               0.000000                    X45             Cap5 slack
+     3               0.000000                   X106             Cap4 slack
+     4               0.000000                    X73             Cap3 slack
+     5               0.000000                    X64                   X104
+     6               0.000000                    X42             Cap6 slack
+     7               0.000000                    X16                   X106
+     8               4.000000                     Y2             Cap2 slack
+     9               4.000000                     Y6                    X16
+    10               4.000000                     Y5                    X45
+    11               4.000000                     Y4                    X64
+    12               4.000000                   X103                    X71
+    13               4.000000                    X75                    X73
+    14               4.000000                     Y3                   X103
+    15               4.000000                     Y1                     Y2
+    16               4.000000                   X102                    X42
+    17               4.000000                   X105                     Y5
+    18               4.000000                    X85                   X105
+    19               4.000000                    X65                    X61
+    20               4.000000                   X103                     Y1
+    21               4.000000                    X92                   X101
+    22               4.000000                    X71                    X85
+Root relaxation solution time = 0.00 sec. (0.07 ticks)
 
         Nodes                                         Cuts/
    Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
 
 *     0+    0                            6.0000        0.0000           100.00%
-Found incumbent of value 6.000000 after 0.02 sec. (0.62 ticks)
-      0     0        4.0000     4        6.0000        4.0000       18   33.33%
+Found incumbent of value 6.000000 after 0.02 sec. (0.63 ticks)
+      0     0        4.0000     9        6.0000        4.0000       22   33.33%
 *     0+    0                            5.0000        4.0000            20.00%
-Found incumbent of value 5.000000 after 0.02 sec. (0.66 ticks)
-      0     0        4.0000     4        5.0000      Cuts: 19       32   20.00%
-      0     0        4.0000     4        5.0000       Cuts: 7       38   20.00%
-*     0     0      integral     0        4.0000      Cuts: 12       42    0.00%
-Found incumbent of value 4.000000 after 0.02 sec. (1.88 ticks)
-      0     0        cutoff              4.0000        4.0000       42    0.00%
-Elapsed time = 0.02 sec. (1.88 ticks, tree = 0.01 MB, solutions = 3)
+Found incumbent of value 5.000000 after 0.02 sec. (0.67 ticks)
+      0     0        4.0000     9        5.0000      Cuts: 27       33   20.00%
+*     0+    0                            4.0000        4.0000             0.00%
+Found incumbent of value 4.000000 after 0.02 sec. (0.97 ticks)
+      0     0        cutoff              4.0000        4.0000       33    0.00%
+Elapsed time = 0.02 sec. (0.97 ticks, tree = 0.01 MB, solutions = 3)
 
-Clique cuts applied:  1
-Cover cuts applied:  6
-Flow cuts applied:  6
-Mixed integer rounding cuts applied:  3
+Clique cuts applied:  2
+Cover cuts applied:  4
+Flow cuts applied:  1
+Mixed integer rounding cuts applied:  2
 Zero-half cuts applied:  2
-Lift and project cuts applied:  2
+Lift and project cuts applied:  1
+Gomory fractional cuts applied:  2
 
 Root node processing (before b&c):
-  Real time             =    0.02 sec. (1.89 ticks)
+  Real time             =    0.02 sec. (0.98 ticks)
 Sequential b&c:
   Real time             =    0.00 sec. (0.00 ticks)
                           ------------
-Total (root+branch&cut) =    0.02 sec. (1.89 ticks)
+Total (root+branch&cut) =    0.02 sec. (0.98 ticks)
 MIP status(101): integer optimal solution
-Cplex Time: 0.02sec (det. 1.89 ticks)
+Cplex Time: 0.02sec (det. 0.98 ticks)
 Fixing integer variables, and solving final LP...
 Version identifier: 12.10.0.0 | 2019-11-26 | 843d4de2ae
 CPXPARAM_Advance                                 2
@@ -138,7 +142,7 @@ Cplex Time: 0.00sec (det. 0.03 ticks)
 
 Proven optimal solution.
 
-MIP Solution:            4.000000    (42 iterations, 0 nodes)
+MIP Solution:            4.000000    (33 iterations, 0 nodes)
 Final Solve:             4.000000    (0 iterations)
 
 Best possible:           4.000000
@@ -146,7 +150,7 @@ Absolute gap:            0.000000
 Relative gap:            0.000000
 
 --- Restarting execution
---- BinPackingA.gms(42) 2 Mb
---- Reading solution for model BinPackingA
+--- BinPackingA.gms(63) 2 Mb
+--- Reading solution for model BinPackingB
 *** Status: Normal completion
---- Job BinPackingA.gms Stop 04/22/20 10:13:21 elapsed 0:00:00.543
+--- Job BinPackingA.gms Stop 04/22/20 11:19:00 elapsed 0:00:00.168
