@@ -1,5 +1,6 @@
 * SetPackingB.gms
-* Problema del empaquetamiento
+* Problema del empaquetamiento de conjunto
+
 
 
 SETS

@@ -1,0 +1,13 @@
+B 3 C o m p i l a t i o n
+B 66 Equation Listing    SOLVE SetPackingB Using MIP From line 55
+D 69 OBJ
+D 74 R
+B 86 Column Listing      SOLVE SetPackingB Using MIP From line 55
+E 89 Z
+E 96 x
+B 117 Model Statistics    SOLVE SetPackingB Using MIP From line 55
+B 133 Solution Report     SOLVE SetPackingB Using MIP From line 55
+F 172 OBJ
+F 174 R
+G 186 Z
+G 188 x

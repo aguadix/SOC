@@ -1,5 +1,5 @@
 * BinPackingB.gms
-* Problema de empaquetamiento
+* Problema de empaquetamiento en contenedores
 
 SETS
 i        objetos            / O1 * O10 /

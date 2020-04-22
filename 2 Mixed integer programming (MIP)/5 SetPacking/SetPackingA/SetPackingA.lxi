@@ -1,0 +1,31 @@
+B 3 C o m p i l a t i o n
+B 42 Equation Listing    SOLVE SetPackingA Using MIP From line 31
+D 45 OBJ
+D 50 S12
+D 55 S24
+D 60 S25
+D 65 S45
+D 70 S56
+B 76 Column Listing      SOLVE SetPackingA Using MIP From line 31
+E 79 Z
+E 86 X1
+E 94 X2
+E 104 X3
+E 111 X4
+E 120 X5
+E 130 X6
+B 139 Model Statistics    SOLVE SetPackingA Using MIP From line 31
+B 155 Solution Report     SOLVE SetPackingA Using MIP From line 31
+F 194 OBJ
+F 195 S12
+F 196 S24
+F 197 S25
+F 198 S45
+F 199 S56
+G 203 Z
+G 204 X1
+G 205 X2
+G 206 X3
+G 207 X4
+G 208 X5
+G 209 X6

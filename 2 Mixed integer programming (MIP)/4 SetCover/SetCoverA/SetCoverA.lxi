@@ -1,0 +1,37 @@
+B 3 C o m p i l a t i o n
+B 45 Equation Listing    SOLVE SetCoverA Using MIP From line 34
+D 48 OBJ
+D 53 A12
+D 58 A14
+D 63 A23
+D 68 A24
+D 73 A25
+D 78 A35
+D 83 A36
+D 88 A45
+B 94 Column Listing      SOLVE SetCoverA Using MIP From line 34
+E 97 Z
+E 104 X1
+E 113 X2
+E 124 X3
+E 134 X4
+E 144 X5
+E 154 X6
+B 163 Model Statistics    SOLVE SetCoverA Using MIP From line 34
+B 179 Solution Report     SOLVE SetCoverA Using MIP From line 34
+F 218 OBJ
+F 219 A12
+F 220 A14
+F 221 A23
+F 222 A24
+F 223 A25
+F 224 A35
+F 225 A36
+F 226 A45
+G 230 Z
+G 231 X1
+G 232 X2
+G 233 X3
+G 234 X4
+G 235 X5
+G 236 X6

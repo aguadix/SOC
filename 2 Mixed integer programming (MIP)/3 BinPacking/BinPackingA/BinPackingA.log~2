@@ -1,4 +1,4 @@
---- Job BinPackingA.gms Start 04/22/20 10:13:20 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
+--- Job BinPackingA.gms Start 04/22/20 11:17:51 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
 --- GAMS Parameters defined
     Input C:\aguadix\GITHUB\SOC\2 Mixed integer programming (MIP)\3 BinPacking\BinPackingA\BinPackingA.gms
     PageSize 0
@@ -21,7 +21,7 @@ Licensee: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
 --- BinPackingA.gms(42) 4 Mb
 ---   17 rows  67 columns  133 non-zeroes
 ---   66 discrete-columns
---- Executing CPLEX: elapsed 0:00:00.078
+--- Executing CPLEX: elapsed 0:00:00.015
 
 IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
 *** This solver runs with a demo license. No commercial use.
@@ -54,7 +54,7 @@ Tried aggregator 1 time.
 Detecting symmetries...
 Reduced MIP has 16 rows, 66 columns, and 126 nonzeros.
 Reduced MIP has 66 binaries, 0 generals, 0 SOSs, and 0 indicators.
-Presolve time = 0.02 sec. (0.14 ticks)
+Presolve time = 0.00 sec. (0.14 ticks)
 Probing time = 0.00 sec. (0.05 ticks)
 Clique table members: 52.
 MIP emphasis: balance optimality and feasibility.
@@ -90,7 +90,7 @@ Root relaxation solution time = 0.00 sec. (0.06 ticks)
    Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
 
 *     0+    0                            6.0000        0.0000           100.00%
-Found incumbent of value 6.000000 after 0.02 sec. (0.62 ticks)
+Found incumbent of value 6.000000 after 0.00 sec. (0.62 ticks)
       0     0        4.0000     4        6.0000        4.0000       18   33.33%
 *     0+    0                            5.0000        4.0000            20.00%
 Found incumbent of value 5.000000 after 0.02 sec. (0.66 ticks)
@@ -149,4 +149,4 @@ Relative gap:            0.000000
 --- BinPackingA.gms(42) 2 Mb
 --- Reading solution for model BinPackingA
 *** Status: Normal completion
---- Job BinPackingA.gms Stop 04/22/20 10:13:21 elapsed 0:00:00.543
+--- Job BinPackingA.gms Stop 04/22/20 11:17:51 elapsed 0:00:00.166

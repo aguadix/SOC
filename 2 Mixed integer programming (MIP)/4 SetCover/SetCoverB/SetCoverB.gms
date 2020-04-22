@@ -1,16 +1,16 @@
 * SetCoverB.gms
-* Problema de la cobertura
+* Problema de la cobertura de conjunto
 
 
 SETS
 
-i        /N1*N6/
-j        /A12, A14, A23, A24, A25, A35, A36, A45/;
+i        /A12, A14, A23, A24, A25, A35, A36, A45/
+j        /N1*N6/;
 
 
 PARAMETERS
 
-c(i)
+c(j)
 /N1      6
 N2       5
 N3       4
@@ -22,13 +22,16 @@ N6       1/;
 TABLE
 
 a(i,j)
-          A12      A14      A23      A24      A25        A35      A36      A45
-N1        1        1        0        0        0          0        0        0
-N2        1        0        1        1        1          0        0        0
-N3        0        0        1        0        0          1        1        0
-N4        0        1        0        1        0          0        0        1
-N5        0        0        0        0        1          1        0        1
-N6        0        0        0        0        0          0        1        0;
+
+	N1	N2	N3	N4	N5	N6
+A12	1	1	0	0	0	0
+A14	1	0	0	1	0	0
+A23	0	1	1	0	0	0
+A24	0	1	0	1	0	0
+A25	0	1	0	0	1	0
+A35	0	0	1	0	1	0
+A36	0	0	1	0	0	1
+A45	0	0	0	1	1	0;
 
 
 VARIABLES
@@ -38,14 +41,14 @@ Z;
 
 BINARY VARIABLES
 
-x(i);
+x(j);
 
 
 EQUATIONS
 
-OBJ, R(j);
-OBJ..     Z  =E= SUM(i,c(i)*x(i)) ;
-R(j)..    SUM(i,a(i,j)*x(i)) =G= 1;
+OBJ, R(i);
+OBJ..     Z  =E= SUM(j,c(j)*x(j)) ;
+R(i)..    SUM(j,a(i,j)*x(j)) =G= 1;
 
 
 MODEL SetCoverB /all/;

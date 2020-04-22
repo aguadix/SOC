@@ -1,5 +1,5 @@
 * BinPackingA.gms
-* Problema de empaquetamiento
+* Problema de empaquetamiento en contenedores
 
 VARIABLES
 
