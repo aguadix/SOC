@@ -1,15 +1,15 @@
 B 3 C o m p i l a t i o n
 B 54 Equation Listing    SOLVE AssignmentB Using LP From line 43
 D 57 OBJ
-D 62 Rp
-D 73 Rf
+D 62 Ro
+D 73 Rd
 B 85 Column Listing      SOLVE AssignmentB Using LP From line 43
 E 88 Z
 E 95 x
 B 118 Model Statistics    SOLVE AssignmentB Using LP From line 43
 B 134 Solution Report     SOLVE AssignmentB Using LP From line 43
 F 164 OBJ
-F 166 Rp
-F 175 Rf
+F 166 Ro
+F 175 Rd
 G 186 Z
 G 188 x

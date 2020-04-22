@@ -1,4 +1,4 @@
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:09:20 Page 1
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 10:29:01 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -29,9 +29,9 @@ C o m p i l a t i o n
   24   
   25  u(i,j)
   26             P1      P2
-  27  E1         2       1
-  28  E2         1       1.5
-  29  E3         3       1;
+  27  E1         2.0     1.0
+  28  E2         1.0     1.5
+  29  E3         3.0     1.0;
   30   
   31   
   32  VARIABLES
@@ -46,10 +46,10 @@ C o m p i l a t i o n
   41   
   42  EQUATIONS
   43   
-  44  OBJ, R(i) ;
+  44  OBJ, Rd(i) ;
   45   
   46  OBJ..       Z  =E= sum(j,b(j)*x(j)) ;
-  47  R(i)..      sum(j,u(i,j)*x(j)) =L= d(i);
+  47  Rd(i)..      sum(j,u(i,j)*x(j)) =L= d(i);
   48   
   49   
   50  MODEL ProductMixB /all/;
@@ -58,8 +58,8 @@ C o m p i l a t i o n
   53  SOLVE ProductMixB using LP maximizing Z;
 
 
-COMPILATION TIME     =        0.015 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:09:20 Page 2
+COMPILATION TIME     =        0.000 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 10:29:01 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE ProductMixB Using LP From line 53
 
@@ -69,15 +69,15 @@ Equation Listing    SOLVE ProductMixB Using LP From line 53
 OBJ..  Z - 3*x(P1) - 2*x(P2) =E= 0 ; (LHS = 0)
      
 
----- R  =L=  
+---- Rd  =L=  
 
-R(E1)..  2*x(P1) + x(P2) =L= 18 ; (LHS = 0)
+Rd(E1)..  2*x(P1) + x(P2) =L= 18 ; (LHS = 0)
      
-R(E2)..  x(P1) + 1.5*x(P2) =L= 21 ; (LHS = 0)
+Rd(E2)..  x(P1) + 1.5*x(P2) =L= 21 ; (LHS = 0)
      
-R(E3)..  3*x(P1) + x(P2) =L= 24 ; (LHS = 0)
+Rd(E3)..  3*x(P1) + x(P2) =L= 24 ; (LHS = 0)
      
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:09:20 Page 3
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 10:29:01 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE ProductMixB Using LP From line 53
 
@@ -94,18 +94,18 @@ Z
 x(P1)
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
        -3       OBJ
-        2       R(E1)
-        1       R(E2)
-        3       R(E3)
+        2       Rd(E1)
+        1       Rd(E2)
+        3       Rd(E3)
 
 x(P2)
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
        -2       OBJ
-        1       R(E1)
-        1.5     R(E2)
-        1       R(E3)
+        1       Rd(E1)
+        1.5     Rd(E2)
+        1       Rd(E3)
 
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:09:20 Page 4
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 10:29:01 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Statistics    SOLVE ProductMixB Using LP From line 53
 
@@ -117,11 +117,11 @@ BLOCKS OF VARIABLES           2     SINGLE VARIABLES            3
 NON ZERO ELEMENTS             9
 
 
-GENERATION TIME      =        0.016 SECONDS      4 MB  30.3.0 rc5da09e WEX-WEI
+GENERATION TIME      =        0.047 SECONDS      4 MB  30.3.0 rc5da09e WEX-WEI
 
 
-EXECUTION TIME       =        0.016 SECONDS      4 MB  30.3.0 rc5da09e WEX-WEI
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:09:20 Page 5
+EXECUTION TIME       =        0.047 SECONDS      4 MB  30.3.0 rc5da09e WEX-WEI
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 10:29:01 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE ProductMixB Using LP From line 53
 
@@ -146,7 +146,7 @@ Cplex 12.10.0.0
 Space for names approximately 0.00 Mb
 Use option 'names no' to turn use of names off
 LP status(1): optimal
-Cplex Time: 0.00sec (det. 0.01 ticks)
+Cplex Time: 0.02sec (det. 0.01 ticks)
 Optimal solution found.
 Objective :          33.000000
 
@@ -155,7 +155,7 @@ Objective :          33.000000
 
 ---- EQU OBJ                 .              .              .             1.0000      
 
----- EQU R  
+---- EQU Rd  
 
           LOWER          LEVEL          UPPER         MARGINAL
 

@@ -1,4 +1,4 @@
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:09:37 Page 1
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 10:31:07 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -21,20 +21,20 @@ C o m p i l a t i o n
   16   
   17  EQUATIONS
   18   
-  19  OBJ, F1, F2, F3, M4, M5, M6, M7;
+  19  OBJ, O1, O2, O3, D1, D2, D3, D4;
   20   
   21  OBJ..    Z =E=   10*X11 +  2*X12 + 20*X13 + 11*X14 +
   22                   12*X21 +  7*X22 +  9*X23 + 20*X24 +
   23                    4*X31 + 14*X32 + 16*X33 + 18*X34;
   24   
-  25  F1..     X11 + X12 + X13 + X14 =E= 15;
-  26  F2..     X21 + X22 + X23 + X24 =E= 25;
-  27  F3..     X31 + X32 + X33 + X34 =E= 10;
+  25  O1..     X11 + X12 + X13 + X14 =E= 15;
+  26  O2..     X21 + X22 + X23 + X24 =E= 25;
+  27  O3..     X31 + X32 + X33 + X34 =E= 10;
   28   
-  29  M4..     X11 + X21 + X31 =E= 5;
-  30  M5..     X12 + X22 + X32 =E= 15;
-  31  M6..     X13 + X23 + X33 =E= 15;
-  32  M7..     X14 + X24 + X34 =E= 15;
+  29  D1..     X11 + X21 + X31 =E= 5;
+  30  D2..     X12 + X22 + X32 =E= 15;
+  31  D3..     X13 + X23 + X33 =E= 15;
+  32  D4..     X14 + X24 + X34 =E= 15;
   33   
   34   
   35  MODEL TransportA /all/;
@@ -43,8 +43,8 @@ C o m p i l a t i o n
   38  SOLVE TransportA using LP minimizing Z;
 
 
-COMPILATION TIME     =        0.016 SECONDS      2 MB  30.3.0 rc5da09e WEX-WEI
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:09:37 Page 2
+COMPILATION TIME     =        0.015 SECONDS      2 MB  30.3.0 rc5da09e WEX-WEI
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 10:31:07 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE TransportA Using LP From line 38
 
@@ -54,41 +54,41 @@ Equation Listing    SOLVE TransportA Using LP From line 38
 OBJ..  Z - 10*X11 - 2*X12 - 20*X13 - 11*X14 - 12*X21 - 7*X22 - 9*X23 - 20*X24 - 4*X31 - 14*X32 - 16*X33 - 18*X34 =E= 0 ; (LHS = 0)
      
 
----- F1  =E=  
+---- O1  =E=  
 
-F1..  X11 + X12 + X13 + X14 =E= 15 ; (LHS = 0, INFES = 15 ****)
+O1..  X11 + X12 + X13 + X14 =E= 15 ; (LHS = 0, INFES = 15 ****)
      
 
----- F2  =E=  
+---- O2  =E=  
 
-F2..  X21 + X22 + X23 + X24 =E= 25 ; (LHS = 0, INFES = 25 ****)
+O2..  X21 + X22 + X23 + X24 =E= 25 ; (LHS = 0, INFES = 25 ****)
      
 
----- F3  =E=  
+---- O3  =E=  
 
-F3..  X31 + X32 + X33 + X34 =E= 10 ; (LHS = 0, INFES = 10 ****)
+O3..  X31 + X32 + X33 + X34 =E= 10 ; (LHS = 0, INFES = 10 ****)
      
 
----- M4  =E=  
+---- D1  =E=  
 
-M4..  X11 + X21 + X31 =E= 5 ; (LHS = 0, INFES = 5 ****)
+D1..  X11 + X21 + X31 =E= 5 ; (LHS = 0, INFES = 5 ****)
      
 
----- M5  =E=  
+---- D2  =E=  
 
-M5..  X12 + X22 + X32 =E= 15 ; (LHS = 0, INFES = 15 ****)
+D2..  X12 + X22 + X32 =E= 15 ; (LHS = 0, INFES = 15 ****)
      
 
----- M6  =E=  
+---- D3  =E=  
 
-M6..  X13 + X23 + X33 =E= 15 ; (LHS = 0, INFES = 15 ****)
+D3..  X13 + X23 + X33 =E= 15 ; (LHS = 0, INFES = 15 ****)
      
 
----- M7  =E=  
+---- D4  =E=  
 
-M7..  X14 + X24 + X34 =E= 15 ; (LHS = 0, INFES = 15 ****)
+D4..  X14 + X24 + X34 =E= 15 ; (LHS = 0, INFES = 15 ****)
      
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:09:37 Page 3
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 10:31:07 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE TransportA Using LP From line 38
 
@@ -105,8 +105,8 @@ Z
 X11
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
       -10       OBJ
-        1       F1
-        1       M4
+        1       O1
+        1       D1
 
 
 ---- X12  
@@ -114,8 +114,8 @@ X11
 X12
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
        -2       OBJ
-        1       F1
-        1       M5
+        1       O1
+        1       D2
 
 
 ---- X13  
@@ -123,8 +123,8 @@ X12
 X13
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
       -20       OBJ
-        1       F1
-        1       M6
+        1       O1
+        1       D3
 
 
 ---- X14  
@@ -132,8 +132,8 @@ X13
 X14
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
       -11       OBJ
-        1       F1
-        1       M7
+        1       O1
+        1       D4
 
 
 ---- X21  
@@ -141,8 +141,8 @@ X14
 X21
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
       -12       OBJ
-        1       F2
-        1       M4
+        1       O2
+        1       D1
 
 
 ---- X22  
@@ -150,8 +150,8 @@ X21
 X22
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
        -7       OBJ
-        1       F2
-        1       M5
+        1       O2
+        1       D2
 
 
 ---- X23  
@@ -159,8 +159,8 @@ X22
 X23
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
        -9       OBJ
-        1       F2
-        1       M6
+        1       O2
+        1       D3
 
 
 ---- X24  
@@ -168,8 +168,8 @@ X23
 X24
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
       -20       OBJ
-        1       F2
-        1       M7
+        1       O2
+        1       D4
 
 
 ---- X31  
@@ -177,8 +177,8 @@ X24
 X31
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
        -4       OBJ
-        1       F3
-        1       M4
+        1       O3
+        1       D1
 
 
 ---- X32  
@@ -186,8 +186,8 @@ X31
 X32
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
       -14       OBJ
-        1       F3
-        1       M5
+        1       O3
+        1       D2
 
 
 ---- X33  
@@ -195,8 +195,8 @@ X32
 X33
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
       -16       OBJ
-        1       F3
-        1       M6
+        1       O3
+        1       D3
 
 
 ---- X34  
@@ -204,10 +204,10 @@ X33
 X34
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
       -18       OBJ
-        1       F3
-        1       M7
+        1       O3
+        1       D4
 
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:09:37 Page 4
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 10:31:07 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Statistics    SOLVE TransportA Using LP From line 38
 
@@ -219,11 +219,11 @@ BLOCKS OF VARIABLES          13     SINGLE VARIABLES           13
 NON ZERO ELEMENTS            37
 
 
-GENERATION TIME      =        0.094 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
+GENERATION TIME      =        0.032 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
 
 
-EXECUTION TIME       =        0.094 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:09:37 Page 5
+EXECUTION TIME       =        0.032 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 10:31:07 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE TransportA Using LP From line 38
 
@@ -238,7 +238,7 @@ Solution Report     SOLVE TransportA Using LP From line 38
 **** MODEL STATUS      1 Optimal                   
 **** OBJECTIVE VALUE              435.0000
 
- RESOURCE USAGE, LIMIT          0.203      1000.000
+ RESOURCE USAGE, LIMIT          0.031      1000.000
  ITERATION COUNT, LIMIT         2    2000000000
 
 IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
@@ -248,7 +248,7 @@ Cplex 12.10.0.0
 Space for names approximately 0.00 Mb
 Use option 'names no' to turn use of names off
 LP status(1): optimal
-Cplex Time: 0.19sec (det. 0.02 ticks)
+Cplex Time: 0.00sec (det. 0.02 ticks)
 Optimal solution found.
 Objective :         435.000000
 
@@ -256,13 +256,13 @@ Objective :         435.000000
                            LOWER          LEVEL          UPPER         MARGINAL
 
 ---- EQU OBJ                 .              .              .             1.0000      
----- EQU F1                15.0000        15.0000        15.0000        -5.0000      
----- EQU F2                25.0000        25.0000        25.0000          .          
----- EQU F3                10.0000        10.0000        10.0000         2.0000      
----- EQU M4                 5.0000         5.0000         5.0000         2.0000      
----- EQU M5                15.0000        15.0000        15.0000         7.0000      
----- EQU M6                15.0000        15.0000        15.0000         9.0000      
----- EQU M7                15.0000        15.0000        15.0000        16.0000      
+---- EQU O1                15.0000        15.0000        15.0000        -5.0000      
+---- EQU O2                25.0000        25.0000        25.0000          .          
+---- EQU O3                10.0000        10.0000        10.0000         2.0000      
+---- EQU D1                 5.0000         5.0000         5.0000         2.0000      
+---- EQU D2                15.0000        15.0000        15.0000         7.0000      
+---- EQU D3                15.0000        15.0000        15.0000         9.0000      
+---- EQU D4                15.0000        15.0000        15.0000        16.0000      
 
                            LOWER          LEVEL          UPPER         MARGINAL
 

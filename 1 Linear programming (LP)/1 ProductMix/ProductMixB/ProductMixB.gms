@@ -24,9 +24,9 @@ TABLE
 
 u(i,j)
            P1      P2
-E1         2       1
-E2         1       1.5
-E3         3       1;
+E1         2.0     1.0
+E2         1.0     1.5
+E3         3.0     1.0;
 
 
 VARIABLES
@@ -41,10 +41,10 @@ x(j);
 
 EQUATIONS
 
-OBJ, R(i) ;
+OBJ, Rd(i) ;
 
-OBJ..       Z  =E= sum(j,b(j)*x(j)) ;
-R(i)..      sum(j,u(i,j)*x(j)) =L= d(i);
+OBJ..    Z  =E= sum(j,b(j)*x(j)) ;
+Rd(i)..  sum(j,u(i,j)*x(j)) =L= d(i);
 
 
 MODEL ProductMixB /all/;

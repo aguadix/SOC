@@ -1,4 +1,4 @@
---- Job TransportB.gms Start 04/22/20 07:09:54 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
+--- Job TransportB.gms Start 04/22/20 10:24:16 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
 --- GAMS Parameters defined
     Input C:\aguadix\GITHUB\SOC\1 Linear programming (LP)\2 Transport\TransportB\TransportB.gms
     PageSize 0
@@ -20,7 +20,7 @@ Licensee: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
 --- Generating LP model TransportB
 --- TransportB.gms(56) 4 Mb
 ---   8 rows  13 columns  37 non-zeroes
---- Executing CPLEX: elapsed 0:00:00.031
+--- Executing CPLEX: elapsed 0:00:00.015
 
 IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
 *** This solver runs with a demo license. No commercial use.
@@ -57,4 +57,4 @@ Objective :         435.000000
 --- TransportB.gms(56) 2 Mb
 --- Reading solution for model TransportB
 *** Status: Normal completion
---- Job TransportB.gms Stop 04/22/20 07:09:54 elapsed 0:00:00.160
+--- Job TransportB.gms Stop 04/22/20 10:24:16 elapsed 0:00:00.140

@@ -1,0 +1,145 @@
+--- Job BinPackingA.gms Start 04/22/20 10:10:10 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
+--- GAMS Parameters defined
+    Input C:\aguadix\GITHUB\SOC\2 Mixed integer programming (MIP)\3 BinPacking\BinPackingA\BinPackingA.gms
+    PageSize 0
+    ScrDir C:\aguadix\GITHUB\SOC\2 Mixed integer programming (MIP)\3 BinPacking\BinPackingA\225a\
+    SysDir C:\GAMS\win64\30.3\
+    LogOption 3
+    ErrMsg 1
+    ErrorLog 99
+    IDE 1
+    LstTitleLeftAligned 1
+GAMS 30.3.0   Copyright (C) 1987-2020 GAMS Development. All rights reserved
+Licensee: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
+          UNIVERSITY OF GRANADA, Spain                             DL007289
+          aguadix@ugr.es, ANTONIO MARIA GUADIX ESCOBAR                     
+          Demo license for demonstration and instructional purposes only
+--- Starting compilation
+--- BinPackingA.gms(40) 3 Mb
+--- Starting execution: elapsed 0:00:00.015
+--- Generating MIP model BinPacking
+--- BinPackingA.gms(40) 4 Mb
+---   19 rows  43 columns  96 non-zeroes
+---   42 discrete-columns
+--- Executing CPLEX: elapsed 0:00:00.031
+
+IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
+*** This solver runs with a demo license. No commercial use.
+Cplex 12.10.0.0
+
+Reading data...
+Starting Cplex...
+Space for names approximately 0.00 Mb
+Use option 'names no' to turn use of names off
+Version identifier: 12.10.0.0 | 2019-11-26 | 843d4de2ae
+CPXPARAM_Advance                                 0
+CPXPARAM_Simplex_Display                         2
+CPXPARAM_Threads                                 1
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_Simplex_Limits_Iterations               2000000000
+CPXPARAM_TimeLimit                               1000
+CPXPARAM_Tune_TimeLimit                          200
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   0.10000000000000001
+CPXPARAM_WorkDir                                 "C:\aguadix\GITHUB\SOC\2 Mixed integer programming (MIP)\3 BinPacking\BinPackingA\225a\"
+Tried aggregator 1 time.
+MIP Presolve eliminated 2 rows and 1 columns.
+Reduced MIP has 17 rows, 42 columns, and 88 nonzeros.
+Reduced MIP has 42 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.06 ticks)
+Found incumbent of value 6.000000 after 0.02 sec. (0.16 ticks)
+Probing fixed 2 vars, tightened 0 bounds.
+Probing time = 0.00 sec. (0.06 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve eliminated 2 rows and 2 columns.
+Reduced MIP has 15 rows, 40 columns, and 82 nonzeros.
+Reduced MIP has 40 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.08 ticks)
+Probing time = 0.00 sec. (0.04 ticks)
+Clique table members: 70.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: none, using 1 thread.
+Tried aggregator 1 time.
+Aggregator did 1 substitutions.
+Reduced LP has 14 rows, 39 columns, and 80 nonzeros.
+Presolve time = 0.00 sec. (0.02 ticks)
+Initializing dual steep norms . . .
+
+Iteration      Dual Objective            In Variable           Out Variable
+     1               2.000000               x(O6.C2)          Cap(C1) slack
+     2               2.000000               x(O4.C5)               x(O4.C1)
+     3               2.000000               x(O5.C3)          Cap(C3) slack
+     4               2.000000               x(O4.C4)          Cap(C4) slack
+     5               2.000000               x(O5.C2)               x(O6.C1)
+     6               2.000000               x(O4.C3)          Cap(C5) slack
+     7               3.000000                  y(C3)          Cap(C2) slack
+     8               3.000000               x(O6.C6)          Seg(C5) slack
+     9               3.000000                  y(C4)               x(O4.C4)
+    10               3.000000               x(O6.C5)               x(O5.C2)
+    11               3.000000                  y(C5)               x(O4.C5)
+    12               3.000000               x(O3.C4)          Seg(C3) slack
+Initializing dual steep norms . . .
+Root relaxation solution time = 0.00 sec. (0.06 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                            6.0000        2.0000            66.67%
+Found incumbent of value 6.000000 after 0.02 sec. (0.45 ticks)
+      0     0        3.0000    11        6.0000        3.0000       12   50.00%
+*     0     0      integral     0        3.0000      Cuts: 10       19    0.00%
+Found incumbent of value 3.000000 after 0.02 sec. (0.58 ticks)
+      0     0        cutoff              3.0000        3.0000       19    0.00%
+Elapsed time = 0.02 sec. (0.58 ticks, tree = 0.01 MB, solutions = 2)
+
+Clique cuts applied:  2
+Cover cuts applied:  3
+Mixed integer rounding cuts applied:  1
+Zero-half cuts applied:  1
+Gomory fractional cuts applied:  3
+
+Root node processing (before b&c):
+  Real time             =    0.02 sec. (0.58 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (0.00 ticks)
+                          ------------
+Total (root+branch&cut) =    0.02 sec. (0.58 ticks)
+MIP status(101): integer optimal solution
+Cplex Time: 0.02sec (det. 0.58 ticks)
+Fixing integer variables, and solving final LP...
+Version identifier: 12.10.0.0 | 2019-11-26 | 843d4de2ae
+CPXPARAM_Advance                                 2
+CPXPARAM_Simplex_Display                         2
+CPXPARAM_Threads                                 1
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_Simplex_Limits_Iterations               2000000000
+CPXPARAM_TimeLimit                               1000
+CPXPARAM_Tune_TimeLimit                          200
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   0.10000000000000001
+CPXPARAM_WorkDir                                 "C:\aguadix\GITHUB\SOC\2 Mixed integer programming (MIP)\3 BinPacking\BinPackingA\225a\"
+Tried aggregator 1 time.
+LP Presolve eliminated 19 rows and 43 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.01 ticks)
+Fixed MIP status(1): optimal
+Cplex Time: 0.00sec (det. 0.02 ticks)
+
+Proven optimal solution.
+
+MIP Solution:            3.000000    (19 iterations, 0 nodes)
+Final Solve:             3.000000    (0 iterations)
+
+Best possible:           3.000000
+Absolute gap:            0.000000
+Relative gap:            0.000000
+
+--- Restarting execution
+--- BinPackingA.gms(40) 2 Mb
+--- Reading solution for model BinPacking
+*** Status: Normal completion
+--- Job BinPackingA.gms Stop 04/22/20 10:10:10 elapsed 0:00:00.172

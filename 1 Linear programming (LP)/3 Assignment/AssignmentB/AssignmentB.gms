@@ -30,11 +30,11 @@ x(i,j);
 
 EQUATIONS
 
-OBJ, Rp(i), Rf(j);
+OBJ, Ro(i), Rd(j);
 
 OBJ..     Z =E= sum((i,j),c(i,j)*x(i,j)) ;
-Rp(i)..   sum(j,x(i,j)) =E= 1;
-Rf(j)..   sum(i,x(i,j)) =E= 1;
+Ro(i)..   sum(j,x(i,j)) =E= 1;
+Rd(j)..   sum(i,x(i,j)) =E= 1;
 
 
 MODEL AssignmentB /all/;

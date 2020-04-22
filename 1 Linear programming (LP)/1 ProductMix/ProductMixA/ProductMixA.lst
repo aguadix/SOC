@@ -1,4 +1,4 @@
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:18:15 Page 1
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 10:29:35 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -19,12 +19,12 @@ C o m p i l a t i o n
   14   
   15  EQUATIONS
   16   
-  17  OBJ, R1, R2, R3;
+  17  OBJ, Rd1, Rd2, Rd3;
   18   
-  19  OBJ..    Z =E= 3*X1 + 2*X2;
-  20  R1..     2*X1 + X2 =L= 18;
-  21  R2..     X1 + 1.5*X2 =L= 21;
-  22  R3..     3*X1 + X2 =L= 24;
+  19  OBJ..   Z =E= 3*X1 + 2*X2;
+  20  Rd1..   2.0*X1 + 1.0*X2 =L= 18;
+  21  Rd2..   1.0*X1 + 1.5*X2 =L= 21;
+  22  Rd3..   3.0*X1 + 1.0*X2 =L= 24;
   23   
   24   
   25  MODEL ProductMixA /all/;
@@ -33,8 +33,8 @@ C o m p i l a t i o n
   28  SOLVE ProductMixA using LP maximizing Z;
 
 
-COMPILATION TIME     =        0.016 SECONDS      2 MB  30.3.0 rc5da09e WEX-WEI
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:18:15 Page 2
+COMPILATION TIME     =        0.000 SECONDS      2 MB  30.3.0 rc5da09e WEX-WEI
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 10:29:35 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE ProductMixA Using LP From line 28
 
@@ -44,21 +44,21 @@ Equation Listing    SOLVE ProductMixA Using LP From line 28
 OBJ..  Z - 3*X1 - 2*X2 =E= 0 ; (LHS = 0)
      
 
----- R1  =L=  
+---- Rd1  =L=  
 
-R1..  2*X1 + X2 =L= 18 ; (LHS = 0)
+Rd1..  2*X1 + X2 =L= 18 ; (LHS = 0)
      
 
----- R2  =L=  
+---- Rd2  =L=  
 
-R2..  X1 + 1.5*X2 =L= 21 ; (LHS = 0)
+Rd2..  X1 + 1.5*X2 =L= 21 ; (LHS = 0)
      
 
----- R3  =L=  
+---- Rd3  =L=  
 
-R3..  3*X1 + X2 =L= 24 ; (LHS = 0)
+Rd3..  3*X1 + X2 =L= 24 ; (LHS = 0)
      
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:18:15 Page 3
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 10:29:35 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE ProductMixA Using LP From line 28
 
@@ -75,9 +75,9 @@ Z
 X1
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
        -3       OBJ
-        2       R1
-        1       R2
-        3       R3
+        2       Rd1
+        1       Rd2
+        3       Rd3
 
 
 ---- X2  
@@ -85,11 +85,11 @@ X1
 X2
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
        -2       OBJ
-        1       R1
-        1.5     R2
-        1       R3
+        1       Rd1
+        1.5     Rd2
+        1       Rd3
 
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:18:15 Page 4
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 10:29:35 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Statistics    SOLVE ProductMixA Using LP From line 28
 
@@ -101,11 +101,11 @@ BLOCKS OF VARIABLES           3     SINGLE VARIABLES            3
 NON ZERO ELEMENTS             9
 
 
-GENERATION TIME      =        0.016 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
+GENERATION TIME      =        0.062 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
 
 
-EXECUTION TIME       =        0.016 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:18:15 Page 5
+EXECUTION TIME       =        0.062 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 10:29:35 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE ProductMixA Using LP From line 28
 
@@ -130,7 +130,7 @@ Cplex 12.10.0.0
 Space for names approximately 0.00 Mb
 Use option 'names no' to turn use of names off
 LP status(1): optimal
-Cplex Time: 0.02sec (det. 0.01 ticks)
+Cplex Time: 0.00sec (det. 0.01 ticks)
 Optimal solution found.
 Objective :          33.000000
 
@@ -138,9 +138,9 @@ Objective :          33.000000
                            LOWER          LEVEL          UPPER         MARGINAL
 
 ---- EQU OBJ                 .              .              .             1.0000      
----- EQU R1                -INF           18.0000        18.0000         1.2500      
----- EQU R2                -INF           21.0000        21.0000         0.5000      
----- EQU R3                -INF           21.0000        24.0000          .          
+---- EQU Rd1               -INF           18.0000        18.0000         1.2500      
+---- EQU Rd2               -INF           21.0000        21.0000         0.5000      
+---- EQU Rd3               -INF           21.0000        24.0000          .          
 
                            LOWER          LEVEL          UPPER         MARGINAL
 
@@ -154,7 +154,7 @@ Objective :          33.000000
                              0  UNBOUNDED
 
 
-EXECUTION TIME       =        0.016 SECONDS      2 MB  30.3.0 rc5da09e WEX-WEI
+EXECUTION TIME       =        0.000 SECONDS      2 MB  30.3.0 rc5da09e WEX-WEI
 
 
 USER: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN

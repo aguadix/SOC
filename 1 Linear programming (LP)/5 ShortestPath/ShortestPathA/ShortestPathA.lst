@@ -1,4 +1,4 @@
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:12:07 Page 1
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 11:10:25 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -23,11 +23,11 @@ C o m p i l a t i o n
   18   
   19  OBJ..    Z =E= 20*X12 + 30*X13 + 20*X23 + 30*X24 + 10*X34 + 70*X35 + 50*X45 ;
   20   
-  21  B1..    -X12 - X13                  =E= -1;
-  22  B2..     X12 - X23 - X24            =E=  0;
-  23  B3..     X13 + X23 - X34 - X35      =E=  0;
-  24  B4..     X24 + X34 - X45            =E=  0;
-  25  B5..     X35 + X45                  =E=  1;
+  21  B1..    -X12 - X13                                =E= -1;
+  22  B2..     X12       - X23 - X24                    =E=  0;
+  23  B3..           X13 + X23       - X34 - X35        =E=  0;
+  24  B4..                       X24 + X34       - X45  =E=  0;
+  25  B5..                                   X35 + X45  =E=  1;
   26   
   27   
   28  MODEL ShortestPathA /all/;
@@ -37,7 +37,7 @@ C o m p i l a t i o n
 
 
 COMPILATION TIME     =        0.000 SECONDS      2 MB  30.3.0 rc5da09e WEX-WEI
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:12:07 Page 2
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 11:10:25 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE ShortestPathA Using LP From line 31
 
@@ -71,7 +71,7 @@ B4..  X24 + X34 - X45 =E= 0 ; (LHS = 0)
 
 B5..  X35 + X45 =E= 1 ; (LHS = 0, INFES = 1 ****)
      
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:12:07 Page 3
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 11:10:25 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE ShortestPathA Using LP From line 31
 
@@ -145,7 +145,7 @@ X45
        -1       B4
         1       B5
 
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:12:07 Page 4
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 11:10:25 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Statistics    SOLVE ShortestPathA Using LP From line 31
 
@@ -157,11 +157,11 @@ BLOCKS OF VARIABLES           8     SINGLE VARIABLES            8
 NON ZERO ELEMENTS            22
 
 
-GENERATION TIME      =        0.031 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
+GENERATION TIME      =        0.016 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
 
 
-EXECUTION TIME       =        0.031 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:12:07 Page 5
+EXECUTION TIME       =        0.016 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 11:10:25 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE ShortestPathA Using LP From line 31
 

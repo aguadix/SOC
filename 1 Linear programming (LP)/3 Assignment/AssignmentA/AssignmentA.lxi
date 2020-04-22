@@ -1,14 +1,14 @@
 B 3 C o m p i l a t i o n
 B 52 Equation Listing    SOLVE AssignmentA Using LP From line 41
 D 55 OBJ
-D 60 P1
-D 65 P2
-D 70 P3
-D 75 P4
-D 80 F1
-D 85 F2
-D 90 F3
-D 95 F4
+D 60 O1
+D 65 O2
+D 70 O3
+D 75 O4
+D 80 D1
+D 85 D2
+D 90 D3
+D 95 D4
 B 101 Column Listing      SOLVE AssignmentA Using LP From line 41
 E 104 Z
 E 111 X11
@@ -30,14 +30,14 @@ E 246 X44
 B 256 Model Statistics    SOLVE AssignmentA Using LP From line 41
 B 272 Solution Report     SOLVE AssignmentA Using LP From line 41
 F 302 OBJ
-F 303 P1
-F 304 P2
-F 305 P3
-F 306 P4
-F 307 F1
-F 308 F2
-F 309 F3
-F 310 F4
+F 303 O1
+F 304 O2
+F 305 O3
+F 306 O4
+F 307 D1
+F 308 D2
+F 309 D3
+F 310 D4
 G 314 Z
 G 315 X11
 G 316 X12

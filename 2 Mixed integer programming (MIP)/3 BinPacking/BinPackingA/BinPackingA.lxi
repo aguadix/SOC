@@ -1,0 +1,17 @@
+B 3 C o m p i l a t i o n
+B 53 Equation Listing    SOLVE BinPackingA Using MIP From line 42
+D 56 Obj
+D 61 Asigna
+D 72 Cap
+B 84 Column Listing      SOLVE BinPackingA Using MIP From line 42
+E 87 N
+E 94 x
+E 113 y
+B 133 Model Statistics    SOLVE BinPackingA Using MIP From line 42
+B 149 Solution Report     SOLVE BinPackingA Using MIP From line 42
+F 188 Obj
+F 190 Asigna
+F 205 Cap
+G 218 N
+G 222 x
+G 287 y

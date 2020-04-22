@@ -1,13 +1,13 @@
 B 3 C o m p i l a t i o n
 B 49 Equation Listing    SOLVE TransportA Using LP From line 38
 D 52 OBJ
-D 57 F1
-D 62 F2
-D 67 F3
-D 72 M4
-D 77 M5
-D 82 M6
-D 87 M7
+D 57 O1
+D 62 O2
+D 67 O3
+D 72 D1
+D 77 D2
+D 82 D3
+D 87 D4
 B 93 Column Listing      SOLVE TransportA Using LP From line 38
 E 96 Z
 E 103 X11
@@ -25,13 +25,13 @@ E 202 X34
 B 212 Model Statistics    SOLVE TransportA Using LP From line 38
 B 228 Solution Report     SOLVE TransportA Using LP From line 38
 F 258 OBJ
-F 259 F1
-F 260 F2
-F 261 F3
-F 262 M4
-F 263 M5
-F 264 M6
-F 265 M7
+F 259 O1
+F 260 O2
+F 261 O3
+F 262 D1
+F 263 D2
+F 264 D3
+F 265 D4
 G 269 Z
 G 270 X11
 G 271 X12

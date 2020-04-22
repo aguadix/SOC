@@ -1,4 +1,4 @@
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:11:16 Page 1
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 11:07:52 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -30,11 +30,11 @@ C o m p i l a t i o n
   25   
   26  OBJ..    Z =E= 3*X12 + 7*X13 + 5*X14 + 2*X23 + X25 + 8*X35 + 4*X45;
   27   
-  28  B1..    -X12 - X13 - X14 =E= -40;
-  29  B2..     X12 - X23 - X25 =E= -50;
-  30  B3..     X13 + X23 - X35 =E= 0;
-  31  B4..     X14 - X45       =E= 30;
-  32  B5..     X25 + X35 + X45 =E= 60;
+  28  B1..    -X12 - X13 - X14                         =E= -40;
+  29  B2..     X12             - X23 - X25             =E= -50;
+  30  B3..           X13       + X23       - X35       =E=   0;
+  31  B4..                 X14                   - X45 =E=  30;
+  32  B5..                             X25 + X35 + X45 =E=  60;
   33   
   34   
   35  MODEL MinCostFlowA /all/;
@@ -44,7 +44,7 @@ C o m p i l a t i o n
 
 
 COMPILATION TIME     =        0.000 SECONDS      2 MB  30.3.0 rc5da09e WEX-WEI
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:11:16 Page 2
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 11:07:52 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE MinCostFlowA Using LP From line 38
 
@@ -78,7 +78,7 @@ B4..  X14 - X45 =E= 30 ; (LHS = 0, INFES = 30 ****)
 
 B5..  X25 + X35 + X45 =E= 60 ; (LHS = 0, INFES = 60 ****)
      
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:11:16 Page 3
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 11:07:52 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE MinCostFlowA Using LP From line 38
 
@@ -152,7 +152,7 @@ X45
        -1       B4
         1       B5
 
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:11:16 Page 4
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 11:07:52 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Statistics    SOLVE MinCostFlowA Using LP From line 38
 
@@ -168,7 +168,7 @@ GENERATION TIME      =        0.016 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
 
 
 EXECUTION TIME       =        0.016 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:11:16 Page 5
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 11:07:52 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE MinCostFlowA Using LP From line 38
 
@@ -183,7 +183,7 @@ Solution Report     SOLVE MinCostFlowA Using LP From line 38
 **** MODEL STATUS      1 Optimal                   
 **** OBJECTIVE VALUE              490.0000
 
- RESOURCE USAGE, LIMIT          0.031      1000.000
+ RESOURCE USAGE, LIMIT          0.047      1000.000
  ITERATION COUNT, LIMIT         1    2000000000
 
 IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
@@ -193,7 +193,7 @@ Cplex 12.10.0.0
 Space for names approximately 0.00 Mb
 Use option 'names no' to turn use of names off
 LP status(1): optimal
-Cplex Time: 0.03sec (det. 0.01 ticks)
+Cplex Time: 0.02sec (det. 0.01 ticks)
 Optimal solution found.
 Objective :         490.000000
 

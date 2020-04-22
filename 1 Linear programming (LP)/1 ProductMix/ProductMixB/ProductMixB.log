@@ -1,4 +1,4 @@
---- Job ProductMixB.gms Start 04/22/20 07:09:20 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
+--- Job ProductMixB.gms Start 04/22/20 10:29:01 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
 --- GAMS Parameters defined
     Input C:\aguadix\GITHUB\SOC\1 Linear programming (LP)\1 ProductMix\ProductMixB\ProductMixB.gms
     PageSize 0
@@ -20,7 +20,7 @@ Licensee: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
 --- Generating LP model ProductMixB
 --- ProductMixB.gms(53) 4 Mb
 ---   4 rows  3 columns  9 non-zeroes
---- Executing CPLEX: elapsed 0:00:00.031
+--- Executing CPLEX: elapsed 0:00:00.063
 
 IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
 *** This solver runs with a demo license. No commercial use.
@@ -44,11 +44,11 @@ Reduced LP has 3 rows, 2 columns, and 6 nonzeros.
 Presolve time = 0.00 sec. (0.00 ticks)
 
 Iteration      Dual Objective            In Variable           Out Variable
-     1  I            0.000000                  x(P2)            R(E3) slack
-     2              35.142857                  x(P1)            R(E2) slack
-     3              33.000000            R(E3) slack            R(E1) slack
+     1  I            0.000000                  x(P2)           Rd(E3) slack
+     2              35.142857                  x(P1)           Rd(E2) slack
+     3              33.000000           Rd(E3) slack           Rd(E1) slack
 LP status(1): optimal
-Cplex Time: 0.00sec (det. 0.01 ticks)
+Cplex Time: 0.02sec (det. 0.01 ticks)
 
 Optimal solution found.
 Objective :          33.000000
@@ -57,4 +57,4 @@ Objective :          33.000000
 --- ProductMixB.gms(53) 2 Mb
 --- Reading solution for model ProductMixB
 *** Status: Normal completion
---- Job ProductMixB.gms Stop 04/22/20 07:09:20 elapsed 0:00:00.332
+--- Job ProductMixB.gms Stop 04/22/20 10:29:01 elapsed 0:00:00.220

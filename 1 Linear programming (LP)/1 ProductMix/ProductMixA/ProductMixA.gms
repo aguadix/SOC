@@ -14,12 +14,12 @@ X1 , X2;
 
 EQUATIONS
 
-OBJ, R1, R2, R3;
+OBJ, Rd1, Rd2, Rd3;
 
-OBJ..    Z =E= 3*X1 + 2*X2;
-R1..     2*X1 + X2 =L= 18;
-R2..     X1 + 1.5*X2 =L= 21;
-R3..     3*X1 + X2 =L= 24;
+OBJ..   Z =E= 3*X1 + 2*X2;
+Rd1..   2.0*X1 + 1.0*X2 =L= 18;
+Rd2..   1.0*X1 + 1.5*X2 =L= 21;
+Rd3..   3.0*X1 + 1.0*X2 =L= 24;
 
 
 MODEL ProductMixA /all/;
