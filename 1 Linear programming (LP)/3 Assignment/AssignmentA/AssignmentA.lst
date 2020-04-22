@@ -1,0 +1,348 @@
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:10:53 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1  * AssignmentA.gms
+   2  * Problema de la  asignación
+   3   
+   4   
+   5  VARIABLES
+   6   
+   7  Z;
+   8   
+   9   
+  10  POSITIVE VARIABLES
+  11   
+  12  X11, X12, X13, X14,
+  13  X21, X22, X23, X24,
+  14  X31, X32, X33, X34,
+  15  X41, X42, X43, X44;
+  16   
+  17   
+  18  EQUATIONS
+  19   
+  20  OBJ, P1, P2, P3, P4, F1, F2, F3, F4;
+  21   
+  22  OBJ..    Z =E=   1*X11 + 4*X12 +  6*X13 + 3*X14 +
+  23                   9*X21 + 7*X22 + 10*X23 + 9*X24 +
+  24                   4*X31 + 5*X32 + 11*X33 + 7*X34 +
+  25                   8*X41 + 7*X42 +  8*X43 + 5*X44;
+  26   
+  27  P1..     X11 + X12 + X13 + X14 =E= 1;
+  28  P2..     X21 + X22 + X23 + X24 =E= 1;
+  29  P3..     X31 + X32 + X33 + X34 =E= 1;
+  30  P4..     X41 + X42 + X43 + X44 =E= 1;
+  31   
+  32  F1..     X11 + X21 + X31 + X41 =E= 1;
+  33  F2..     X12 + X22 + X32 + X42 =E= 1;
+  34  F3..     X13 + X23 + X33 + X43 =E= 1;
+  35  F4..     X14 + X24 + X34 + X44 =E= 1;
+  36   
+  37   
+  38  MODEL AssignmentA /all/;
+  39   
+  40   
+  41  SOLVE AssignmentA using LP minimizing Z;
+
+
+COMPILATION TIME     =        0.000 SECONDS      2 MB  30.3.0 rc5da09e WEX-WEI
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:10:53 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE AssignmentA Using LP From line 41
+
+
+---- OBJ  =E=  
+
+OBJ..  Z - X11 - 4*X12 - 6*X13 - 3*X14 - 9*X21 - 7*X22 - 10*X23 - 9*X24 - 4*X31 - 5*X32 - 11*X33 - 7*X34 - 8*X41 - 7*X42 - 8*X43 - 5*X44 =E= 0 ; (LHS = 0)
+     
+
+---- P1  =E=  
+
+P1..  X11 + X12 + X13 + X14 =E= 1 ; (LHS = 0, INFES = 1 ****)
+     
+
+---- P2  =E=  
+
+P2..  X21 + X22 + X23 + X24 =E= 1 ; (LHS = 0, INFES = 1 ****)
+     
+
+---- P3  =E=  
+
+P3..  X31 + X32 + X33 + X34 =E= 1 ; (LHS = 0, INFES = 1 ****)
+     
+
+---- P4  =E=  
+
+P4..  X41 + X42 + X43 + X44 =E= 1 ; (LHS = 0, INFES = 1 ****)
+     
+
+---- F1  =E=  
+
+F1..  X11 + X21 + X31 + X41 =E= 1 ; (LHS = 0, INFES = 1 ****)
+     
+
+---- F2  =E=  
+
+F2..  X12 + X22 + X32 + X42 =E= 1 ; (LHS = 0, INFES = 1 ****)
+     
+
+---- F3  =E=  
+
+F3..  X13 + X23 + X33 + X43 =E= 1 ; (LHS = 0, INFES = 1 ****)
+     
+
+---- F4  =E=  
+
+F4..  X14 + X24 + X34 + X44 =E= 1 ; (LHS = 0, INFES = 1 ****)
+     
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:10:53 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE AssignmentA Using LP From line 41
+
+
+---- Z  
+
+Z
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       OBJ
+
+
+---- X11  
+
+X11
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -1       OBJ
+        1       P1
+        1       F1
+
+
+---- X12  
+
+X12
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -4       OBJ
+        1       P1
+        1       F2
+
+
+---- X13  
+
+X13
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -6       OBJ
+        1       P1
+        1       F3
+
+
+---- X14  
+
+X14
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -3       OBJ
+        1       P1
+        1       F4
+
+
+---- X21  
+
+X21
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -9       OBJ
+        1       P2
+        1       F1
+
+
+---- X22  
+
+X22
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -7       OBJ
+        1       P2
+        1       F2
+
+
+---- X23  
+
+X23
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+      -10       OBJ
+        1       P2
+        1       F3
+
+
+---- X24  
+
+X24
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -9       OBJ
+        1       P2
+        1       F4
+
+
+---- X31  
+
+X31
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -4       OBJ
+        1       P3
+        1       F1
+
+
+---- X32  
+
+X32
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -5       OBJ
+        1       P3
+        1       F2
+
+
+---- X33  
+
+X33
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+      -11       OBJ
+        1       P3
+        1       F3
+
+
+---- X34  
+
+X34
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -7       OBJ
+        1       P3
+        1       F4
+
+
+---- X41  
+
+X41
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -8       OBJ
+        1       P4
+        1       F1
+
+
+---- X42  
+
+X42
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -7       OBJ
+        1       P4
+        1       F2
+
+
+---- X43  
+
+X43
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -8       OBJ
+        1       P4
+        1       F3
+
+
+---- X44  
+
+X44
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -5       OBJ
+        1       P4
+        1       F4
+
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:10:53 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE AssignmentA Using LP From line 41
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           9     SINGLE EQUATIONS            9
+BLOCKS OF VARIABLES          17     SINGLE VARIABLES           17
+NON ZERO ELEMENTS            49
+
+
+GENERATION TIME      =        0.031 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
+
+
+EXECUTION TIME       =        0.031 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:10:53 Page 5
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE AssignmentA Using LP From line 41
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   AssignmentA         OBJECTIVE  Z
+     TYPE    LP                  DIRECTION  MINIMIZE
+     SOLVER  CPLEX               FROM LINE  41
+
+**** SOLVER STATUS     1 Normal Completion         
+**** MODEL STATUS      1 Optimal                   
+**** OBJECTIVE VALUE               21.0000
+
+ RESOURCE USAGE, LIMIT          0.047      1000.000
+ ITERATION COUNT, LIMIT         2    2000000000
+
+IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
+*** This solver runs with a demo license. No commercial use.
+Cplex 12.10.0.0
+
+Space for names approximately 0.00 Mb
+Use option 'names no' to turn use of names off
+LP status(1): optimal
+Cplex Time: 0.05sec (det. 0.03 ticks)
+Optimal solution found.
+Objective :          21.000000
+
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU OBJ                 .              .              .             1.0000      
+---- EQU P1                 1.0000         1.0000         1.0000         2.0000      
+---- EQU P2                 1.0000         1.0000         1.0000         7.0000      
+---- EQU P3                 1.0000         1.0000         1.0000         5.0000      
+---- EQU P4                 1.0000         1.0000         1.0000         5.0000      
+---- EQU F1                 1.0000         1.0000         1.0000        -1.0000      
+---- EQU F2                 1.0000         1.0000         1.0000          .          
+---- EQU F3                 1.0000         1.0000         1.0000         3.0000      
+---- EQU F4                 1.0000         1.0000         1.0000          .          
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR Z                 -INF           21.0000        +INF             .          
+---- VAR X11                 .             1.0000        +INF             .          
+---- VAR X12                 .              .            +INF            2.0000      
+---- VAR X13                 .              .            +INF            1.0000      
+---- VAR X14                 .              .            +INF            1.0000      
+---- VAR X21                 .              .            +INF            3.0000      
+---- VAR X22                 .              .            +INF             .          
+---- VAR X23                 .             1.0000        +INF             .          
+---- VAR X24                 .              .            +INF            2.0000      
+---- VAR X31                 .              .            +INF             .          
+---- VAR X32                 .             1.0000        +INF             .          
+---- VAR X33                 .              .            +INF            3.0000      
+---- VAR X34                 .              .            +INF            2.0000      
+---- VAR X41                 .              .            +INF            4.0000      
+---- VAR X42                 .              .            +INF            2.0000      
+---- VAR X43                 .              .            +INF            EPS         
+---- VAR X44                 .             1.0000        +INF             .          
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+
+
+EXECUTION TIME       =        0.000 SECONDS      2 MB  30.3.0 rc5da09e WEX-WEI
+
+
+USER: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
+      UNIVERSITY OF GRANADA, Spain                             DL007289
+
+
+**** FILE SUMMARY
+
+Input      C:\aguadix\GITHUB\SOC\1 Linear programming (LP)\3 Assignment\AssignmentA\AssignmentA.gms
+Output     C:\aguadix\GITHUB\SOC\1 Linear programming (LP)\3 Assignment\AssignmentA\AssignmentA.lst

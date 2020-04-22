@@ -1,0 +1,226 @@
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:11:51 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1  * MinCostFlowB.gms
+   2  * Problema del flujo capacitado con coste mínimo
+   3   
+   4   
+   5  SETS
+   6   
+   7  i        /N1*N5/
+   8  j        /A12, A13, A14, A23, A25, A35, A45/;
+   9   
+  10   
+  11  PARAMETERS
+  12   
+  13  d(i)
+  14  /N1      -40
+  15  N2       -50
+  16  N3        0
+  17  N4        30
+  18  N5        60/
+  19   
+  20  c(j)
+  21  /A12      3
+  22  A13       7
+  23  A14       5
+  24  A23       2
+  25  A25       1
+  26  A35       8
+  27  A45       4/
+  28   
+  29  xup(j)
+  30  /A12      30
+  31  A13       10
+  32  A14       35
+  33  A23       60
+  34  A25       30
+  35  A35       30
+  36  A45       30/;
+  37   
+  38   
+  39  TABLE
+  40   
+  41  a(i,j)
+  42           A12      A13      A14      A23      A25      A35      A45
+  43  N1       -1       -1       -1        0        0        0        0
+  44  N2        1        0        0       -1       -1        0        0
+  45  N3        0        1        0        1        0       -1        0
+  46  N4        0        0        1        0        0        0       -1
+  47  N5        0        0        0        0        1        1        1;
+  48   
+  49   
+  50  VARIABLES
+  51   
+  52  Z;
+  53   
+  54   
+  55  POSITIVE VARIABLES
+  56   
+  57  x(j);
+  58  x.up(j) = xup(j);
+  59   
+  60   
+  61  EQUATIONS
+  62   
+  63  OBJ, B(i);
+  64   
+  65  OBJ..       Z =E= sum(j,c(j)*x(j)) ;
+  66  B(i)..      sum(j,a(i,j)*x(j)) =E= d(i);
+  67   
+  68   
+  69  MODEL MinCostFlowB /all/;
+  70   
+  71   
+  72  SOLVE MinCostFlowB using LP minimizing Z;
+
+
+COMPILATION TIME     =        0.000 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:11:51 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE MinCostFlowB Using LP From line 72
+
+
+---- OBJ  =E=  
+
+OBJ..  Z - 3*x(A12) - 7*x(A13) - 5*x(A14) - 2*x(A23) - x(A25) - 8*x(A35) - 4*x(A45) =E= 0 ; (LHS = 0)
+     
+
+---- B  =E=  
+
+B(N1)..  - x(A12) - x(A13) - x(A14) =E= -40 ; (LHS = 0, INFES = 40 ****)
+     
+B(N2)..  x(A12) - x(A23) - x(A25) =E= -50 ; (LHS = 0, INFES = 50 ****)
+     
+B(N3)..  x(A13) + x(A23) - x(A35) =E= 0 ; (LHS = 0)
+     
+REMAINING 2 ENTRIES SKIPPED
+
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:11:51 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE MinCostFlowB Using LP From line 72
+
+
+---- Z  
+
+Z
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       OBJ
+
+
+---- x  
+
+x(A12)
+                (.LO, .L, .UP, .M = 0, 0, 30, 0)
+       -3       OBJ
+       -1       B(N1)
+        1       B(N2)
+
+x(A13)
+                (.LO, .L, .UP, .M = 0, 0, 10, 0)
+       -7       OBJ
+       -1       B(N1)
+        1       B(N3)
+
+x(A14)
+                (.LO, .L, .UP, .M = 0, 0, 35, 0)
+       -5       OBJ
+       -1       B(N1)
+        1       B(N4)
+
+REMAINING 4 ENTRIES SKIPPED
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:11:51 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE MinCostFlowB Using LP From line 72
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           2     SINGLE EQUATIONS            6
+BLOCKS OF VARIABLES           2     SINGLE VARIABLES            8
+NON ZERO ELEMENTS            22
+
+
+GENERATION TIME      =        0.031 SECONDS      4 MB  30.3.0 rc5da09e WEX-WEI
+
+
+EXECUTION TIME       =        0.031 SECONDS      4 MB  30.3.0 rc5da09e WEX-WEI
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:11:51 Page 5
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE MinCostFlowB Using LP From line 72
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   MinCostFlowB        OBJECTIVE  Z
+     TYPE    LP                  DIRECTION  MINIMIZE
+     SOLVER  CPLEX               FROM LINE  72
+
+**** SOLVER STATUS     1 Normal Completion         
+**** MODEL STATUS      1 Optimal                   
+**** OBJECTIVE VALUE              490.0000
+
+ RESOURCE USAGE, LIMIT          0.016      1000.000
+ ITERATION COUNT, LIMIT         1    2000000000
+
+IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
+*** This solver runs with a demo license. No commercial use.
+Cplex 12.10.0.0
+
+Space for names approximately 0.00 Mb
+Use option 'names no' to turn use of names off
+LP status(1): optimal
+Cplex Time: 0.00sec (det. 0.01 ticks)
+Optimal solution found.
+Objective :         490.000000
+
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU OBJ                 .              .              .             1.0000      
+
+---- EQU B  
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+N1       -40.0000       -40.0000       -40.0000        -5.0000      
+N2       -50.0000       -50.0000       -50.0000        -2.0000      
+N3          .              .              .              .          
+N4        30.0000        30.0000        30.0000         4.0000      
+N5        60.0000        60.0000        60.0000         8.0000      
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR Z                 -INF          490.0000        +INF             .          
+
+---- VAR x  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+A12          .             5.0000        30.0000          .          
+A13          .              .            10.0000         2.0000      
+A14          .            35.0000        35.0000        -4.0000      
+A23          .            25.0000        60.0000          .          
+A25          .            30.0000        30.0000        -9.0000      
+A35          .            25.0000        30.0000          .          
+A45          .             5.0000        30.0000          .          
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+
+
+EXECUTION TIME       =        0.000 SECONDS      2 MB  30.3.0 rc5da09e WEX-WEI
+
+
+USER: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
+      UNIVERSITY OF GRANADA, Spain                             DL007289
+
+
+**** FILE SUMMARY
+
+Input      C:\aguadix\GITHUB\SOC\1 Linear programming (LP)\4 MinCostFlow\MinCostFlowB\MinCostFlowB.gms
+Output     C:\aguadix\GITHUB\SOC\1 Linear programming (LP)\4 MinCostFlow\MinCostFlowB\MinCostFlowB.lst

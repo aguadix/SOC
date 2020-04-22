@@ -1,0 +1,33 @@
+B 3 C o m p i l a t i o n
+B 49 Equation Listing    SOLVE MinCostFlowA Using LP From line 38
+D 52 OBJ
+D 57 B1
+D 62 B2
+D 67 B3
+D 72 B4
+D 77 B5
+B 83 Column Listing      SOLVE MinCostFlowA Using LP From line 38
+E 86 Z
+E 93 X12
+E 102 X13
+E 111 X14
+E 120 X23
+E 129 X25
+E 138 X35
+E 147 X45
+B 157 Model Statistics    SOLVE MinCostFlowA Using LP From line 38
+B 173 Solution Report     SOLVE MinCostFlowA Using LP From line 38
+F 203 OBJ
+F 204 B1
+F 205 B2
+F 206 B3
+F 207 B4
+F 208 B5
+G 212 Z
+G 213 X12
+G 214 X13
+G 215 X14
+G 216 X23
+G 217 X25
+G 218 X35
+G 219 X45

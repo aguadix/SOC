@@ -1,0 +1,216 @@
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:12:23 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1  * ShortestPathB.gms
+   2  * Problema de la ruta más corta
+   3   
+   4   
+   5  SETS
+   6   
+   7  i        /N1*N5/
+   8  j        /A12, A13, A23, A24, A34, A35, A45/;
+   9   
+  10   
+  11  PARAMETERS
+  12   
+  13  d(i)
+  14  /N1      -1
+  15  N2        0
+  16  N3        0
+  17  N4        0
+  18  N5        1/
+  19   
+  20  c(j)
+  21  /A12      20
+  22  A13       30
+  23  A23       20
+  24  A24       30
+  25  A34       10
+  26  A35       70
+  27  A45       50/;
+  28   
+  29   
+  30  TABLE
+  31   
+  32  a(i,j)
+  33           A12      A13      A23      A24      A34      A35      A45
+  34  N1       -1       -1        0        0        0        0        0
+  35  N2        1        0       -1       -1        0        0        0
+  36  N3        0        1        1        0       -1       -1        0
+  37  N4        0        0        0        1        1        0       -1
+  38  N5        0        0        0        0        0        1        1    ;
+  39   
+  40   
+  41  VARIABLES
+  42   
+  43  Z;
+  44   
+  45   
+  46  POSITIVE VARIABLES
+  47   
+  48  x(j);
+  49   
+  50   
+  51  EQUATIONS
+  52   
+  53  OBJ, B(i);
+  54   
+  55  OBJ..       Z =E= sum(j,c(j)*x(j)) ;
+  56  B(i)..      sum(j,a(i,j)*x(j)) =E= d(i);
+  57   
+  58   
+  59  MODEL ShortestPathB /all/;
+  60   
+  61   
+  62  SOLVE ShortestPathB using LP minimizing Z;
+
+
+COMPILATION TIME     =        0.000 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:12:23 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE ShortestPathB Using LP From line 62
+
+
+---- OBJ  =E=  
+
+OBJ..  Z - 20*x(A12) - 30*x(A13) - 20*x(A23) - 30*x(A24) - 10*x(A34) - 70*x(A35) - 50*x(A45) =E= 0 ; (LHS = 0)
+     
+
+---- B  =E=  
+
+B(N1)..  - x(A12) - x(A13) =E= -1 ; (LHS = 0, INFES = 1 ****)
+     
+B(N2)..  x(A12) - x(A23) - x(A24) =E= 0 ; (LHS = 0)
+     
+B(N3)..  x(A13) + x(A23) - x(A34) - x(A35) =E= 0 ; (LHS = 0)
+     
+REMAINING 2 ENTRIES SKIPPED
+
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:12:23 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE ShortestPathB Using LP From line 62
+
+
+---- Z  
+
+Z
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       OBJ
+
+
+---- x  
+
+x(A12)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+      -20       OBJ
+       -1       B(N1)
+        1       B(N2)
+
+x(A13)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+      -30       OBJ
+       -1       B(N1)
+        1       B(N3)
+
+x(A23)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+      -20       OBJ
+       -1       B(N2)
+        1       B(N3)
+
+REMAINING 4 ENTRIES SKIPPED
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:12:23 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE ShortestPathB Using LP From line 62
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           2     SINGLE EQUATIONS            6
+BLOCKS OF VARIABLES           2     SINGLE VARIABLES            8
+NON ZERO ELEMENTS            22
+
+
+GENERATION TIME      =        0.015 SECONDS      4 MB  30.3.0 rc5da09e WEX-WEI
+
+
+EXECUTION TIME       =        0.015 SECONDS      4 MB  30.3.0 rc5da09e WEX-WEI
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 07:12:23 Page 5
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE ShortestPathB Using LP From line 62
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   ShortestPathB       OBJECTIVE  Z
+     TYPE    LP                  DIRECTION  MINIMIZE
+     SOLVER  CPLEX               FROM LINE  62
+
+**** SOLVER STATUS     1 Normal Completion         
+**** MODEL STATUS      1 Optimal                   
+**** OBJECTIVE VALUE               90.0000
+
+ RESOURCE USAGE, LIMIT          0.016      1000.000
+ ITERATION COUNT, LIMIT         2    2000000000
+
+IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
+*** This solver runs with a demo license. No commercial use.
+Cplex 12.10.0.0
+
+Space for names approximately 0.00 Mb
+Use option 'names no' to turn use of names off
+LP status(1): optimal
+Cplex Time: 0.00sec (det. 0.01 ticks)
+Optimal solution found.
+Objective :          90.000000
+
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU OBJ                 .              .              .             1.0000      
+
+---- EQU B  
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+N1        -1.0000        -1.0000        -1.0000       -40.0000      
+N2          .              .              .           -20.0000      
+N3          .              .              .           -10.0000      
+N4          .              .              .              .          
+N5         1.0000         1.0000         1.0000        50.0000      
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR Z                 -INF           90.0000        +INF             .          
+
+---- VAR x  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+A12          .              .            +INF             .          
+A13          .             1.0000        +INF             .          
+A23          .              .            +INF           10.0000      
+A24          .              .            +INF           10.0000      
+A34          .             1.0000        +INF             .          
+A35          .              .            +INF           10.0000      
+A45          .             1.0000        +INF             .          
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+
+
+EXECUTION TIME       =        0.000 SECONDS      2 MB  30.3.0 rc5da09e WEX-WEI
+
+
+USER: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
+      UNIVERSITY OF GRANADA, Spain                             DL007289
+
+
+**** FILE SUMMARY
+
+Input      C:\aguadix\GITHUB\SOC\1 Linear programming (LP)\5 ShortestPath\ShortestPathB\ShortestPathB.gms
+Output     C:\aguadix\GITHUB\SOC\1 Linear programming (LP)\5 ShortestPath\ShortestPathB\ShortestPathB.lst
