@@ -8,6 +8,6 @@ E 103 x
 B 126 Model Statistics    SOLVE ShortestPathB Using LP From line 62
 B 142 Solution Report     SOLVE ShortestPathB Using LP From line 62
 F 172 OBJ
-F 174 B
-G 186 Z
-G 188 x
+F 176 B
+G 188 Z
+G 192 x

@@ -1,53 +1,64 @@
-* KnapsackB.gms
+* BinaryKnapsackB.gms
 * Problema de la mochila
 
 
 SETS
 
-i / Y1 * Y3 /
-j / P1 * P5 /;
+i 'pepe gotera' / O1 * O10/;
 
 
 PARAMETERS
 
-l(i)
-/Y1   20
-Y2    23
-Y3    25/
+w(i)
+/O1 72
+O2 99
+O3 68
+O4 22
+O5 44
+O6 72
+O7 34
+O8 57
+O9 35
+O10 51/
 
-b(j)
-/P1  20
-P2   40
-P3   20
-P4   15
-P5   30/;
+v(i)
+/O1 23
+O2 79
+O3 35
+O4 54
+O5 13
+O6 83
+O7 86
+O8 57
+O9 28
+O10 11/;
 
 
-TABLE
+SCALAR
 
-c(i,j)
-         P1      P2      P3      P4      P5
-Y1        5       4       3       7       8
-Y2        1       7       9       4       6
-Y3        8      10       2       1      10;
+wt /250/;
+
 
 
 VARIABLES
 
-Z
+Z;
 
 
 BINARY VARIABLES
 
-x(j)
+x(i);
 
 
 EQUATIONS
 
-OBJ, R(i);
+OBJ, R;
 
-OBJ..       Z =E= sum(j,b(j)*x(j)) ;
-R(i)..      sum(j,c(i,j)*x(j)) =L= l(i) ;
+OBJ..
+Z =E= sum(i,v(i)*x(i)) ;
+
+R..
+sum(i,w(i)*x(i)) =L= wt;
 
 
 MODEL KnapsackB /all/;

@@ -1,21 +1,20 @@
 * TransportB.gms
-* Problema del transporte
 
 
 SETS
 
-i        / F1*F3 /
-j        / M1*M4 /;
+p  'plants'    / P1*P3 /
+m  'markets'   / M1*M4 /;
 
 
 PARAMETERS
 
-o(i)
-/F1       15
-F2        25
-F3        10/
+o(p)    'ton/year'
+/P1       15
+P2        25
+P3        10/
 
-d(j)
+d(m)    'ton/year'
 /M1        5
 M2        15
 M3        15
@@ -24,33 +23,35 @@ M4        15/;
 
 TABLE
 
-c(i,j)
+c(p,m)  '$/ton'
           M1      M2      M3      M4
-F1        10       2      20      11
-F2        12       7       9      20
-F3         4      14      16      18;
+P1        10       2      20      11
+P2        12       7       9      20
+P3         4      14      16      18;
 
 
-VARIABLES
+FREE VARIABLES
 
-Z;
+Z   '$/year';
 
 
 POSITIVE VARIABLES
 
-x(i,j);
+x(p,m)  'ton/year';
 
 
 EQUATIONS
 
-OBJ, Ro(i), Rd(j);
+OBJ      '$/year',
+RO(p)    'ton/year',
+RD(m)    'ton/year';
 
-OBJ ..     Z  =E=  sum((i,j), c(i,j)*x(i,j)) ;
-Ro(i) ..   sum(j, x(i,j))  =E=  o(i) ;
-Rd(j) ..   sum(i, x(i,j))  =E=  d(j) ;
+OBJ ..     SUM((p,m), c(p,m)*x(p,m))  =E=  Z;
+RO(p) ..   SUM(m, x(p,m))             =E=  o(p) ;
+RD(m) ..   SUM(p, x(p,m))             =E=  d(m) ;
 
 
 MODEL TransportB /all/ ;
 
 
-SOLVE TransportB using LP minimizing Z;
+SOLVE TransportB USING LP MINIMIZING Z;

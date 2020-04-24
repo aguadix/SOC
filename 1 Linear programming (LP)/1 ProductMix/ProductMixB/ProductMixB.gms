@@ -1,53 +1,53 @@
 * ProductMixB.gms
-* Problema de producci�n con recursos limitados
 
 
 SETS
 
-i        /E1, E2, E3/
-j        /P1, P2/;
+m  'machines'    /M1, M2, M3/
+p  'products'    /P1, P2/;
 
 
 PARAMETERS
 
-d(i)
-/E1       18
-E2        21
-E3        24/
+d(m)    'hour/day'
+/M1       18.5
+M2        20.0
+M3        24.0/
 
-b(j)
-/P1       3
-P2        2/;
+b(p)    '$/kg'
+/P1        3.0
+P2         2.5/;
 
 
 TABLE
 
-u(i,j)
+u(m,p)  'hour/kg'
            P1      P2
-E1         2.0     1.0
-E2         1.0     1.5
-E3         3.0     1.0;
+M1         2.5     0.5
+M2         1.0     1.5
+M3         3.5     1.0;
 
 
-VARIABLES
+FREE VARIABLES
 
-Z;
+Z       '$/day';
 
 
 POSITIVE VARIABLES
 
-x(j);
+x(p)    'kg/day';
 
 
 EQUATIONS
 
-OBJ, Rd(i) ;
+OBJ     '$/day',
+RD(m)   'hour/day';
 
-OBJ..    Z  =E= sum(j,b(j)*x(j)) ;
-Rd(i)..  sum(j,u(i,j)*x(j)) =L= d(i);
+OBJ..   SUM(p,b(p)*x(p))   =E= Z;
+RD(m).. SUM(p,u(m,p)*x(p)) =L= d(m);
 
 
 MODEL ProductMixB /all/;
 
 
-SOLVE ProductMixB using LP maximizing Z;
+SOLVE ProductMixB USING LP MAXIMIZING Z;

@@ -1,23 +1,22 @@
 * MinCostFlowB.gms
-* Problema del flujo capacitado con coste mínimo
 
 
 SETS
 
-i        /N1*N5/
-j        /A12, A13, A14, A23, A25, A35, A45/;
+n   'nodes'       /N1*N5/
+a   'arcs'        /A12, A13, A14, A23, A25, A35, A45/;
 
 
 PARAMETERS
 
-d(i)
+d(n)    'm3/min'
 /N1      -40
 N2       -50
 N3        0
 N4        30
 N5        60/
 
-c(j)
+c(a)    'm3/min'
 /A12      3
 A13       7
 A14       5
@@ -26,7 +25,7 @@ A25       1
 A35       8
 A45       4/
 
-xup(j)
+xup(a)  'm3/min'
 /A12      30
 A13       10
 A14       35
@@ -38,7 +37,7 @@ A45       30/;
 
 TABLE
 
-a(i,j)
+s(n,a)  'if arc leaves node = -1, not involved = 0, arrives = 1'
          A12      A13      A14      A23      A25      A35      A45
 N1       -1       -1       -1        0        0        0        0
 N2        1        0        0       -1       -1        0        0
@@ -47,26 +46,27 @@ N4        0        0        1        0        0        0       -1
 N5        0        0        0        0        1        1        1;
 
 
-VARIABLES
+FREE VARIABLES
 
-Z;
+Z       '$/min';
 
 
 POSITIVE VARIABLES
 
-x(j);
-x.up(j) = xup(j);
+x(a)    'm3/min';
+x.up(a) = xup(a);
 
 
 EQUATIONS
 
-OBJ, B(i);
+OBJ     '$/min',
+B(n)    'm3/min';
 
-OBJ..       Z =E= sum(j,c(j)*x(j)) ;
-B(i)..      sum(j,a(i,j)*x(j)) =E= d(i);
+OBJ..   SUM(a,c(a)*x(a))    =E= Z;
+B(n)..  SUM(a,s(n,a)*x(a))  =E= d(n);
 
 
 MODEL MinCostFlowB /all/;
 
 
-SOLVE MinCostFlowB using LP minimizing Z;
+SOLVE MinCostFlowB USING LP MINIMIZING Z;

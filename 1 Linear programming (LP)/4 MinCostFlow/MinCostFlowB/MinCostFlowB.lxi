@@ -8,6 +8,6 @@ E 113 x
 B 136 Model Statistics    SOLVE MinCostFlowB Using LP From line 72
 B 152 Solution Report     SOLVE MinCostFlowB Using LP From line 72
 F 182 OBJ
-F 184 B
-G 196 Z
-G 198 x
+F 186 B
+G 198 Z
+G 202 x

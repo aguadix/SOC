@@ -1,28 +1,28 @@
 * ProductMixA.gms
-* Problema de producci�n con recursos limitados
 
 
-VARIABLES
+FREE VARIABLES
 
-Z;
+Z '$/day';
 
 
 POSITIVE VARIABLES
 
-X1 , X2;
+x1, x2 'kg/day';
 
 
 EQUATIONS
 
-OBJ, Rd1, Rd2, Rd3;
+OBJ             '$/day',
+RD1, RD2, RD3   'hour/day';
 
-OBJ..   Z =E= 3*X1 + 2*X2;
-Rd1..   2.0*X1 + 1.0*X2 =L= 18;
-Rd2..   1.0*X1 + 1.5*X2 =L= 21;
-Rd3..   3.0*X1 + 1.0*X2 =L= 24;
+OBJ..   3.0*x1 + 2.5*x2 =E= Z;
+RD1..   2.5*x1 + 0.5*x2 =L= 18.5;
+RD2..   1.0*x1 + 1.5*x2 =L= 20.0;
+RD3..   3.5*x1 + 1.0*x2 =L= 24.0;
 
 
 MODEL ProductMixA /all/;
 
 
-SOLVE ProductMixA using LP maximizing Z;
+SOLVE ProductMixA USING LP MAxIMIZING Z;

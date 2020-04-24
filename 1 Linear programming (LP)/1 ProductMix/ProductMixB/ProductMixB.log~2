@@ -1,4 +1,4 @@
---- Job ProductMixB.gms Start 04/22/20 10:21:43 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
+--- Job ProductMixB.gms Start 04/24/20 12:16:36 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
 --- GAMS Parameters defined
     Input C:\aguadix\GITHUB\SOC\1 Linear programming (LP)\1 ProductMix\ProductMixB\ProductMixB.gms
     PageSize 0
@@ -44,17 +44,16 @@ Reduced LP has 3 rows, 2 columns, and 6 nonzeros.
 Presolve time = 0.00 sec. (0.00 ticks)
 
 Iteration      Dual Objective            In Variable           Out Variable
-     1  I            0.000000                  x(P2)            R(E3) slack
-     2              35.142857                  x(P1)            R(E2) slack
-     3              33.000000            R(E3) slack            R(E1) slack
+     1  I            0.000000                  x(P2)           RD(M3) slack
+     2              38.352941                  x(P1)           RD(M2) slack
 LP status(1): optimal
 Cplex Time: 0.00sec (det. 0.01 ticks)
 
 Optimal solution found.
-Objective :          33.000000
+Objective :          38.352941
 
 --- Restarting execution
 --- ProductMixB.gms(53) 2 Mb
 --- Reading solution for model ProductMixB
 *** Status: Normal completion
---- Job ProductMixB.gms Stop 04/22/20 10:21:43 elapsed 0:00:00.146
+--- Job ProductMixB.gms Stop 04/24/20 12:16:36 elapsed 0:00:00.168

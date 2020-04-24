@@ -1,4 +1,4 @@
---- Job ShortestPathA.gms Start 04/22/20 07:12:07 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
+--- Job ShortestPathA.gms Start 04/25/20 00:34:21 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
 --- GAMS Parameters defined
     Input C:\aguadix\GITHUB\SOC\1 Linear programming (LP)\5 ShortestPath\ShortestPathA\ShortestPathA.gms
     PageSize 0
@@ -16,11 +16,11 @@ Licensee: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
           Demo license for demonstration and instructional purposes only
 --- Starting compilation
 --- ShortestPathA.gms(31) 2 Mb
---- Starting execution: elapsed 0:00:00.000
+--- Starting execution: elapsed 0:00:00.016
 --- Generating LP model ShortestPathA
 --- ShortestPathA.gms(31) 3 Mb
----   6 rows  8 columns  22 non-zeroes
---- Executing CPLEX: elapsed 0:00:00.031
+---   6 rows  7 columns  20 non-zeroes
+--- Executing CPLEX: elapsed 0:00:00.278
 
 IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
 *** This solver runs with a demo license. No commercial use.
@@ -39,22 +39,18 @@ CPXPARAM_Simplex_Limits_Iterations               2000000000
 CPXPARAM_TimeLimit                               1000
 CPXPARAM_Tune_TimeLimit                          200
 Tried aggregator 1 time.
-LP Presolve eliminated 2 rows and 3 columns.
-Aggregator did 2 substitutions.
-Reduced LP has 2 rows, 3 columns, and 4 nonzeros.
-Presolve time = 0.00 sec. (0.01 ticks)
-
-Iteration      Dual Objective            In Variable           Out Variable
-     1              80.000000                    X12               B2 artif
-     2              90.000000                    X34               B3 artif
+LP Presolve eliminated 3 rows and 4 columns.
+Aggregator did 3 substitutions.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.00 ticks)
 LP status(1): optimal
-Cplex Time: 0.00sec (det. 0.01 ticks)
+Cplex Time: 0.06sec (det. 0.01 ticks)
 
 Optimal solution found.
-Objective :          90.000000
+Objective :          95.000000
 
 --- Restarting execution
 --- ShortestPathA.gms(31) 2 Mb
 --- Reading solution for model ShortestPathA
 *** Status: Normal completion
---- Job ShortestPathA.gms Stop 04/22/20 07:12:07 elapsed 0:00:00.188
+--- Job ShortestPathA.gms Stop 04/25/20 00:34:23 elapsed 0:00:01.544

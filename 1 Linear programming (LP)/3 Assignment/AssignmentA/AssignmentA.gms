@@ -1,38 +1,39 @@
 * AssignmentA.gms
-* Problema de la  asignación
 
 
 VARIABLES
 
-Z;
+Z   '$';
 
 
 POSITIVE VARIABLES
 
-X11, X12, X13, X14,
-X21, X22, X23, X24,
-X31, X32, X33, X34,
-X41, X42, X43, X44;
+x11, x12, x13, x14,
+x21, x22, x23, x24,
+x31, x32, x33, x34,
+x41, x42, x43, x44  'if plant is assigned to line = 1, else = 0';
 
 
 EQUATIONS
 
-OBJ, O1, O2, O3, O4, D1, D2, D3, D4;
+OBJ                     '$',
+RO1, RO2, RO3, RO4      '-',
+RD1, RD2, RD3, RD4      '-';
 
-OBJ..    Z =E=   1*X11 + 4*X12 +  6*X13 + 3*X14 +
-                 9*X21 + 7*X22 + 10*X23 + 9*X24 +
-                 4*X31 + 5*X32 + 11*X33 + 7*X34 +
-                 8*X41 + 7*X42 +  8*X43 + 5*X44;
+OBJ..    Z =E=   1*x11 + 4*x12 +  6*x13 + 3*x14 +
+                 9*x21 + 7*x22 + 10*x23 + 9*x24 +
+                 4*x31 + 5*x32 + 11*x33 + 7*x34 +
+                 8*x41 + 7*x42 +  8*x43 + 5*x44;
 
-O1..     X11 + X12 + X13 + X14 =E= 1;
-O2..     X21 + X22 + X23 + X24 =E= 1;
-O3..     X31 + X32 + X33 + X34 =E= 1;
-O4..     X41 + X42 + X43 + X44 =E= 1;
+RO1..     x11 + x12 + x13 + x14 =E= 1;
+RO2..     x21 + x22 + x23 + x24 =E= 1;
+RO3..     x31 + x32 + x33 + x34 =E= 1;
+RO4..     x41 + x42 + x43 + x44 =E= 1;
 
-D1..     X11 + X21 + X31 + X41 =E= 1;
-D2..     X12 + X22 + X32 + X42 =E= 1;
-D3..     X13 + X23 + X33 + X43 =E= 1;
-D4..     X14 + X24 + X34 + X44 =E= 1;
+RD1..     x11 + x21 + x31 + x41 =E= 1;
+RD2..     x12 + x22 + x32 + x42 =E= 1;
+RD3..     x13 + x23 + x33 + x43 =E= 1;
+RD4..     x14 + x24 + x34 + x44 =E= 1;
 
 
 MODEL AssignmentA /all/;

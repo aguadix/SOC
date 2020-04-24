@@ -1,4 +1,4 @@
---- Job TransportB.gms Start 04/22/20 10:24:16 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
+--- Job TransportB.gms Start 04/25/20 01:20:21 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
 --- GAMS Parameters defined
     Input C:\aguadix\GITHUB\SOC\1 Linear programming (LP)\2 Transport\TransportB\TransportB.gms
     PageSize 0
@@ -15,10 +15,10 @@ Licensee: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
           aguadix@ugr.es, ANTONIO MARIA GUADIX ESCOBAR                     
           Demo license for demonstration and instructional purposes only
 --- Starting compilation
---- TransportB.gms(56) 3 Mb
+--- TransportB.gms(57) 3 Mb
 --- Starting execution: elapsed 0:00:00.000
 --- Generating LP model TransportB
---- TransportB.gms(56) 4 Mb
+--- TransportB.gms(57) 4 Mb
 ---   8 rows  13 columns  37 non-zeroes
 --- Executing CPLEX: elapsed 0:00:00.015
 
@@ -45,8 +45,8 @@ Presolve time = 0.00 sec. (0.01 ticks)
 Initializing dual steep norms . . .
 
 Iteration      Dual Objective            In Variable           Out Variable
-     1             425.000000               x(F2.M2)           Ro(F1) artif
-     2             435.000000               x(F3.M4)           Ro(F3) artif
+     1             425.000000               x(P2.M2)           RO(P1) artif
+     2             435.000000               x(P3.M4)           RO(P3) artif
 LP status(1): optimal
 Cplex Time: 0.00sec (det. 0.02 ticks)
 
@@ -54,7 +54,7 @@ Optimal solution found.
 Objective :         435.000000
 
 --- Restarting execution
---- TransportB.gms(56) 2 Mb
+--- TransportB.gms(57) 2 Mb
 --- Reading solution for model TransportB
 *** Status: Normal completion
---- Job TransportB.gms Stop 04/22/20 10:24:16 elapsed 0:00:00.140
+--- Job TransportB.gms Stop 04/25/20 01:20:21 elapsed 0:00:00.158

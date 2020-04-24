@@ -1,38 +1,38 @@
 * MinCostFlowA.gms
-* Problema del flujo capacitado con coste mínimo
 
 
-VARIABLES
+FREE VARIABLES
 
-Z;
+Z   '$/min';
 
 
 POSITIVE VARIABLES
 
-X12, X13, X14, X23, X25, X35, X45;
-X12.UP = 30;
-X13.UP = 10;
-X14.UP = 35;
-X23.UP = 60;
-X25.UP = 30;
-X35.UP = 30;
-X45.UP = 30;
+x12, x13, x14, x23, x25, x35, x45   'm3/min';
+x12.UP = 30;
+x13.UP = 10;
+x14.UP = 35;
+x23.UP = 60;
+x25.UP = 30;
+x35.UP = 30;
+x45.UP = 30;
 
 
 EQUATIONS
 
-OBJ, B1, B2, B3, B4, B5;
+OBJ                     '$/min',
+B1, B2, B3, B4, B5      'm3/min';
 
-OBJ..    Z =E= 3*X12 + 7*X13 + 5*X14 + 2*X23 + X25 + 8*X35 + 4*X45;
+OBJ..    3*x12 + 7*x13 + 5*x14 + 2*x23 + 1*x25 + 8*x35 + 4*x45 =E= Z;
 
-B1..    -X12 - X13 - X14                         =E= -40;
-B2..     X12             - X23 - X25             =E= -50;
-B3..           X13       + X23       - X35       =E=   0;
-B4..                 X14                   - X45 =E=  30;
-B5..                             X25 + X35 + X45 =E=  60;
+B1..      -x12 -   x13 -   x14                                 =E= -40;
+B2..       x12                 -   x23 -   x25                 =E= -50;
+B3..               x13         +   x23           - x35         =E=   0;
+B4..                       x14                          -  x45 =E=  30;
+B5..                                       x25 +   x35  +  x45 =E=  60;
 
 
 MODEL MinCostFlowA /all/;
 
 
-SOLVE MinCostFlowA using LP minimizing Z;
+SOLVE MinCostFlowA USING LP MINIMIZING Z;

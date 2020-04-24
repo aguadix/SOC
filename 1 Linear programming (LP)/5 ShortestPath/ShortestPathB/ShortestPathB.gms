@@ -1,62 +1,62 @@
 * ShortestPathB.gms
-* Problema de la ruta más corta
 
 
 SETS
 
-i        /N1*N5/
-j        /A12, A13, A23, A24, A34, A35, A45/;
+c   'compounds'  /A, B, C, D, E/
+r   'reactions'  /AB, AC, BC, BD, CD, CE, DE/;
 
 
 PARAMETERS
 
-d(i)
-/N1      -1
-N2        0
-N3        0
-N4        0
-N5        1/
+d(c)    ' - '
+/A      -1
+B        0
+C        0
+D        0
+E        1/
 
-c(j)
-/A12      20
-A13       30
-A23       20
-A24       30
-A34       10
-A35       70
-A45       50/;
+t(r)    'min'
+/AB      20
+AC       30
+BC       20
+BD       30
+CD       10
+CE       70
+DE       50/;
 
 
 TABLE
 
-a(i,j)
-         A12      A13      A23      A24      A34      A35      A45
-N1       -1       -1        0        0        0        0        0
-N2        1        0       -1       -1        0        0        0
-N3        0        1        1        0       -1       -1        0
-N4        0        0        0        1        1        0       -1
-N5        0        0        0        0        0        1        1    ;
+s(c,r)  'if reactive = -1, not involved = 0, product = 1'
+        AB       AC       BC       BD       CD       CE       DE
+A       -1       -1        0        0        0        0        0
+B        1        0       -1       -1        0        0        0
+C        0        1        1        0       -1       -1        0
+D        0        0        0        1        1        0       -1
+E        0        0        0        0        0        1        1    ;
 
 
 VARIABLES
 
-Z;
+Z       'min';
 
 
 POSITIVE VARIABLES
 
-x(j);
+x(r)    'if reaction is in the shortest path = 1, else = 0';
 
 
 EQUATIONS
 
-OBJ, B(i);
+OBJ     'min',
+B(c)    ' - ';
 
-OBJ..       Z =E= sum(j,c(j)*x(j)) ;
-B(i)..      sum(j,a(i,j)*x(j)) =E= d(i);
+OBJ..   SUM(r,t(r)*x(r))   =E= Z;
+B(c)..  SUM(r,s(c,r)*x(r)) =E= d(c);
 
 
 MODEL ShortestPathB /all/;
 
 
-SOLVE ShortestPathB using LP minimizing Z;
+SOLVE ShortestPathB USING LP MINIMIZING Z;

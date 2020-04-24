@@ -1,0 +1,215 @@
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/23/20 11:48:58 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1  * BinaryKnapsackB.gms
+   2  * Problema de la mochila
+   3   
+   4   
+   5  SETS
+   6   
+   7  i 'pepe gotera' / O1 * O10/;
+   8   
+   9   
+  10  PARAMETERS
+  11   
+  12  w(i)
+  13  /O1 72
+  14  O2 99
+  15  O3 68
+  16  O4 22
+  17  O5 44
+  18  O6 72
+  19  O7 34
+  20  O8 57
+  21  O9 35
+  22  O10 51/
+  23   
+  24  v(i)
+  25  /O1 23
+  26  O2 79
+  27  O3 35
+  28  O4 54
+  29  O5 13
+  30  O6 83
+  31  O7 86
+  32  O8 57
+  33  O9 28
+  34  O10 11/;
+  35   
+  36   
+  37  SCALAR
+  38   
+  39  wt /250/;
+  40   
+  41   
+  42   
+  43  VARIABLES
+  44   
+  45  Z;
+  46   
+  47   
+  48  BINARY VARIABLES
+  49   
+  50  x(i);
+  51   
+  52   
+  53  EQUATIONS
+  54   
+  55  OBJ, R;
+  56   
+  57  OBJ..
+  58  Z =E= sum(i,v(i)*x(i)) ;
+  59   
+  60  R..
+  61  sum(i,w(i)*x(i)) =L= wt;
+  62   
+  63   
+  64  MODEL KnapsackB /all/;
+  65   
+  66   
+  67  SOLVE KnapsackB using MIP maximizing Z;
+
+
+COMPILATION TIME     =        0.000 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/23/20 11:48:58 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE KnapsackB Using MIP From line 67
+
+
+---- OBJ  =E=  
+
+OBJ..  Z - 23*x(O1) - 79*x(O2) - 35*x(O3) - 54*x(O4) - 13*x(O5) - 83*x(O6) - 86*x(O7) - 57*x(O8) - 28*x(O9) - 11*x(O10) =E= 0 ; (LHS = 0)
+     
+
+---- R  =L=  
+
+R..  72*x(O1) + 99*x(O2) + 68*x(O3) + 22*x(O4) + 44*x(O5) + 72*x(O6) + 34*x(O7) + 57*x(O8) + 35*x(O9) + 51*x(O10) =L= 250 ; (LHS = 0)
+     
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/23/20 11:48:58 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE KnapsackB Using MIP From line 67
+
+
+---- Z  
+
+Z
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       OBJ
+
+
+---- x  
+
+x(O1)
+                (.LO, .L, .UP, .M = 0, 0, 1, 0)
+      -23       OBJ
+       72       R
+
+x(O2)
+                (.LO, .L, .UP, .M = 0, 0, 1, 0)
+      -79       OBJ
+       99       R
+
+x(O3)
+                (.LO, .L, .UP, .M = 0, 0, 1, 0)
+      -35       OBJ
+       68       R
+
+REMAINING 7 ENTRIES SKIPPED
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/23/20 11:48:58 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE KnapsackB Using MIP From line 67
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           2     SINGLE EQUATIONS            2
+BLOCKS OF VARIABLES           2     SINGLE VARIABLES           11
+NON ZERO ELEMENTS            21     DISCRETE VARIABLES         10
+
+
+GENERATION TIME      =        0.016 SECONDS      4 MB  30.3.0 rc5da09e WEX-WEI
+
+
+EXECUTION TIME       =        0.016 SECONDS      4 MB  30.3.0 rc5da09e WEX-WEI
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/23/20 11:48:58 Page 5
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE KnapsackB Using MIP From line 67
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   KnapsackB           OBJECTIVE  Z
+     TYPE    MIP                 DIRECTION  MAXIMIZE
+     SOLVER  CPLEX               FROM LINE  67
+
+**** SOLVER STATUS     1 Normal Completion         
+**** MODEL STATUS      8 Integer Solution          
+**** OBJECTIVE VALUE              308.0000
+
+ RESOURCE USAGE, LIMIT          0.016      1000.000
+ ITERATION COUNT, LIMIT         1    2000000000
+
+IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
+*** This solver runs with a demo license. No commercial use.
+Cplex 12.10.0.0
+
+Space for names approximately 0.00 Mb
+Use option 'names no' to turn use of names off
+MIP status(102): integer optimal, tolerance
+Cplex Time: 0.00sec (det. 0.04 ticks)
+Fixing integer variables, and solving final LP...
+Fixed MIP status(1): optimal
+Cplex Time: 0.00sec (det. 0.00 ticks)
+Solution satisfies tolerances.
+
+MIP Solution:          308.000000    (1 iterations, 0 nodes)
+Final Solve:           308.000000    (0 iterations)
+
+Best possible:         331.939394
+Absolute gap:           23.939394
+Relative gap:            0.072120
+
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU OBJ                 .              .              .             1.0000      
+---- EQU R                 -INF          220.0000       250.0000          .          
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR Z                 -INF          308.0000        +INF             .          
+
+---- VAR x  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+O1           .              .             1.0000        23.0000      
+O2           .              .             1.0000        79.0000      
+O3           .              .             1.0000        35.0000      
+O4           .             1.0000         1.0000        54.0000      
+O5           .              .             1.0000        13.0000      
+O6           .             1.0000         1.0000        83.0000      
+O7           .             1.0000         1.0000        86.0000      
+O8           .             1.0000         1.0000        57.0000      
+O9           .             1.0000         1.0000        28.0000      
+O10          .              .             1.0000        11.0000      
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+
+
+EXECUTION TIME       =        0.000 SECONDS      2 MB  30.3.0 rc5da09e WEX-WEI
+
+
+USER: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
+      UNIVERSITY OF GRANADA, Spain                             DL007289
+
+
+**** FILE SUMMARY
+
+Input      C:\aguadix\GITHUB\SOC\2 Mixed integer programming (MIP)\2 BinaryKnapsack\BinaryKnapsackB\BinaryKnapsackB.gms
+Output     C:\aguadix\GITHUB\SOC\2 Mixed integer programming (MIP)\2 BinaryKnapsack\BinaryKnapsackB\BinaryKnapsackB.lst

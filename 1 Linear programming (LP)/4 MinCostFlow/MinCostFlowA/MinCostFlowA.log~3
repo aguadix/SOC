@@ -1,4 +1,4 @@
---- Job MinCostFlowA.gms Start 04/22/20 11:04:52 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
+--- Job MinCostFlowA.gms Start 04/24/20 17:59:49 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
 --- GAMS Parameters defined
     Input C:\aguadix\GITHUB\SOC\1 Linear programming (LP)\4 MinCostFlow\MinCostFlowA\MinCostFlowA.gms
     PageSize 0
@@ -17,11 +17,11 @@ Licensee: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
 --- Starting compilation
 --- MinCostFlowA.gms(38) 2 Mb
 --- Starting execution: elapsed 0:00:00.015
---- MinCostFlowA.gms(19) 3 Mb
+--- MinCostFlowA.gms(18) 3 Mb
 --- Generating LP model MinCostFlowA
 --- MinCostFlowA.gms(38) 3 Mb
 ---   6 rows  8 columns  22 non-zeroes
---- Executing CPLEX: elapsed 0:00:00.031
+--- Executing CPLEX: elapsed 0:00:00.079
 
 IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
 *** This solver runs with a demo license. No commercial use.
@@ -58,4 +58,4 @@ Objective :         490.000000
 --- MinCostFlowA.gms(38) 2 Mb
 --- Reading solution for model MinCostFlowA
 *** Status: Normal completion
---- Job MinCostFlowA.gms Stop 04/22/20 11:04:52 elapsed 0:00:00.167
+--- Job MinCostFlowA.gms Stop 04/24/20 17:59:49 elapsed 0:00:00.300

@@ -1,47 +1,47 @@
 B 3 C o m p i l a t i o n
-B 49 Equation Listing    SOLVE TransportA Using LP From line 38
-D 52 OBJ
-D 57 O1
-D 62 O2
-D 67 O3
-D 72 D1
-D 77 D2
-D 82 D3
-D 87 D4
-B 93 Column Listing      SOLVE TransportA Using LP From line 38
-E 96 Z
-E 103 X11
-E 112 X12
-E 121 X13
-E 130 X14
-E 139 X21
-E 148 X22
-E 157 X23
-E 166 X24
-E 175 X31
-E 184 X32
-E 193 X33
-E 202 X34
-B 212 Model Statistics    SOLVE TransportA Using LP From line 38
-B 228 Solution Report     SOLVE TransportA Using LP From line 38
-F 258 OBJ
-F 259 O1
-F 260 O2
-F 261 O3
-F 262 D1
-F 263 D2
-F 264 D3
-F 265 D4
-G 269 Z
-G 270 X11
-G 271 X12
-G 272 X13
-G 273 X14
-G 274 X21
-G 275 X22
-G 276 X23
-G 277 X24
-G 278 X31
-G 279 X32
-G 280 X33
-G 281 X34
+B 50 Equation Listing    SOLVE TransportA Using LP From line 39
+D 53 OBJ
+D 58 RO1
+D 63 RO2
+D 68 RO3
+D 73 RD1
+D 78 RD2
+D 83 RD3
+D 88 RD4
+B 94 Column Listing      SOLVE TransportA Using LP From line 39
+E 97 Z
+E 104 x11
+E 113 x12
+E 122 x13
+E 131 x14
+E 140 x21
+E 149 x22
+E 158 x23
+E 167 x24
+E 176 x31
+E 185 x32
+E 194 x33
+E 203 x34
+B 213 Model Statistics    SOLVE TransportA Using LP From line 39
+B 229 Solution Report     SOLVE TransportA Using LP From line 39
+F 259 OBJ
+F 260 RO1
+F 261 RO2
+F 262 RO3
+F 263 RD1
+F 264 RD2
+F 265 RD3
+F 266 RD4
+G 274 Z
+G 275 x11
+G 276 x12
+G 277 x13
+G 278 x14
+G 279 x21
+G 280 x22
+G 281 x23
+G 282 x24
+G 283 x31
+G 284 x32
+G 285 x33
+G 286 x34

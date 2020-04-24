@@ -1,31 +1,31 @@
 * ShortestPathA.gms
-* Problema de la ruta más corta
 
 
-VARIABLES
+FREE VARIABLES
 
-Z;
+Z   'min';
 
 
 POSITIVE VARIABLES
 
-X12, X13, X23, X24, X34, X35, X45;
+xAB, xAC, xBC, xBD, xCD, xCE, xDE 'if reaction is in the shortest path = 1, else = 0';
 
 
 EQUATIONS
 
-OBJ, B1, B2, B3, B4, B5;
+OBJ                 'min',
+BA, BB, BC, BD, BE  ' - ';
 
-OBJ..    Z =E= 20*X12 + 30*X13 + 20*X23 + 30*X24 + 10*X34 + 70*X35 + 50*X45 ;
+OBJ..    20*xAB + 30*xAC + 20*xBC + 30*xBD + 10*xCD + 70*xCE + 50*xDE =E= Z;
 
-B1..    -X12 - X13                                =E= -1;
-B2..     X12       - X23 - X24                    =E=  0;
-B3..           X13 + X23       - X34 - X35        =E=  0;
-B4..                       X24 + X34       - X45  =E=  0;
-B5..                                   X35 + X45  =E=  1;
+BA..       -xAB -    xAC                                              =E= -1;
+BB..        xAB          -    xBC -    xBD                            =E=  0;
+BC..                 xAC +    xBC          -    xCD -    xCE          =E=  0;
+BD..                                   xBD +    xCD          -    xDE =E=  0;
+BE..                                                     xCE +    xDE =E=  1;
 
 
 MODEL ShortestPathA /all/;
 
 
-SOLVE ShortestPathA using LP minimizing Z;
+SOLVE ShortestPathA USING LP MINIMIZING Z;
