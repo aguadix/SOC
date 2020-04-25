@@ -1,13 +1,13 @@
 B 3 C o m p i l a t i o n
-B 64 Equation Listing    SOLVE ProductMixB Using LP From line 53
-D 67 OBJ
-D 72 RD
-B 82 Column Listing      SOLVE ProductMixB Using LP From line 53
-E 85 Z
-E 92 x
-B 110 Model Statistics    SOLVE ProductMixB Using LP From line 53
-B 126 Solution Report     SOLVE ProductMixB Using LP From line 53
-F 156 OBJ
-F 160 RD
-G 170 Z
-G 174 x
+B 65 Equation Listing    SOLVE ProductMixB Using LP From line 54
+D 68 OBJ
+D 73 RD
+B 83 Column Listing      SOLVE ProductMixB Using LP From line 54
+E 86 Z
+E 93 x
+B 111 Model Statistics    SOLVE ProductMixB Using LP From line 54
+B 127 Solution Report     SOLVE ProductMixB Using LP From line 54
+F 157 OBJ
+F 161 RD
+G 171 Z
+G 175 x

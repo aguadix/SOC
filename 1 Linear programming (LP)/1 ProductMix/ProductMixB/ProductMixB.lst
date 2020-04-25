@@ -1,4 +1,4 @@
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/25/20 01:20:13 Page 1
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/25/20 11:10:47 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -49,19 +49,20 @@ C o m p i l a t i o n
   44  RD(m)   'hour/day';
   45   
   46  OBJ..   SUM(p,b(p)*x(p))   =E= Z;
-  47  RD(m).. SUM(p,u(m,p)*x(p)) =L= d(m);
-  48   
+  47   
+  48  RD(m).. SUM(p,u(m,p)*x(p)) =L= d(m);
   49   
-  50  MODEL ProductMixB /all/;
-  51   
+  50   
+  51  MODEL ProductMixB /all/;
   52   
-  53  SOLVE ProductMixB USING LP MAXIMIZING Z;
+  53   
+  54  SOLVE ProductMixB USING LP MAXIMIZING Z;
 
 
 COMPILATION TIME     =        0.000 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/25/20 01:20:13 Page 2
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/25/20 11:10:47 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Equation Listing    SOLVE ProductMixB Using LP From line 53
+Equation Listing    SOLVE ProductMixB Using LP From line 54
 
 
 ---- OBJ  =E=  $/day
@@ -77,9 +78,9 @@ RD(M2)..  x(P1) + 1.5*x(P2) =L= 20 ; (LHS = 0)
      
 RD(M3)..  3.5*x(P1) + x(P2) =L= 24 ; (LHS = 0)
      
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/25/20 01:20:13 Page 3
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/25/20 11:10:47 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE ProductMixB Using LP From line 53
+Column Listing      SOLVE ProductMixB Using LP From line 54
 
 
 ---- Z  $/day
@@ -105,9 +106,9 @@ x(P2)
         1.5     RD(M2)
         1       RD(M3)
 
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/25/20 01:20:13 Page 4
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/25/20 11:10:47 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Model Statistics    SOLVE ProductMixB Using LP From line 53
+Model Statistics    SOLVE ProductMixB Using LP From line 54
 
 
 MODEL STATISTICS
@@ -117,26 +118,26 @@ BLOCKS OF VARIABLES           2     SINGLE VARIABLES            3
 NON ZERO ELEMENTS             9
 
 
-GENERATION TIME      =        0.093 SECONDS      4 MB  30.3.0 rc5da09e WEX-WEI
+GENERATION TIME      =        0.016 SECONDS      4 MB  30.3.0 rc5da09e WEX-WEI
 
 
-EXECUTION TIME       =        0.093 SECONDS      4 MB  30.3.0 rc5da09e WEX-WEI
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/25/20 01:20:13 Page 5
+EXECUTION TIME       =        0.016 SECONDS      4 MB  30.3.0 rc5da09e WEX-WEI
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/25/20 11:10:47 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE ProductMixB Using LP From line 53
+Solution Report     SOLVE ProductMixB Using LP From line 54
 
 
                S O L V E      S U M M A R Y
 
      MODEL   ProductMixB         OBJECTIVE  Z
      TYPE    LP                  DIRECTION  MAXIMIZE
-     SOLVER  CPLEX               FROM LINE  53
+     SOLVER  CPLEX               FROM LINE  54
 
 **** SOLVER STATUS     1 Normal Completion         
 **** MODEL STATUS      1 Optimal                   
 **** OBJECTIVE VALUE               38.3529
 
- RESOURCE USAGE, LIMIT          0.000      1000.000
+ RESOURCE USAGE, LIMIT          0.016      1000.000
  ITERATION COUNT, LIMIT         2    2000000000
 
 IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window

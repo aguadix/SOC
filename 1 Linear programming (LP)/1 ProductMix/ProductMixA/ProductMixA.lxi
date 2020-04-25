@@ -1,19 +1,19 @@
 B 3 C o m p i l a t i o n
-B 39 Equation Listing    SOLVE ProductMixA Using LP From line 28
-D 42 OBJ
-D 47 RD1
-D 52 RD2
-D 57 RD3
-B 63 Column Listing      SOLVE ProductMixA Using LP From line 28
-E 66 Z
-E 73 x1
-E 83 x2
-B 94 Model Statistics    SOLVE ProductMixA Using LP From line 28
-B 110 Solution Report     SOLVE ProductMixA Using LP From line 28
-F 140 OBJ
-F 141 RD1
-F 142 RD2
-F 143 RD3
-G 150 Z
-G 151 x1
-G 152 x2
+B 40 Equation Listing    SOLVE ProductMixA Using LP From line 29
+D 43 OBJ
+D 48 RD1
+D 53 RD2
+D 58 RD3
+B 64 Column Listing      SOLVE ProductMixA Using LP From line 29
+E 67 Z
+E 74 x1
+E 84 x2
+B 95 Model Statistics    SOLVE ProductMixA Using LP From line 29
+B 111 Solution Report     SOLVE ProductMixA Using LP From line 29
+F 141 OBJ
+F 142 RD1
+F 143 RD2
+F 144 RD3
+G 151 Z
+G 152 x1
+G 153 x2

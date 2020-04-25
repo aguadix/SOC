@@ -1,4 +1,4 @@
---- Job ProductMixB.gms Start 04/25/20 01:20:13 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
+--- Job ProductMixB.gms Start 04/25/20 11:10:47 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
 --- GAMS Parameters defined
     Input C:\aguadix\GITHUB\SOC\1 Linear programming (LP)\1 ProductMix\ProductMixB\ProductMixB.gms
     PageSize 0
@@ -15,12 +15,12 @@ Licensee: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
           aguadix@ugr.es, ANTONIO MARIA GUADIX ESCOBAR                     
           Demo license for demonstration and instructional purposes only
 --- Starting compilation
---- ProductMixB.gms(53) 3 Mb
+--- ProductMixB.gms(54) 3 Mb
 --- Starting execution: elapsed 0:00:00.000
 --- Generating LP model ProductMixB
---- ProductMixB.gms(53) 4 Mb
+--- ProductMixB.gms(54) 4 Mb
 ---   4 rows  3 columns  9 non-zeroes
---- Executing CPLEX: elapsed 0:00:00.088
+--- Executing CPLEX: elapsed 0:00:00.015
 
 IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
 *** This solver runs with a demo license. No commercial use.
@@ -53,7 +53,7 @@ Optimal solution found.
 Objective :          38.352941
 
 --- Restarting execution
---- ProductMixB.gms(53) 2 Mb
+--- ProductMixB.gms(54) 2 Mb
 --- Reading solution for model ProductMixB
 *** Status: Normal completion
---- Job ProductMixB.gms Stop 04/25/20 01:20:14 elapsed 0:00:00.204
+--- Job ProductMixB.gms Stop 04/25/20 11:10:48 elapsed 0:00:00.172

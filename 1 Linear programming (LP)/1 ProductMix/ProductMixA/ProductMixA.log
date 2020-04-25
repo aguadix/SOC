@@ -1,4 +1,4 @@
---- Job ProductMixA.gms Start 04/25/20 01:20:12 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
+--- Job ProductMixA.gms Start 04/25/20 11:11:03 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
 --- GAMS Parameters defined
     Input C:\aguadix\GITHUB\SOC\1 Linear programming (LP)\1 ProductMix\ProductMixA\ProductMixA.gms
     PageSize 0
@@ -15,10 +15,10 @@ Licensee: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
           aguadix@ugr.es, ANTONIO MARIA GUADIX ESCOBAR                     
           Demo license for demonstration and instructional purposes only
 --- Starting compilation
---- ProductMixA.gms(28) 2 Mb
---- Starting execution: elapsed 0:00:00.000
+--- ProductMixA.gms(29) 2 Mb
+--- Starting execution: elapsed 0:00:00.015
 --- Generating LP model ProductMixA
---- ProductMixA.gms(28) 3 Mb
+--- ProductMixA.gms(29) 3 Mb
 ---   4 rows  3 columns  9 non-zeroes
 --- Executing CPLEX: elapsed 0:00:00.031
 
@@ -47,13 +47,13 @@ Iteration      Dual Objective            In Variable           Out Variable
      1  I            0.000000                     x2              RD3 slack
      2              38.352941                     x1              RD2 slack
 LP status(1): optimal
-Cplex Time: 0.02sec (det. 0.01 ticks)
+Cplex Time: 0.00sec (det. 0.01 ticks)
 
 Optimal solution found.
 Objective :          38.352941
 
 --- Restarting execution
---- ProductMixA.gms(28) 2 Mb
+--- ProductMixA.gms(29) 2 Mb
 --- Reading solution for model ProductMixA
 *** Status: Normal completion
---- Job ProductMixA.gms Stop 04/25/20 01:20:12 elapsed 0:00:00.162
+--- Job ProductMixA.gms Stop 04/25/20 11:11:03 elapsed 0:00:00.277

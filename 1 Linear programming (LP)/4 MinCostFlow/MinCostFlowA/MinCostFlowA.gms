@@ -9,13 +9,13 @@ Z   '$/min';
 POSITIVE VARIABLES
 
 x12, x13, x14, x23, x25, x35, x45   'm3/min';
-x12.UP = 30;
-x13.UP = 10;
-x14.UP = 35;
-x23.UP = 60;
-x25.UP = 30;
-x35.UP = 30;
-x45.UP = 30;
+x12.up = 30;
+x13.up = 10;
+x14.up = 35;
+x23.up = 60;
+x25.up = 30;
+x35.up = 30;
+x45.up = 30;
 
 
 EQUATIONS

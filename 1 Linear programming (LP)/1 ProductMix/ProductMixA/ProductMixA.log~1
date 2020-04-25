@@ -1,4 +1,4 @@
---- Job ProductMixA.gms Start 04/25/20 01:18:16 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
+--- Job ProductMixA.gms Start 04/25/20 11:10:52 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
 --- GAMS Parameters defined
     Input C:\aguadix\GITHUB\SOC\1 Linear programming (LP)\1 ProductMix\ProductMixA\ProductMixA.gms
     PageSize 0
@@ -15,12 +15,12 @@ Licensee: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
           aguadix@ugr.es, ANTONIO MARIA GUADIX ESCOBAR                     
           Demo license for demonstration and instructional purposes only
 --- Starting compilation
---- ProductMixA.gms(28) 2 Mb
+--- ProductMixA.gms(29) 2 Mb
 --- Starting execution: elapsed 0:00:00.000
 --- Generating LP model ProductMixA
---- ProductMixA.gms(28) 3 Mb
+--- ProductMixA.gms(29) 3 Mb
 ---   4 rows  3 columns  9 non-zeroes
---- Executing CPLEX: elapsed 0:00:00.032
+--- Executing CPLEX: elapsed 0:00:00.047
 
 IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
 *** This solver runs with a demo license. No commercial use.
@@ -41,19 +41,19 @@ CPXPARAM_Tune_TimeLimit                          200
 Tried aggregator 1 time.
 LP Presolve eliminated 1 rows and 1 columns.
 Reduced LP has 3 rows, 2 columns, and 6 nonzeros.
-Presolve time = 0.02 sec. (0.00 ticks)
+Presolve time = 0.00 sec. (0.00 ticks)
 
 Iteration      Dual Objective            In Variable           Out Variable
      1  I            0.000000                     x2              RD3 slack
      2              38.352941                     x1              RD2 slack
 LP status(1): optimal
-Cplex Time: 0.02sec (det. 0.01 ticks)
+Cplex Time: 0.00sec (det. 0.01 ticks)
 
 Optimal solution found.
 Objective :          38.352941
 
 --- Restarting execution
---- ProductMixA.gms(28) 2 Mb
+--- ProductMixA.gms(29) 2 Mb
 --- Reading solution for model ProductMixA
 *** Status: Normal completion
---- Job ProductMixA.gms Stop 04/25/20 01:18:16 elapsed 0:00:00.216
+--- Job ProductMixA.gms Stop 04/25/20 11:10:52 elapsed 0:00:00.171

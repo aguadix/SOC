@@ -44,6 +44,7 @@ OBJ     '$/day',
 RD(m)   'hour/day';
 
 OBJ..   SUM(p,b(p)*x(p))   =E= Z;
+
 RD(m).. SUM(p,u(m,p)*x(p)) =L= d(m);
 
 
