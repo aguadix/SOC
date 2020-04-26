@@ -11,7 +11,7 @@ POSITIVE VARIABLES
 x11, x12, x13, x14,
 x21, x22, x23, x24,
 x31, x32, x33, x34,
-x41, x42, x43, x44  'if plant is assigned to line = 1, else = 0';
+x41, x42, x43, x44  'if product is assigned to line = 1, else = 0';
 
 
 EQUATIONS
@@ -39,4 +39,4 @@ RD4..     x14 +   x24 +    x34 +   x44 =E= 1;
 MODEL AssignmentA /all/;
 
 
-SOLVE AssignmentA using LP minimizing Z;
+SOLVE AssignmentA USING LP MINIMIZING Z;
