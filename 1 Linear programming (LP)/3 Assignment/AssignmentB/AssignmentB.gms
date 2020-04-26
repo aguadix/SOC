@@ -24,7 +24,7 @@ Z       '$/year';
 
 POSITIVE VARIABLES
 
-x(p,l)  'if plant is assigned to line = 1, else = 0';
+x(p,l)  'if product is assigned to line = 1, else = 0';
 
 
 EQUATIONS
