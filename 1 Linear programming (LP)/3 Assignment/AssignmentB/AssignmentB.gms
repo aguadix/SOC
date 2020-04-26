@@ -17,7 +17,7 @@ P3         4        5       11        7
 P4         8        7        8        5;
 
 
-VARIABLES
+FREE VARIABLES
 
 Z       '$/year';
 
