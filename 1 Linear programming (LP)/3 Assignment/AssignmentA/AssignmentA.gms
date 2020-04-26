@@ -39,4 +39,4 @@ RD4..     x14 +   x24 +    x34 +   x44 =E= 1;
 MODEL AssignmentA /all/;
 
 
-SOLVE AssignmentA using LP minimizing Z;
+SOLVE AssignmentA USING LP MINIMIZING Z;
