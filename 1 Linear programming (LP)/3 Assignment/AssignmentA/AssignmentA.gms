@@ -1,7 +1,7 @@
 * AssignmentA.gms
 
 
-VARIABLES
+FREE VARIABLES
 
 Z   '$/year';
 
