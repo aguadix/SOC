@@ -1,0 +1,15 @@
+B 3 C o m p i l a t i o n
+B 70 Equation Listing    SOLVE TransportB Using LP From line 59
+D 73 OBJ
+D 78 RO
+D 87 RD
+B 99 Column Listing      SOLVE TransportB Using LP From line 59
+E 102 Z
+E 109 x
+B 132 Model Statistics    SOLVE TransportB Using LP From line 59
+B 148 Solution Report     SOLVE TransportB Using LP From line 59
+F 178 OBJ
+F 182 RO
+F 190 RD
+G 201 Z
+G 205 x

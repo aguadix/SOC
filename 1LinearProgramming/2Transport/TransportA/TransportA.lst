@@ -1,0 +1,307 @@
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/26/20 21:23:55 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1  * TransportA.gms
+   2   
+   3   
+   4  FREE VARIABLES
+   5   
+   6  Z   '$/year';
+   7   
+   8   
+   9  POSITIVE VARIABLES
+  10   
+  11  x11, x12, x13, x14,
+  12  x21, x22, x23, x24,
+  13  x31, x32, x33, x34  'ton/year';
+  14   
+  15   
+  16  EQUATIONS
+  17   
+  18  OBJ                 '$/year',
+  19  RO1, RO2, RO3       'ton/year',
+  20  RD1, RD2, RD3, RD4  'ton/year';
+  21   
+  22  OBJ..    10*x11 +  2*x12 + 20*x13 + 11*x14 +
+  23           12*x21 +  7*x22 +  9*x23 + 20*x24 +
+  24            4*x31 + 14*x32 + 16*x33 + 18*x34 =E=   Z;
+  25   
+  26  RO1..       x11 +    x12 +    x13 +    x14 =E= 15;
+  27  RO2..       x21 +    x22 +    x23 +    x24 =E= 25;
+  28  RO3..       x31 +    x32 +    x33 +    x34 =E= 10;
+  29   
+  30  RD1..       x11 +    x21 +    x31          =E=  5;
+  31  RD2..       x12 +    x22 +    x32          =E= 15;
+  32  RD3..       x13 +    x23 +    x33          =E= 15;
+  33  RD4..       x14 +    x24 +    x34          =E= 15;
+  34   
+  35   
+  36  MODEL TransportA /all/;
+  37   
+  38   
+  39  SOLVE TransportA USING LP MINIMIZING Z;
+
+
+COMPILATION TIME     =        0.000 SECONDS      2 MB  30.3.0 rc5da09e WEX-WEI
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/26/20 21:23:55 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE TransportA Using LP From line 39
+
+
+---- OBJ  =E=  $/year
+
+OBJ..  - Z + 10*x11 + 2*x12 + 20*x13 + 11*x14 + 12*x21 + 7*x22 + 9*x23 + 20*x24 + 4*x31 + 14*x32 + 16*x33 + 18*x34 =E= 0 ; (LHS = 0)
+     
+
+---- RO1  =E=  
+
+RO1..  x11 + x12 + x13 + x14 =E= 15 ; (LHS = 0, INFES = 15 ****)
+     
+
+---- RO2  =E=  
+
+RO2..  x21 + x22 + x23 + x24 =E= 25 ; (LHS = 0, INFES = 25 ****)
+     
+
+---- RO3  =E=  ton/year
+
+RO3..  x31 + x32 + x33 + x34 =E= 10 ; (LHS = 0, INFES = 10 ****)
+     
+
+---- RD1  =E=  
+
+RD1..  x11 + x21 + x31 =E= 5 ; (LHS = 0, INFES = 5 ****)
+     
+
+---- RD2  =E=  
+
+RD2..  x12 + x22 + x32 =E= 15 ; (LHS = 0, INFES = 15 ****)
+     
+
+---- RD3  =E=  
+
+RD3..  x13 + x23 + x33 =E= 15 ; (LHS = 0, INFES = 15 ****)
+     
+
+---- RD4  =E=  ton/year
+
+RD4..  x14 + x24 + x34 =E= 15 ; (LHS = 0, INFES = 15 ****)
+     
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/26/20 21:23:55 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE TransportA Using LP From line 39
+
+
+---- Z  $/year
+
+Z
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+       -1       OBJ
+
+
+---- x11  
+
+x11
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       10       OBJ
+        1       RO1
+        1       RD1
+
+
+---- x12  
+
+x12
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+        2       OBJ
+        1       RO1
+        1       RD2
+
+
+---- x13  
+
+x13
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       20       OBJ
+        1       RO1
+        1       RD3
+
+
+---- x14  
+
+x14
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       11       OBJ
+        1       RO1
+        1       RD4
+
+
+---- x21  
+
+x21
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       12       OBJ
+        1       RO2
+        1       RD1
+
+
+---- x22  
+
+x22
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+        7       OBJ
+        1       RO2
+        1       RD2
+
+
+---- x23  
+
+x23
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+        9       OBJ
+        1       RO2
+        1       RD3
+
+
+---- x24  
+
+x24
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       20       OBJ
+        1       RO2
+        1       RD4
+
+
+---- x31  
+
+x31
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+        4       OBJ
+        1       RO3
+        1       RD1
+
+
+---- x32  
+
+x32
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       14       OBJ
+        1       RO3
+        1       RD2
+
+
+---- x33  
+
+x33
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       16       OBJ
+        1       RO3
+        1       RD3
+
+
+---- x34  ton/year
+
+x34
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       18       OBJ
+        1       RO3
+        1       RD4
+
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/26/20 21:23:55 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE TransportA Using LP From line 39
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           8     SINGLE EQUATIONS            8
+BLOCKS OF VARIABLES          13     SINGLE VARIABLES           13
+NON ZERO ELEMENTS            37
+
+
+GENERATION TIME      =        0.140 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
+
+
+EXECUTION TIME       =        0.140 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/26/20 21:23:55 Page 5
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE TransportA Using LP From line 39
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   TransportA          OBJECTIVE  Z
+     TYPE    LP                  DIRECTION  MINIMIZE
+     SOLVER  CPLEX               FROM LINE  39
+
+**** SOLVER STATUS     1 Normal Completion         
+**** MODEL STATUS      1 Optimal                   
+**** OBJECTIVE VALUE              435.0000
+
+ RESOURCE USAGE, LIMIT          0.031      1000.000
+ ITERATION COUNT, LIMIT         2    2000000000
+
+IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
+*** This solver runs with a demo license. No commercial use.
+Cplex 12.10.0.0
+
+Space for names approximately 0.00 Mb
+Use option 'names no' to turn use of names off
+LP status(1): optimal
+Cplex Time: 0.00sec (det. 0.02 ticks)
+Optimal solution found.
+Objective :         435.000000
+
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU OBJ                 .              .              .            -1.0000      
+---- EQU RO1               15.0000        15.0000        15.0000        -5.0000      
+---- EQU RO2               25.0000        25.0000        25.0000          .          
+---- EQU RO3               10.0000        10.0000        10.0000         2.0000      
+---- EQU RD1                5.0000         5.0000         5.0000         2.0000      
+---- EQU RD2               15.0000        15.0000        15.0000         7.0000      
+---- EQU RD3               15.0000        15.0000        15.0000         9.0000      
+---- EQU RD4               15.0000        15.0000        15.0000        16.0000      
+
+  OBJ  $/year
+  RO3  ton/year
+  RD4  ton/year
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR Z                 -INF          435.0000        +INF             .          
+---- VAR x11                 .              .            +INF           13.0000      
+---- VAR x12                 .             5.0000        +INF             .          
+---- VAR x13                 .              .            +INF           16.0000      
+---- VAR x14                 .            10.0000        +INF             .          
+---- VAR x21                 .              .            +INF           10.0000      
+---- VAR x22                 .            10.0000        +INF             .          
+---- VAR x23                 .            15.0000        +INF             .          
+---- VAR x24                 .              .            +INF            4.0000      
+---- VAR x31                 .             5.0000        +INF             .          
+---- VAR x32                 .              .            +INF            5.0000      
+---- VAR x33                 .              .            +INF            5.0000      
+---- VAR x34                 .             5.0000        +INF             .          
+
+  Z  $/year
+  x34  ton/year
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+
+
+EXECUTION TIME       =        0.000 SECONDS      2 MB  30.3.0 rc5da09e WEX-WEI
+
+
+USER: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
+      UNIVERSITY OF GRANADA, Spain                             DL007289
+
+
+**** FILE SUMMARY
+
+Input      C:\aguadix\GITHUB\SOC\1LinearProgramming\2Transport\TransportA\TransportA.gms
+Output     C:\aguadix\GITHUB\SOC\1LinearProgramming\2Transport\TransportA\TransportA.lst
