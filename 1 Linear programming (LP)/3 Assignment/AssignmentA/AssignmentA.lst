@@ -1,4 +1,4 @@
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/25/20 01:11:26 Page 1
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/26/20 08:59:37 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -25,20 +25,20 @@ C o m p i l a t i o n
   20  RO1, RO2, RO3, RO4      '-',
   21  RD1, RD2, RD3, RD4      '-';
   22   
-  23  OBJ..    Z =E=   1*x11 + 4*x12 +  6*x13 + 3*x14 +
-  24                   9*x21 + 7*x22 + 10*x23 + 9*x24 +
-  25                   4*x31 + 5*x32 + 11*x33 + 7*x34 +
-  26                   8*x41 + 7*x42 +  8*x43 + 5*x44;
+  23  OBJ..   1*x11 + 4*x12 +  6*x13 + 3*x14 +
+  24          9*x21 + 7*x22 + 10*x23 + 9*x24 +
+  25          4*x31 + 5*x32 + 11*x33 + 7*x34 +
+  26          8*x41 + 7*x42 +  8*x43 + 5*x44 =E= Z;
   27   
-  28  RO1..     x11 + x12 + x13 + x14 =E= 1;
-  29  RO2..     x21 + x22 + x23 + x24 =E= 1;
-  30  RO3..     x31 + x32 + x33 + x34 =E= 1;
-  31  RO4..     x41 + x42 + x43 + x44 =E= 1;
+  28  RO1..     x11 +   x12 +    x13 +   x14 =E= 1;
+  29  RO2..     x21 +   x22 +    x23 +   x24 =E= 1;
+  30  RO3..     x31 +   x32 +    x33 +   x34 =E= 1;
+  31  RO4..     x41 +   x42 +    x43 +   x44 =E= 1;
   32   
-  33  RD1..     x11 + x21 + x31 + x41 =E= 1;
-  34  RD2..     x12 + x22 + x32 + x42 =E= 1;
-  35  RD3..     x13 + x23 + x33 + x43 =E= 1;
-  36  RD4..     x14 + x24 + x34 + x44 =E= 1;
+  33  RD1..     x11 +   x21 +    x31 +   x41 =E= 1;
+  34  RD2..     x12 +   x22 +    x32 +   x42 =E= 1;
+  35  RD3..     x13 +   x23 +    x33 +   x43 =E= 1;
+  36  RD4..     x14 +   x24 +    x34 +   x44 =E= 1;
   37   
   38   
   39  MODEL AssignmentA /all/;
@@ -48,14 +48,14 @@ C o m p i l a t i o n
 
 
 COMPILATION TIME     =        0.000 SECONDS      2 MB  30.3.0 rc5da09e WEX-WEI
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/25/20 01:11:26 Page 2
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/26/20 08:59:37 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE AssignmentA Using LP From line 42
 
 
 ---- OBJ  =E=  $
 
-OBJ..  Z - x11 - 4*x12 - 6*x13 - 3*x14 - 9*x21 - 7*x22 - 10*x23 - 9*x24 - 4*x31 - 5*x32 - 11*x33 - 7*x34 - 8*x41 - 7*x42 - 8*x43 - 5*x44 =E= 0 ; (LHS = 0)
+OBJ..  - Z + x11 + 4*x12 + 6*x13 + 3*x14 + 9*x21 + 7*x22 + 10*x23 + 9*x24 + 4*x31 + 5*x32 + 11*x33 + 7*x34 + 8*x41 + 7*x42 + 8*x43 + 5*x44 =E= 0 ; (LHS = 0)
      
 
 ---- RO1  =E=  
@@ -97,7 +97,7 @@ RD3..  x13 + x23 + x33 + x43 =E= 1 ; (LHS = 0, INFES = 1 ****)
 
 RD4..  x14 + x24 + x34 + x44 =E= 1 ; (LHS = 0, INFES = 1 ****)
      
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/25/20 01:11:26 Page 3
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/26/20 08:59:37 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE AssignmentA Using LP From line 42
 
@@ -106,14 +106,14 @@ Column Listing      SOLVE AssignmentA Using LP From line 42
 
 Z
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
-        1       OBJ
+       -1       OBJ
 
 
 ---- x11  
 
 x11
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
-       -1       OBJ
+        1       OBJ
         1       RO1
         1       RD1
 
@@ -122,7 +122,7 @@ x11
 
 x12
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
-       -4       OBJ
+        4       OBJ
         1       RO1
         1       RD2
 
@@ -131,7 +131,7 @@ x12
 
 x13
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
-       -6       OBJ
+        6       OBJ
         1       RO1
         1       RD3
 
@@ -140,7 +140,7 @@ x13
 
 x14
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
-       -3       OBJ
+        3       OBJ
         1       RO1
         1       RD4
 
@@ -149,7 +149,7 @@ x14
 
 x21
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
-       -9       OBJ
+        9       OBJ
         1       RO2
         1       RD1
 
@@ -158,7 +158,7 @@ x21
 
 x22
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
-       -7       OBJ
+        7       OBJ
         1       RO2
         1       RD2
 
@@ -167,7 +167,7 @@ x22
 
 x23
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
-      -10       OBJ
+       10       OBJ
         1       RO2
         1       RD3
 
@@ -176,7 +176,7 @@ x23
 
 x24
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
-       -9       OBJ
+        9       OBJ
         1       RO2
         1       RD4
 
@@ -185,7 +185,7 @@ x24
 
 x31
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
-       -4       OBJ
+        4       OBJ
         1       RO3
         1       RD1
 
@@ -194,7 +194,7 @@ x31
 
 x32
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
-       -5       OBJ
+        5       OBJ
         1       RO3
         1       RD2
 
@@ -203,7 +203,7 @@ x32
 
 x33
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
-      -11       OBJ
+       11       OBJ
         1       RO3
         1       RD3
 
@@ -212,7 +212,7 @@ x33
 
 x34
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
-       -7       OBJ
+        7       OBJ
         1       RO3
         1       RD4
 
@@ -221,7 +221,7 @@ x34
 
 x41
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
-       -8       OBJ
+        8       OBJ
         1       RO4
         1       RD1
 
@@ -230,7 +230,7 @@ x41
 
 x42
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
-       -7       OBJ
+        7       OBJ
         1       RO4
         1       RD2
 
@@ -239,7 +239,7 @@ x42
 
 x43
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
-       -8       OBJ
+        8       OBJ
         1       RO4
         1       RD3
 
@@ -248,11 +248,11 @@ x43
 
 x44
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
-       -5       OBJ
+        5       OBJ
         1       RO4
         1       RD4
 
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/25/20 01:11:26 Page 4
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/26/20 08:59:37 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Statistics    SOLVE AssignmentA Using LP From line 42
 
@@ -264,11 +264,11 @@ BLOCKS OF VARIABLES          17     SINGLE VARIABLES           17
 NON ZERO ELEMENTS            49
 
 
-GENERATION TIME      =        0.031 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
+GENERATION TIME      =        0.375 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
 
 
-EXECUTION TIME       =        0.031 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/25/20 01:11:26 Page 5
+EXECUTION TIME       =        0.375 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/26/20 08:59:37 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE AssignmentA Using LP From line 42
 
@@ -283,7 +283,7 @@ Solution Report     SOLVE AssignmentA Using LP From line 42
 **** MODEL STATUS      1 Optimal                   
 **** OBJECTIVE VALUE               21.0000
 
- RESOURCE USAGE, LIMIT          0.015      1000.000
+ RESOURCE USAGE, LIMIT          0.235      1000.000
  ITERATION COUNT, LIMIT         2    2000000000
 
 IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
@@ -293,14 +293,14 @@ Cplex 12.10.0.0
 Space for names approximately 0.00 Mb
 Use option 'names no' to turn use of names off
 LP status(1): optimal
-Cplex Time: 0.00sec (det. 0.03 ticks)
+Cplex Time: 0.09sec (det. 0.03 ticks)
 Optimal solution found.
 Objective :          21.000000
 
 
                            LOWER          LEVEL          UPPER         MARGINAL
 
----- EQU OBJ                 .              .              .             1.0000      
+---- EQU OBJ                 .              .              .            -1.0000      
 ---- EQU RO1                1.0000         1.0000         1.0000         2.0000      
 ---- EQU RO2                1.0000         1.0000         1.0000         7.0000      
 ---- EQU RO3                1.0000         1.0000         1.0000         5.0000      

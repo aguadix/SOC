@@ -1,4 +1,4 @@
---- Job AssignmentA.gms Start 04/25/20 00:52:20 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
+--- Job AssignmentA.gms Start 04/25/20 01:11:26 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
 --- GAMS Parameters defined
     Input C:\aguadix\GITHUB\SOC\1 Linear programming (LP)\3 Assignment\AssignmentA\AssignmentA.gms
     PageSize 0
@@ -20,7 +20,7 @@ Licensee: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
 --- Generating LP model AssignmentA
 --- AssignmentA.gms(42) 3 Mb
 ---   9 rows  17 columns  49 non-zeroes
---- Executing CPLEX: elapsed 0:00:00.094
+--- Executing CPLEX: elapsed 0:00:00.037
 
 IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
 *** This solver runs with a demo license. No commercial use.
@@ -57,4 +57,4 @@ Objective :          21.000000
 --- AssignmentA.gms(42) 2 Mb
 --- Reading solution for model AssignmentA
 *** Status: Normal completion
---- Job AssignmentA.gms Stop 04/25/20 00:52:20 elapsed 0:00:00.773
+--- Job AssignmentA.gms Stop 04/25/20 01:11:26 elapsed 0:00:00.195
