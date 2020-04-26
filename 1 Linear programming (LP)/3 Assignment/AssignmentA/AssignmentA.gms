@@ -3,7 +3,7 @@
 
 VARIABLES
 
-Z   '$';
+Z   '$/year';
 
 
 POSITIVE VARIABLES
@@ -16,7 +16,7 @@ x41, x42, x43, x44  'if plant is assigned to line = 1, else = 0';
 
 EQUATIONS
 
-OBJ                     '$',
+OBJ                     '$/year',
 RO1, RO2, RO3, RO4      '-',
 RD1, RD2, RD3, RD4      '-';
 
