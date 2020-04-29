@@ -1,0 +1,31 @@
+B 3 C o m p i l a t i o n
+B 29 Equation Listing    SOLVE KnapsackA Using MIP From line 18
+D 32 OBJ
+D 37 RWT
+B 43 Column Listing      SOLVE KnapsackA Using MIP From line 18
+E 46 Z
+E 53 x1
+E 61 x2
+E 69 x3
+E 77 x4
+E 85 x5
+E 93 x6
+E 101 x7
+E 109 x8
+E 117 x9
+E 125 x10
+B 134 Model Statistics    SOLVE KnapsackA Using MIP From line 18
+B 150 Solution Report     SOLVE KnapsackA Using MIP From line 18
+F 189 OBJ
+F 190 RWT
+G 197 Z
+G 198 x1
+G 199 x2
+G 200 x3
+G 201 x4
+G 202 x5
+G 203 x6
+G 204 x7
+G 205 x8
+G 206 x9
+G 207 x10

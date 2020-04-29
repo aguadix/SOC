@@ -1,0 +1,27 @@
+--- Job KnapsackA.gms Start 04/29/20 22:35:43 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
+--- GAMS Parameters defined
+    Input C:\aguadix\GITHUB\SOC\2MixedIntegerProgramming\1Knapsack\KnapsackA\KnapsackA.gms
+    PageSize 0
+    ScrDir C:\aguadix\GITHUB\SOC\2MixedIntegerProgramming\1Knapsack\KnapsackA\225a\
+    SysDir C:\GAMS\win64\30.3\
+    LogOption 3
+    ErrMsg 1
+    ErrorLog 99
+    IDE 1
+    LstTitleLeftAligned 1
+GAMS 30.3.0   Copyright (C) 1987-2020 GAMS Development. All rights reserved
+Licensee: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
+          UNIVERSITY OF GRANADA, Spain                             DL007289
+          aguadix@ugr.es, ANTONIO MARIA GUADIX ESCOBAR                     
+          Demo license for demonstration and instructional purposes only
+--- Starting compilation
+--- KnapsackA.gms(13) 2 Mb 1 Error
+*** Error 409 in C:\aguadix\GITHUB\SOC\2MixedIntegerProgramming\1Knapsack\KnapsackA\KnapsackA.gms
+    Unrecognizable item - skip to find a new statement
+      looking for a ';' or a key word to get started again
+--- KnapsackA.gms(37) 2 Mb 2 Errors
+*** Error 257 in C:\aguadix\GITHUB\SOC\2MixedIntegerProgramming\1Knapsack\KnapsackA\KnapsackA.gms
+    Solve statement not checked because of previous errors
+--- KnapsackA.gms(37) 2 Mb 2 Errors
+*** Status: Compilation error(s)
+--- Job KnapsackA.gms Stop 04/29/20 22:35:43 elapsed 0:00:00.015
