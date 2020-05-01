@@ -1,137 +1,125 @@
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 12:53:16 Page 1
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/01/20 22:22:37 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
 
    1  * BinPackingB.gms
-   2  * Problema de empaquetamiento en contenedores
-   3   
-   4  SETS
-   5  i        objetos            / O1 * O10 /
-   6  j        cajas              / C1 * C6 /;
-   7   
-   8  PARAMETERS
+   2   
+   3  SET
+   4  f       'farms'     /A,B,C,D,E,F,G,H,I,J/
+   5  t       'trucks'    /T1*T6/;
+   6   
+   7  PARAMETER
+   8  v(f)    'm3'        /A 1, B 1, C 2, D 2, E 4, F 4, G 5, H 6, I 7, J 8/;
    9   
-  10  w(i)  peso
-  11  /O1   1
-  12  O2    1
-  13  O3    2
-  14  O4    2
-  15  O5    4
-  16  O6    4
-  17  O7    5
-  18  O8    6
-  19  O9    7
-  20  O10   8/;
-  21   
-  22  SCALAR
-  23  V capacidad de cada caja  /10/ ;
+  10  SCALAR
+  11  VT      'm3'        /10/ ;
+  12   
+  13  FREE VARIABLE
+  14  Z       'number of trucks used';
+  15   
+  16  BINARY VARIABLE
+  17  x(f,t)  'if farm is collected by truck = 1, else = 0'
+  18  y(t)    'if truck is used = 1, else = 0'
+  19   
+  20  EQUATION
+  21  OBJ     'number of trucks used'
+  22  RO(f)   '-'
+  23  RVT(t)  'm3';
   24   
-  25   
-  26   
-  27  VARIABLES
-  28  N        número de cajas usadas;
-  29   
-  30  BINARY VARIABLES
-  31  x(i,j)     ¿se mete el objeto i en la caja j?
-  32  y(j)       ¿se usa la caja j?;
-  33   
-  34  EQUATIONS
-  35  Obj, Asigna(i), Cap(j);
-  36   
-  37  Obj..        N =E= sum(j,y(j)) ;
-  38  Asigna(i)..  sum(j,x(i,j)) =E= 1 ;
-  39  Cap(j)..     sum(i,w(i)*x(i,j)) =L= V*y(j);
-  40   
-  41  MODEL BinPackingA /all/;
-  42   
-  43  SOLVE BinPackingA using MIP minimizing N;
+  25  OBJ..       SUM(t,y(t))        =E= Z;
+  26  RO(f)..     SUM(t,x(f,t))      =E= 1;
+  27  RVT(t)..    SUM(f,v(f)*x(f,t)) =L= VT*y(t);
+  28   
+  29  MODEL BinPackingA /all/;
+  30   
+  31  SOLVE BinPackingA USING MIP MINIMIZING Z;
 
 
 COMPILATION TIME     =        0.000 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 12:53:16 Page 2
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/01/20 22:22:37 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Equation Listing    SOLVE BinPackingA Using MIP From line 43
+Equation Listing    SOLVE BinPackingA Using MIP From line 31
 
 
----- Obj  =E=  
+---- OBJ  =E=  number of trucks used
 
-Obj..  N - y(C1) - y(C2) - y(C3) - y(C4) - y(C5) - y(C6) =E= 0 ; (LHS = 0)
+OBJ..  - Z + y(T1) + y(T2) + y(T3) + y(T4) + y(T5) + y(T6) =E= 0 ; (LHS = 0)
      
 
----- Asigna  =E=  
+---- RO  =E=  -
 
-Asigna(O1)..  x(O1,C1) + x(O1,C2) + x(O1,C3) + x(O1,C4) + x(O1,C5) + x(O1,C6) =E= 1 ; (LHS = 0, INFES = 1 ****)
+RO(A)..  x(A,T1) + x(A,T2) + x(A,T3) + x(A,T4) + x(A,T5) + x(A,T6) =E= 1 ; (LHS = 0, INFES = 1 ****)
      
-Asigna(O2)..  x(O2,C1) + x(O2,C2) + x(O2,C3) + x(O2,C4) + x(O2,C5) + x(O2,C6) =E= 1 ; (LHS = 0, INFES = 1 ****)
+RO(B)..  x(B,T1) + x(B,T2) + x(B,T3) + x(B,T4) + x(B,T5) + x(B,T6) =E= 1 ; (LHS = 0, INFES = 1 ****)
      
-Asigna(O3)..  x(O3,C1) + x(O3,C2) + x(O3,C3) + x(O3,C4) + x(O3,C5) + x(O3,C6) =E= 1 ; (LHS = 0, INFES = 1 ****)
+RO(C)..  x(C,T1) + x(C,T2) + x(C,T3) + x(C,T4) + x(C,T5) + x(C,T6) =E= 1 ; (LHS = 0, INFES = 1 ****)
      
 REMAINING 7 ENTRIES SKIPPED
 
 
----- Cap  =L=  
+---- RVT  =L=  m3
 
-Cap(C1)..  x(O1,C1) + x(O2,C1) + 2*x(O3,C1) + 2*x(O4,C1) + 4*x(O5,C1) + 4*x(O6,C1) + 5*x(O7,C1) + 6*x(O8,C1) + 7*x(O9,C1) + 8*x(O10,C1) - 10*y(C1) =L= 0 ; (LHS = 0)
+RVT(T1)..  x(A,T1) + x(B,T1) + 2*x(C,T1) + 2*x(D,T1) + 4*x(E,T1) + 4*x(F,T1) + 5*x(G,T1) + 6*x(H,T1) + 7*x(I,T1) + 8*x(J,T1) - 10*y(T1) =L= 0 ; (LHS = 0)
      
-Cap(C2)..  x(O1,C2) + x(O2,C2) + 2*x(O3,C2) + 2*x(O4,C2) + 4*x(O5,C2) + 4*x(O6,C2) + 5*x(O7,C2) + 6*x(O8,C2) + 7*x(O9,C2) + 8*x(O10,C2) - 10*y(C2) =L= 0 ; (LHS = 0)
+RVT(T2)..  x(A,T2) + x(B,T2) + 2*x(C,T2) + 2*x(D,T2) + 4*x(E,T2) + 4*x(F,T2) + 5*x(G,T2) + 6*x(H,T2) + 7*x(I,T2) + 8*x(J,T2) - 10*y(T2) =L= 0 ; (LHS = 0)
      
-Cap(C3)..  x(O1,C3) + x(O2,C3) + 2*x(O3,C3) + 2*x(O4,C3) + 4*x(O5,C3) + 4*x(O6,C3) + 5*x(O7,C3) + 6*x(O8,C3) + 7*x(O9,C3) + 8*x(O10,C3) - 10*y(C3) =L= 0 ; (LHS = 0)
+RVT(T3)..  x(A,T3) + x(B,T3) + 2*x(C,T3) + 2*x(D,T3) + 4*x(E,T3) + 4*x(F,T3) + 5*x(G,T3) + 6*x(H,T3) + 7*x(I,T3) + 8*x(J,T3) - 10*y(T3) =L= 0 ; (LHS = 0)
      
 REMAINING 3 ENTRIES SKIPPED
 
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 12:53:16 Page 3
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/01/20 22:22:37 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE BinPackingA Using MIP From line 43
+Column Listing      SOLVE BinPackingA Using MIP From line 31
 
 
----- N  número de cajas usadas
+---- Z  number of trucks used
 
-N
+Z
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
-        1       Obj
+       -1       OBJ
 
 
----- x  ¿se mete el objeto i en la caja j?
+---- x  if farm is collected by truck = 1, else = 0
 
-x(O1,C1)
+x(A,T1)
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna(O1)
-        1       Cap(C1)
+        1       RO(A)
+        1       RVT(T1)
 
-x(O1,C2)
+x(A,T2)
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna(O1)
-        1       Cap(C2)
+        1       RO(A)
+        1       RVT(T2)
 
-x(O1,C3)
+x(A,T3)
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna(O1)
-        1       Cap(C3)
+        1       RO(A)
+        1       RVT(T3)
 
 REMAINING 57 ENTRIES SKIPPED
 
----- y  ¿se usa la caja j?
+---- y  if truck is used = 1, else = 0
 
-y(C1)
+y(T1)
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-       -1       Obj
-      -10       Cap(C1)
+        1       OBJ
+      -10       RVT(T1)
 
-y(C2)
+y(T2)
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-       -1       Obj
-      -10       Cap(C2)
+        1       OBJ
+      -10       RVT(T2)
 
-y(C3)
+y(T3)
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-       -1       Obj
-      -10       Cap(C3)
+        1       OBJ
+      -10       RVT(T3)
 
 REMAINING 3 ENTRIES SKIPPED
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 12:53:16 Page 4
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/01/20 22:22:37 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Model Statistics    SOLVE BinPackingA Using MIP From line 43
+Model Statistics    SOLVE BinPackingA Using MIP From line 31
 
 
 MODEL STATISTICS
@@ -141,26 +129,26 @@ BLOCKS OF VARIABLES           3     SINGLE VARIABLES           67
 NON ZERO ELEMENTS           133     DISCRETE VARIABLES         66
 
 
-GENERATION TIME      =        0.016 SECONDS      4 MB  30.3.0 rc5da09e WEX-WEI
+GENERATION TIME      =        0.047 SECONDS      4 MB  30.3.0 rc5da09e WEX-WEI
 
 
-EXECUTION TIME       =        0.016 SECONDS      4 MB  30.3.0 rc5da09e WEX-WEI
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 12:53:16 Page 5
+EXECUTION TIME       =        0.047 SECONDS      4 MB  30.3.0 rc5da09e WEX-WEI
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/01/20 22:22:37 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE BinPackingA Using MIP From line 43
+Solution Report     SOLVE BinPackingA Using MIP From line 31
 
 
                S O L V E      S U M M A R Y
 
-     MODEL   BinPackingA         OBJECTIVE  N
+     MODEL   BinPackingA         OBJECTIVE  Z
      TYPE    MIP                 DIRECTION  MINIMIZE
-     SOLVER  CPLEX               FROM LINE  43
+     SOLVER  CPLEX               FROM LINE  31
 
 **** SOLVER STATUS     1 Normal Completion         
 **** MODEL STATUS      1 Optimal                   
 **** OBJECTIVE VALUE                4.0000
 
- RESOURCE USAGE, LIMIT          0.031      1000.000
+ RESOURCE USAGE, LIMIT          0.016      1000.000
  ITERATION COUNT, LIMIT        42    2000000000
 
 IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
@@ -170,7 +158,7 @@ Cplex 12.10.0.0
 Space for names approximately 0.00 Mb
 Use option 'names no' to turn use of names off
 MIP status(101): integer optimal solution
-Cplex Time: 0.03sec (det. 1.89 ticks)
+Cplex Time: 0.00sec (det. 1.88 ticks)
 Fixing integer variables, and solving final LP...
 Fixed MIP status(1): optimal
 Cplex Time: 0.00sec (det. 0.03 ticks)
@@ -186,115 +174,117 @@ Relative gap:            0.000000
 
                            LOWER          LEVEL          UPPER         MARGINAL
 
----- EQU Obj                 .              .              .             1.0000      
+---- EQU OBJ                 .              .              .            -1.0000      
 
----- EQU Asigna  
+  OBJ  number of trucks used
 
-           LOWER          LEVEL          UPPER         MARGINAL
+---- EQU RO  -
 
-O1          1.0000         1.0000         1.0000          .          
-O2          1.0000         1.0000         1.0000          .          
-O3          1.0000         1.0000         1.0000          .          
-O4          1.0000         1.0000         1.0000          .          
-O5          1.0000         1.0000         1.0000          .          
-O6          1.0000         1.0000         1.0000          .          
-O7          1.0000         1.0000         1.0000          .          
-O8          1.0000         1.0000         1.0000          .          
-O9          1.0000         1.0000         1.0000          .          
-O10         1.0000         1.0000         1.0000          .          
+         LOWER          LEVEL          UPPER         MARGINAL
 
----- EQU Cap  
+A         1.0000         1.0000         1.0000          .          
+B         1.0000         1.0000         1.0000          .          
+C         1.0000         1.0000         1.0000          .          
+D         1.0000         1.0000         1.0000          .          
+E         1.0000         1.0000         1.0000          .          
+F         1.0000         1.0000         1.0000          .          
+G         1.0000         1.0000         1.0000          .          
+H         1.0000         1.0000         1.0000          .          
+I         1.0000         1.0000         1.0000          .          
+J         1.0000         1.0000         1.0000          .          
+
+---- EQU RVT  m3
 
           LOWER          LEVEL          UPPER         MARGINAL
 
-C1        -INF             .              .              .          
-C2        -INF             .              .              .          
-C3        -INF             .              .              .          
-C4        -INF             .              .              .          
-C5        -INF             .              .              .          
-C6        -INF             .              .              .          
+T1        -INF             .              .              .          
+T2        -INF             .              .              .          
+T3        -INF             .              .              .          
+T4        -INF             .              .              .          
+T5        -INF             .              .              .          
+T6        -INF             .              .              .          
 
                            LOWER          LEVEL          UPPER         MARGINAL
 
----- VAR N                 -INF            4.0000        +INF             .          
+---- VAR Z                 -INF            4.0000        +INF             .          
 
-  N  número de cajas usadas
+  Z  number of trucks used
 
----- VAR x  ¿se mete el objeto i en la caja j?
+---- VAR x  if farm is collected by truck = 1, else = 0
 
-              LOWER          LEVEL          UPPER         MARGINAL
+            LOWER          LEVEL          UPPER         MARGINAL
 
-O1 .C1          .              .             1.0000         EPS         
-O1 .C2          .             1.0000         1.0000         EPS         
-O1 .C3          .              .             1.0000         EPS         
-O1 .C4          .              .             1.0000         EPS         
-O1 .C5          .              .             1.0000         EPS         
-O1 .C6          .              .             1.0000         EPS         
-O2 .C1          .             1.0000         1.0000         EPS         
-O2 .C2          .              .             1.0000         EPS         
-O2 .C3          .              .             1.0000         EPS         
-O2 .C4          .              .             1.0000         EPS         
-O2 .C5          .              .             1.0000         EPS         
-O2 .C6          .              .             1.0000         EPS         
-O3 .C1          .              .             1.0000         EPS         
-O3 .C2          .             1.0000         1.0000         EPS         
-O3 .C3          .              .             1.0000         EPS         
-O3 .C4          .              .             1.0000         EPS         
-O3 .C5          .              .             1.0000         EPS         
-O3 .C6          .              .             1.0000         EPS         
-O4 .C1          .              .             1.0000         EPS         
-O4 .C2          .              .             1.0000         EPS         
-O4 .C3          .             1.0000         1.0000         EPS         
-O4 .C4          .              .             1.0000         EPS         
-O4 .C5          .              .             1.0000         EPS         
-O4 .C6          .              .             1.0000         EPS         
-O5 .C1          .             1.0000         1.0000         EPS         
-O5 .C2          .              .             1.0000         EPS         
-O5 .C3          .              .             1.0000         EPS         
-O5 .C4          .              .             1.0000         EPS         
-O5 .C5          .              .             1.0000         EPS         
-O5 .C6          .              .             1.0000         EPS         
-O6 .C1          .              .             1.0000         EPS         
-O6 .C2          .              .             1.0000         EPS         
-O6 .C3          .              .             1.0000         EPS         
-O6 .C4          .              .             1.0000         EPS         
-O6 .C5          .             1.0000         1.0000         EPS         
-O6 .C6          .              .             1.0000         EPS         
-O7 .C1          .             1.0000         1.0000         EPS         
-O7 .C2          .              .             1.0000         EPS         
-O7 .C3          .              .             1.0000         EPS         
-O7 .C4          .              .             1.0000         EPS         
-O7 .C5          .              .             1.0000         EPS         
-O7 .C6          .              .             1.0000         EPS         
-O8 .C1          .              .             1.0000         EPS         
-O8 .C2          .              .             1.0000         EPS         
-O8 .C3          .              .             1.0000         EPS         
-O8 .C4          .              .             1.0000         EPS         
-O8 .C5          .             1.0000         1.0000         EPS         
-O8 .C6          .              .             1.0000         EPS         
-O9 .C1          .              .             1.0000         EPS         
-O9 .C2          .             1.0000         1.0000         EPS         
-O9 .C3          .              .             1.0000         EPS         
-O9 .C4          .              .             1.0000         EPS         
-O9 .C5          .              .             1.0000         EPS         
-O9 .C6          .              .             1.0000         EPS         
-O10.C1          .              .             1.0000         EPS         
-O10.C2          .              .             1.0000         EPS         
-O10.C3          .             1.0000         1.0000         EPS         
-O10.C4          .              .             1.0000         EPS         
-O10.C5          .              .             1.0000         EPS         
-O10.C6          .              .             1.0000         EPS         
+A.T1          .              .             1.0000         EPS         
+A.T2          .             1.0000         1.0000         EPS         
+A.T3          .              .             1.0000         EPS         
+A.T4          .              .             1.0000         EPS         
+A.T5          .              .             1.0000         EPS         
+A.T6          .              .             1.0000         EPS         
+B.T1          .             1.0000         1.0000         EPS         
+B.T2          .              .             1.0000         EPS         
+B.T3          .              .             1.0000         EPS         
+B.T4          .              .             1.0000         EPS         
+B.T5          .              .             1.0000         EPS         
+B.T6          .              .             1.0000         EPS         
+C.T1          .              .             1.0000         EPS         
+C.T2          .             1.0000         1.0000         EPS         
+C.T3          .              .             1.0000         EPS         
+C.T4          .              .             1.0000         EPS         
+C.T5          .              .             1.0000         EPS         
+C.T6          .              .             1.0000         EPS         
+D.T1          .              .             1.0000         EPS         
+D.T2          .              .             1.0000         EPS         
+D.T3          .             1.0000         1.0000         EPS         
+D.T4          .              .             1.0000         EPS         
+D.T5          .              .             1.0000         EPS         
+D.T6          .              .             1.0000         EPS         
+E.T1          .             1.0000         1.0000         EPS         
+E.T2          .              .             1.0000         EPS         
+E.T3          .              .             1.0000         EPS         
+E.T4          .              .             1.0000         EPS         
+E.T5          .              .             1.0000         EPS         
+E.T6          .              .             1.0000         EPS         
+F.T1          .              .             1.0000         EPS         
+F.T2          .              .             1.0000         EPS         
+F.T3          .              .             1.0000         EPS         
+F.T4          .              .             1.0000         EPS         
+F.T5          .             1.0000         1.0000         EPS         
+F.T6          .              .             1.0000         EPS         
+G.T1          .             1.0000         1.0000         EPS         
+G.T2          .              .             1.0000         EPS         
+G.T3          .              .             1.0000         EPS         
+G.T4          .              .             1.0000         EPS         
+G.T5          .              .             1.0000         EPS         
+G.T6          .              .             1.0000         EPS         
+H.T1          .              .             1.0000         EPS         
+H.T2          .              .             1.0000         EPS         
+H.T3          .              .             1.0000         EPS         
+H.T4          .              .             1.0000         EPS         
+H.T5          .             1.0000         1.0000         EPS         
+H.T6          .              .             1.0000         EPS         
+I.T1          .              .             1.0000         EPS         
+I.T2          .             1.0000         1.0000         EPS         
+I.T3          .              .             1.0000         EPS         
+I.T4          .              .             1.0000         EPS         
+I.T5          .              .             1.0000         EPS         
+I.T6          .              .             1.0000         EPS         
+J.T1          .              .             1.0000         EPS         
+J.T2          .              .             1.0000         EPS         
+J.T3          .             1.0000         1.0000         EPS         
+J.T4          .              .             1.0000         EPS         
+J.T5          .              .             1.0000         EPS         
+J.T6          .              .             1.0000         EPS         
 
----- VAR y  ¿se usa la caja j?
+---- VAR y  if truck is used = 1, else = 0
 
           LOWER          LEVEL          UPPER         MARGINAL
 
-C1          .             1.0000         1.0000         1.0000      
-C2          .             1.0000         1.0000         1.0000      
-C3          .             1.0000         1.0000         1.0000      
-C4          .              .             1.0000         1.0000      
-C5          .             1.0000         1.0000         1.0000      
-C6          .              .             1.0000         1.0000      
+T1          .             1.0000         1.0000         1.0000      
+T2          .             1.0000         1.0000         1.0000      
+T3          .             1.0000         1.0000         1.0000      
+T4          .              .             1.0000         1.0000      
+T5          .             1.0000         1.0000         1.0000      
+T6          .              .             1.0000         1.0000      
 
 
 **** REPORT SUMMARY :        0     NONOPT
@@ -312,5 +302,5 @@ USER: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
 
 **** FILE SUMMARY
 
-Input      C:\aguadix\GITHUB\SOC\2 Mixed integer programming (MIP)\3 BinPacking\BinPackingB\BinPackingB.gms
-Output     C:\aguadix\GITHUB\SOC\2 Mixed integer programming (MIP)\3 BinPacking\BinPackingB\BinPackingB.lst
+Input      C:\aguadix\GITHUB\SOC\2MixedIntegerProgramming\2BinPacking\BinPackingB\BinPackingB.gms
+Output     C:\aguadix\GITHUB\SOC\2MixedIntegerProgramming\2BinPacking\BinPackingB\BinPackingB.lst

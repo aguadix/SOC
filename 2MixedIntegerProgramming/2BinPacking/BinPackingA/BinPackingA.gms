@@ -1,63 +1,43 @@
 * BinPackingA.gms
-* Problema de empaquetamiento en contenedores
 
-VARIABLES
+FREE VARIABLE
+Z       'number of trucks used';
 
-* Número de cajas usadas;
-N;
+BINARY VARIABLE
+xA1, xB1, xC1, xD1, xE1, xF1, xG1, xH1, xI1, xJ1,
+xA2, xB2, xC2, xD2, xE2, xF2, xG2, xH2, xI2, xJ2,
+xA3, xB3, xC3, xD3, xE3, xF3, xG3, xH3, xI3, xJ3,
+xA4, xB4, xC4, xD4, xE4, xF4, xG4, xH4, xI4, xJ4,
+xA5, xB5, xC5, xD5, xE5, xF5, xG5, xH5, xI5, xJ5,
+xA6, xB6, xC6, xD6, xE6, xF6, xG6, xH6, xI6, xJ6 'if farm is collected by truck = 1, else = 0'
 
+y1, y2, y3, y4, y5, y6  'if truck is used = 1, else = 0';
 
-BINARY VARIABLES
-* Xij  ¿se mete el objeto i en la caja j?
-X11, X21, X31, X41, X51, X61, X71, X81, X91, X101,
-X12, X22, X32, X42, X52, X62, X72, X82, X92, X102,
-X13, X23, X33, X43, X53, X63, X73, X83, X93, X103,
-X14, X24, X34, X44, X54, X64, X74, X84, X94, X104,
-X15, X25, X35, X45, X55, X65, X75, X85, X95, X105,
-X16, X26, X36, X46, X56, X66, X76, X86, X96, X106
+EQUATION
+OBJ 'number of trucks used'
+ROA, ROB, ROC, ROD, ROE, ROF, ROG, ROH, ROI, ROJ '-'
+RVT1, RVT2, RVT3, RVT4, RVT5, RVT6 'm3';
 
+OBJ..   y1 + y2 + y3 + y4 + y5 + y6 =E= Z;
 
-*Yj  ¿se usa la caja j?;
-Y1, Y2, Y3, Y4, Y5, Y6;
+ROA..   xA1  + xA2  + xA3  + xA4  + xA5  + xA6  =E= 1;
+ROB..   xB1  + xB2  + xB3  + xB4  + xB5  + xB6  =E= 1;
+ROC..   xC1  + xC2  + xC3  + xC4  + xC5  + xC6  =E= 1;
+ROD..   xD1  + xD2  + xD3  + xD4  + xD5  + xD6  =E= 1;
+ROE..   xE1  + xE2  + xE3  + xE4  + xE5  + xE6  =E= 1;
+ROF..   xF1  + xF2  + xF3  + xF4  + xF5  + xF6  =E= 1;
+ROG..   xG1  + xG2  + xG3  + xG4  + xG5  + xG6  =E= 1;
+ROH..   xH1  + xH2  + xH3  + xH4  + xH5  + xH6  =E= 1;
+ROI..   xI1  + xI2  + xI3  + xI4  + xI5  + xI6  =E= 1;
+ROJ..   xJ1  + xJ2  + xJ3  + xJ4  + xJ5  + xJ6  =E= 1;
 
-EQUATIONS
-
-*Obj, Asigna(i), Cap(j);
-Obj,
-Asigna1, Asigna2, Asigna3, Asigna4, Asigna5, Asigna6, Asigna7, Asigna8, Asigna9, Asigna10,
-Cap1, Cap2, Cap3, Cap4, Cap5, Cap6;
-
-
-
-* Obj..         N =E= sum(j,y(j)) ;
-Obj..           N =E= Y1 + Y2 + Y3 + Y4 + Y5 + Y6;
-
-
-* Asigna(i)..   sum(j,x(i,j)) =E= 1 ;
-* Cada objeto en una caja
-Asigna1..       X11 + X12 + X13 + X14 + X15 + X16 =E= 1;
-Asigna2..       X21 + X22 + X23 + X24 + X25 + X26 =E= 1;
-Asigna3..       X31 + X32 + X33 + X34 + X35 + X36 =E= 1;
-Asigna4..       X41 + X42 + X43 + X44 + X45 + X46 =E= 1;
-Asigna5..       X51 + X52 + X53 + X54 + X55 + X56 =E= 1;
-Asigna6..       X61 + X62 + X63 + X64 + X65 + X66 =E= 1;
-Asigna7..       X71 + X72 + X73 + X74 + X75 + X76 =E= 1;
-Asigna8..       X81 + X82 + X83 + X84 + X85 + X86 =E= 1;
-Asigna9..       X91 + X92 + X93 + X94 + X95 + X96 =E= 1;
-Asigna10..      X101 + X102 + X103 + X104 + X105 + X106 =E= 1;
-
-
-* Cap(j)..      sum(i,w(i)*x(i,j)) =L= V*y(j);
-* No superar la capacidad de la caja
-Cap1..          1*X11 + 1*X21 + 2*X31 + 2*X41 + 4*X51 + 4*X61 + 5*X71 + 6*X81 + 7*X91 + 8*X101 =L= 10*Y1;
-Cap2..          1*X12 + 1*X22 + 2*X32 + 2*X42 + 4*X52 + 4*X62 + 5*X72 + 6*X82 + 7*X92 + 8*X102 =L= 10*Y2;
-Cap3..          1*X13 + 1*X23 + 2*X33 + 2*X43 + 4*X53 + 4*X63 + 5*X73 + 6*X83 + 7*X93 + 8*X103 =L= 10*Y3;
-Cap4..          1*X14 + 1*X24 + 2*X34 + 2*X44 + 4*X54 + 4*X64 + 5*X74 + 6*X84 + 7*X94 + 8*X104 =L= 10*Y4;
-Cap5..          1*X15 + 1*X25 + 2*X35 + 2*X45 + 4*X55 + 4*X65 + 5*X75 + 6*X85 + 7*X95 + 8*X105 =L= 10*Y5;
-Cap6..          1*X16 + 1*X26 + 2*X36 + 2*X46 + 4*X56 + 4*X66 + 5*X76 + 6*X86 + 7*X96 + 8*X106 =L= 10*Y6;
-
+RVT1..  1*xA1 + 1*xB1 + 2*xC1 + 2*xD1 + 4*xE1 + 4*xF1 + 5*xG1 + 6*xH1 + 7*xI1 + 8*xJ1 =L= 10*y1;
+RVT2..  1*xA2 + 1*xB2 + 2*xC2 + 2*xD2 + 4*xE2 + 4*xF2 + 5*xG2 + 6*xH2 + 7*xI2 + 8*xJ2 =L= 10*y2;
+RVT3..  1*xA3 + 1*xB3 + 2*xC3 + 2*xD3 + 4*xE3 + 4*xF3 + 5*xG3 + 6*xH3 + 7*xI3 + 8*xJ3 =L= 10*y3;
+RVT4..  1*xA4 + 1*xB4 + 2*xC4 + 2*xD4 + 4*xE4 + 4*xF4 + 5*xG4 + 6*xH4 + 7*xI4 + 8*xJ4 =L= 10*y4;
+RVT5..  1*xA5 + 1*xB5 + 2*xC5 + 2*xD5 + 4*xE5 + 4*xF5 + 5*xG5 + 6*xH5 + 7*xI5 + 8*xJ5 =L= 10*y5;
+RVT6..  1*xA6 + 1*xB6 + 2*xC6 + 2*xD6 + 4*xE6 + 4*xF6 + 5*xG6 + 6*xH6 + 7*xI6 + 8*xJ6 =L= 10*y6;
 
 MODEL BinPackingB /all/;
 
-
-SOLVE BinPackingB using MIP minimizing N;
+SOLVE BinPackingB USING MIP MINIMIZING Z;

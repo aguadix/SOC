@@ -1,43 +1,31 @@
 * BinPackingB.gms
-* Problema de empaquetamiento en contenedores
 
-SETS
-i        objetos            / O1 * O10 /
-j        cajas              / C1 * C6 /;
+SET
+f       'farms'     /A,B,C,D,E,F,G,H,I,J/
+t       'trucks'    /T1*T6/;
 
-PARAMETERS
-
-w(i)  peso
-/O1   1
-O2    1
-O3    2
-O4    2
-O5    4
-O6    4
-O7    5
-O8    6
-O9    7
-O10   8/;
+PARAMETER
+v(f)    'm3'        /A 1, B 1, C 2, D 2, E 4, F 4, G 5, H 6, I 7, J 8/;
 
 SCALAR
-V capacidad de cada caja  /10/ ;
+VT      'm3'        /10/ ;
 
+FREE VARIABLE
+Z       'number of trucks used';
 
+BINARY VARIABLE
+x(f,t)  'if farm is collected by truck = 1, else = 0'
+y(t)    'if truck is used = 1, else = 0'
 
-VARIABLES
-N        número de cajas usadas;
+EQUATION
+OBJ     'number of trucks used'
+RO(f)   '-'
+RVT(t)  'm3';
 
-BINARY VARIABLES
-x(i,j)     ¿se mete el objeto i en la caja j?
-y(j)       ¿se usa la caja j?;
-
-EQUATIONS
-Obj, Asigna(i), Cap(j);
-
-Obj..        N =E= sum(j,y(j)) ;
-Asigna(i)..  sum(j,x(i,j)) =E= 1 ;
-Cap(j)..     sum(i,w(i)*x(i,j)) =L= V*y(j);
+OBJ..       SUM(t,y(t))        =E= Z;
+RO(f)..     SUM(t,x(f,t))      =E= 1;
+RVT(t)..    SUM(f,v(f)*x(f,t)) =L= VT*y(t);
 
 MODEL BinPackingA /all/;
 
-SOLVE BinPackingA using MIP minimizing N;
+SOLVE BinPackingA USING MIP MINIMIZING Z;

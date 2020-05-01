@@ -1,34 +1,27 @@
 * SetCoverA.gms
-* Problema de la cobertura de conjunto
 
+FREE VARIABLE
+Z '$';
 
-VARIABLES
+BINARY VARIABLE
+xAvila, xBurgos, xLeon, xPalencia, xSalamanca, xSegovia, xSoria, xValladolid, xZamora 'if installed = 1, else = 0';
 
-Z;
+EQUATION
+OBJ '$',
+RAvila, RBurgos, RLeon, RPalencia, RSalamanca, RSegovia, RSoria, RValladolid, RZamora '-';
 
+OBJ..           1.5*xAvila + 1.5*xBurgos + 1.0*xLeon +  1.5*xPalencia + 1.5*xSalamanca + 1.5*xSegovia + 1.0*xSoria + 2.0*xValladolid + 1.5*xZamora =E= Z;
 
-BINARY VARIABLES
-
-X1, X2, X3, X4, X5, X6;
-
-
-EQUATIONS
-
-OBJ, A12, A14, A23, A24, A25, A35, A36, A45;
-
-OBJ..    Z =E= 6*X1 + 5*X2 + 4*X3 + 3*X4 + 2*X5 + 1*X6;
-
-A12..    X1 + X2                        =G= 1;
-A14..    X1           + X4              =G= 1;
-A23..         X2 + X3                   =G= 1;
-A24..         X2      + X4              =G= 1;
-A25..         X2           + X5         =G= 1;
-A35..              X3      + X5         =G= 1;
-A36..              X3           + X6    =G= 1;
-A45..                   X4 + X5         =G= 1;
-
+RAvila..            xAvila                                            +     xSalamanca +     xSegovia              +     xValladolid               =G= 1;
+RBurgos..                        xBurgos             +      xPalencia                  +     xSegovia +     xSoria +     xValladolid               =G= 1;
+RLeon..                                        xLeon +      xPalencia                                              +     xValladolid +     xZamora =G= 1;
+RPalencia..                      xBurgos +     xLeon +      xPalencia                                              +     xValladolid               =G= 1;
+RSalamanca..        xAvila                                            +     xSalamanca                             +     xValladolid +     xZamora =G= 1;
+RSegovia..          xAvila +     xBurgos                                               +     xSegovia +     xSoria +     xValladolid               =G= 1;
+RSoria..                         xBurgos                                               +     xSegovia +     xSoria                                 =G= 1;
+RValladolid..       xAvila +     xBurgos +     xLeon +      xPalencia +     xSalamanca +     xSegovia              +     xValladolid +     xZamora =G= 1;
+RZamora..                                      xLeon                  +     xSalamanca                             +     xValladolid +     xZamora =G= 1;   
 
 MODEL SetCoverA /all/;
 
-
-SOLVE SetCoverA using MIP minimizing Z;
+SOLVE SetCoverA USING MIP MINIMIZING Z;

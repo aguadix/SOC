@@ -1,196 +1,240 @@
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 12:36:24 Page 1
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/01/20 22:01:41 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
 
    1  * SetCoverA.gms
-   2  * Problema de la cobertura
-   3   
-   4   
-   5  VARIABLES
-   6   
-   7  Z;
+   2   
+   3  FREE VARIABLE
+   4  Z '$';
+   5   
+   6  BINARY VARIABLE
+   7  xAvila, xBurgos, xLeon, xPalencia, xSalamanca, xSegovia, xSoria, xValladolid, xZamora 'if installed = 1, else = 0';
    8   
-   9   
-  10  BINARY VARIABLES
-  11   
-  12  X1, X2, X3, X4, X5, X6;
-  13   
+   9  EQUATION
+  10  OBJ '$',
+  11  RAvila, RBurgos, RLeon, RPalencia, RSalamanca, RSegovia, RSoria, RValladolid, RZamora '-';
+  12   
+  13  OBJ..           1.5*xAvila + 1.5*xBurgos + 1.0*xLeon +  1.5*xPalencia + 1.5*xSalamanca + 1.5*xSegovia + 1.0*xSoria + 2.0*xValladolid + 1.5*xZamora =E= Z;
   14   
-  15  EQUATIONS
-  16   
-  17  OBJ, A12, A14, A23, A24, A25, A35, A36, A45;
-  18   
-  19  OBJ..    Z =E= 6*X1 + 5*X2 + 4*X3 + 3*X4 + 2*X5 + 1*X6;
-  20   
-  21  A12..    X1 + X2                        =G= 1;
-  22  A14..    X1           + X4              =G= 1;
-  23  A23..         X2 + X3                   =G= 1;
-  24  A24..         X2      + X4              =G= 1;
-  25  A25..         X2           + X5         =G= 1;
-  26  A35..              X3      + X5         =G= 1;
-  27  A36..              X3           + X6    =G= 1;
-  28  A45..                   X4 + X5         =G= 1;
-  29   
-  30   
-  31  MODEL SetCoverA /all/;
-  32   
-  33   
-  34  SOLVE SetCoverA using MIP minimizing Z;
+  15  RAvila..            xAvila                                            +     xSalamanca +     xSegovia              +     xValladolid               =G= 1;
+  16  RBurgos..                        xBurgos             +      xPalencia                  +     xSegovia +     xSoria +     xValladolid               =G= 1;
+  17  RLeon..                                        xLeon +      xPalencia                                              +     xValladolid +     xZamora =G= 1;
+  18  RPalencia..                      xBurgos +     xLeon +      xPalencia                                              +     xValladolid               =G= 1;
+  19  RSalamanca..        xAvila                                            +     xSalamanca                             +     xValladolid +     xZamora =G= 1;
+  20  RSegovia..          xAvila +     xBurgos                                               +     xSegovia +     xSoria +     xValladolid               =G= 1;
+  21  RSoria..                         xBurgos                                               +     xSegovia +     xSoria                                 =G= 1;
+  22  RValladolid..       xAvila +     xBurgos +     xLeon +      xPalencia +     xSalamanca +     xSegovia              +     xValladolid +     xZamora =G= 1;
+  23  RZamora..                                      xLeon                  +     xSalamanca                             +     xValladolid +     xZamora =G= 1;
+  24   
+  25  MODEL SetCoverA /all/;
+  26   
+  27  SOLVE SetCoverA USING MIP MINIMIZING Z;
 
 
 COMPILATION TIME     =        0.000 SECONDS      2 MB  30.3.0 rc5da09e WEX-WEI
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 12:36:24 Page 2
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/01/20 22:01:41 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Equation Listing    SOLVE SetCoverA Using MIP From line 34
+Equation Listing    SOLVE SetCoverA Using MIP From line 27
 
 
----- OBJ  =E=  
+---- OBJ  =E=  $
 
-OBJ..  Z - 6*X1 - 5*X2 - 4*X3 - 3*X4 - 2*X5 - X6 =E= 0 ; (LHS = 0)
+OBJ..  - Z + 1.5*xAvila + 1.5*xBurgos + xLeon + 1.5*xPalencia + 1.5*xSalamanca + 1.5*xSegovia + xSoria + 2*xValladolid + 1.5*xZamora =E= 0 ; (LHS = 0)
      
 
----- A12  =G=  
+---- RAvila  =G=  
 
-A12..  X1 + X2 =G= 1 ; (LHS = 0, INFES = 1 ****)
+RAvila..  xAvila + xSalamanca + xSegovia + xValladolid =G= 1 ; (LHS = 0, INFES = 1 ****)
      
 
----- A14  =G=  
+---- RBurgos  =G=  
 
-A14..  X1 + X4 =G= 1 ; (LHS = 0, INFES = 1 ****)
+RBurgos..  xBurgos + xPalencia + xSegovia + xSoria + xValladolid =G= 1 ; (LHS = 0, INFES = 1 ****)
      
 
----- A23  =G=  
+---- RLeon  =G=  
 
-A23..  X2 + X3 =G= 1 ; (LHS = 0, INFES = 1 ****)
+RLeon..  xLeon + xPalencia + xValladolid + xZamora =G= 1 ; (LHS = 0, INFES = 1 ****)
      
 
----- A24  =G=  
+---- RPalencia  =G=  
 
-A24..  X2 + X4 =G= 1 ; (LHS = 0, INFES = 1 ****)
+RPalencia..  xBurgos + xLeon + xPalencia + xValladolid =G= 1 ; (LHS = 0, INFES = 1 ****)
      
 
----- A25  =G=  
+---- RSalamanca  =G=  
 
-A25..  X2 + X5 =G= 1 ; (LHS = 0, INFES = 1 ****)
+RSalamanca..  xAvila + xSalamanca + xValladolid + xZamora =G= 1 ; (LHS = 0, INFES = 1 ****)
      
 
----- A35  =G=  
+---- RSegovia  =G=  
 
-A35..  X3 + X5 =G= 1 ; (LHS = 0, INFES = 1 ****)
+RSegovia..  xAvila + xBurgos + xSegovia + xSoria + xValladolid =G= 1 ; (LHS = 0, INFES = 1 ****)
      
 
----- A36  =G=  
+---- RSoria  =G=  
 
-A36..  X3 + X6 =G= 1 ; (LHS = 0, INFES = 1 ****)
+RSoria..  xBurgos + xSegovia + xSoria =G= 1 ; (LHS = 0, INFES = 1 ****)
      
 
----- A45  =G=  
+---- RValladolid  =G=  
 
-A45..  X4 + X5 =G= 1 ; (LHS = 0, INFES = 1 ****)
+RValladolid..  xAvila + xBurgos + xLeon + xPalencia + xSalamanca + xSegovia + xValladolid + xZamora =G= 1 ; (LHS = 0, INFES = 1 ****)
      
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 12:36:24 Page 3
+
+---- RZamora  =G=  -
+
+RZamora..  xLeon + xSalamanca + xValladolid + xZamora =G= 1 ; (LHS = 0, INFES = 1 ****)
+     
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/01/20 22:01:41 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE SetCoverA Using MIP From line 34
+Column Listing      SOLVE SetCoverA Using MIP From line 27
 
 
----- Z  
+---- Z  $
 
 Z
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
-        1       OBJ
-
-
----- X1  
-
-X1
-                (.LO, .L, .UP, .M = 0, 0, 1, 0)
-       -6       OBJ
-        1       A12
-        1       A14
-
-
----- X2  
-
-X2
-                (.LO, .L, .UP, .M = 0, 0, 1, 0)
-       -5       OBJ
-        1       A12
-        1       A23
-        1       A24
-        1       A25
-
-
----- X3  
-
-X3
-                (.LO, .L, .UP, .M = 0, 0, 1, 0)
-       -4       OBJ
-        1       A23
-        1       A35
-        1       A36
-
-
----- X4  
-
-X4
-                (.LO, .L, .UP, .M = 0, 0, 1, 0)
-       -3       OBJ
-        1       A14
-        1       A24
-        1       A45
-
-
----- X5  
-
-X5
-                (.LO, .L, .UP, .M = 0, 0, 1, 0)
-       -2       OBJ
-        1       A25
-        1       A35
-        1       A45
-
-
----- X6  
-
-X6
-                (.LO, .L, .UP, .M = 0, 0, 1, 0)
        -1       OBJ
-        1       A36
 
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 12:36:24 Page 4
+
+---- xAvila  
+
+xAvila
+                (.LO, .L, .UP, .M = 0, 0, 1, 0)
+        1.5     OBJ
+        1       RAvila
+        1       RSalamanca
+        1       RSegovia
+        1       RValladolid
+
+
+---- xBurgos  
+
+xBurgos
+                (.LO, .L, .UP, .M = 0, 0, 1, 0)
+        1.5     OBJ
+        1       RBurgos
+        1       RPalencia
+        1       RSegovia
+        1       RSoria
+        1       RValladolid
+
+
+---- xLeon  
+
+xLeon
+                (.LO, .L, .UP, .M = 0, 0, 1, 0)
+        1       OBJ
+        1       RLeon
+        1       RPalencia
+        1       RValladolid
+        1       RZamora
+
+
+---- xPalencia  
+
+xPalencia
+                (.LO, .L, .UP, .M = 0, 0, 1, 0)
+        1.5     OBJ
+        1       RBurgos
+        1       RLeon
+        1       RPalencia
+        1       RValladolid
+
+
+---- xSalamanca  
+
+xSalamanca
+                (.LO, .L, .UP, .M = 0, 0, 1, 0)
+        1.5     OBJ
+        1       RAvila
+        1       RSalamanca
+        1       RValladolid
+        1       RZamora
+
+
+---- xSegovia  
+
+xSegovia
+                (.LO, .L, .UP, .M = 0, 0, 1, 0)
+        1.5     OBJ
+        1       RAvila
+        1       RBurgos
+        1       RSegovia
+        1       RSoria
+        1       RValladolid
+
+
+---- xSoria  
+
+xSoria
+                (.LO, .L, .UP, .M = 0, 0, 1, 0)
+        1       OBJ
+        1       RBurgos
+        1       RSegovia
+        1       RSoria
+
+
+---- xValladolid  
+
+xValladolid
+                (.LO, .L, .UP, .M = 0, 0, 1, 0)
+        2       OBJ
+        1       RAvila
+        1       RBurgos
+        1       RLeon
+        1       RPalencia
+        1       RSalamanca
+        1       RSegovia
+        1       RValladolid
+        1       RZamora
+
+
+---- xZamora  if installed = 1, else = 0
+
+xZamora
+                (.LO, .L, .UP, .M = 0, 0, 1, 0)
+        1.5     OBJ
+        1       RLeon
+        1       RSalamanca
+        1       RValladolid
+        1       RZamora
+
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/01/20 22:01:41 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Model Statistics    SOLVE SetCoverA Using MIP From line 34
+Model Statistics    SOLVE SetCoverA Using MIP From line 27
 
 
 MODEL STATISTICS
 
-BLOCKS OF EQUATIONS           9     SINGLE EQUATIONS            9
-BLOCKS OF VARIABLES           7     SINGLE VARIABLES            7
-NON ZERO ELEMENTS            23     DISCRETE VARIABLES          6
+BLOCKS OF EQUATIONS          10     SINGLE EQUATIONS           10
+BLOCKS OF VARIABLES          10     SINGLE VARIABLES           10
+NON ZERO ELEMENTS            51     DISCRETE VARIABLES          9
 
 
-GENERATION TIME      =        0.015 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
+GENERATION TIME      =        0.016 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
 
 
-EXECUTION TIME       =        0.015 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 12:36:24 Page 5
+EXECUTION TIME       =        0.016 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/01/20 22:01:41 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE SetCoverA Using MIP From line 34
+Solution Report     SOLVE SetCoverA Using MIP From line 27
 
 
                S O L V E      S U M M A R Y
 
      MODEL   SetCoverA           OBJECTIVE  Z
      TYPE    MIP                 DIRECTION  MINIMIZE
-     SOLVER  CPLEX               FROM LINE  34
+     SOLVER  CPLEX               FROM LINE  27
 
 **** SOLVER STATUS     1 Normal Completion         
 **** MODEL STATUS      1 Optimal                   
-**** OBJECTIVE VALUE               11.0000
+**** OBJECTIVE VALUE                3.0000
 
  RESOURCE USAGE, LIMIT          0.016      1000.000
- ITERATION COUNT, LIMIT         3    2000000000
+ ITERATION COUNT, LIMIT         4    2000000000
 
 IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
 *** This solver runs with a demo license. No commercial use.
@@ -199,41 +243,51 @@ Cplex 12.10.0.0
 Space for names approximately 0.00 Mb
 Use option 'names no' to turn use of names off
 MIP status(101): integer optimal solution
-Cplex Time: 0.00sec (det. 0.04 ticks)
+Cplex Time: 0.00sec (det. 0.05 ticks)
 Fixing integer variables, and solving final LP...
 Fixed MIP status(1): optimal
 Cplex Time: 0.00sec (det. 0.01 ticks)
 Proven optimal solution.
 
-MIP Solution:           11.000000    (3 iterations, 0 nodes)
-Final Solve:            11.000000    (0 iterations)
+MIP Solution:            3.000000    (4 iterations, 0 nodes)
+Final Solve:             3.000000    (0 iterations)
 
-Best possible:          11.000000
+Best possible:           3.000000
 Absolute gap:            0.000000
 Relative gap:            0.000000
 
 
                            LOWER          LEVEL          UPPER         MARGINAL
 
----- EQU OBJ                 .              .              .             1.0000      
----- EQU A12                1.0000         1.0000        +INF             .          
----- EQU A14                1.0000         1.0000        +INF             .          
----- EQU A23                1.0000         1.0000        +INF             .          
----- EQU A24                1.0000         2.0000        +INF             .          
----- EQU A25                1.0000         2.0000        +INF             .          
----- EQU A35                1.0000         1.0000        +INF             .          
----- EQU A36                1.0000         1.0000        +INF             .          
----- EQU A45                1.0000         2.0000        +INF             .          
+---- EQU OBJ                 .              .              .            -1.0000      
+---- EQU RAvila             1.0000         1.0000        +INF             .          
+---- EQU RBurgos            1.0000         2.0000        +INF             .          
+---- EQU RLeon              1.0000         1.0000        +INF             .          
+---- EQU RPalencia          1.0000         1.0000        +INF             .          
+---- EQU RSalamanca         1.0000         1.0000        +INF             .          
+---- EQU RSegovia           1.0000         2.0000        +INF             .          
+---- EQU RSoria             1.0000         1.0000        +INF             .          
+---- EQU RValladol~         1.0000         1.0000        +INF             .          
+---- EQU RZamora            1.0000         1.0000        +INF             .          
+
+  OBJ  $
+  RZamora  -
 
                            LOWER          LEVEL          UPPER         MARGINAL
 
----- VAR Z                 -INF           11.0000        +INF             .          
----- VAR X1                  .              .             1.0000         6.0000      
----- VAR X2                  .             1.0000         1.0000         5.0000      
----- VAR X3                  .              .             1.0000         4.0000      
----- VAR X4                  .             1.0000         1.0000         3.0000      
----- VAR X5                  .             1.0000         1.0000         2.0000      
----- VAR X6                  .             1.0000         1.0000         1.0000      
+---- VAR Z                 -INF            3.0000        +INF             .          
+---- VAR xAvila              .              .             1.0000         1.5000      
+---- VAR xBurgos             .              .             1.0000         1.5000      
+---- VAR xLeon               .              .             1.0000         1.0000      
+---- VAR xPalencia           .              .             1.0000         1.5000      
+---- VAR xSalamanca          .              .             1.0000         1.5000      
+---- VAR xSegovia            .              .             1.0000         1.5000      
+---- VAR xSoria              .             1.0000         1.0000         1.0000      
+---- VAR xValladol~          .             1.0000         1.0000         2.0000      
+---- VAR xZamora             .              .             1.0000         1.5000      
+
+  Z  $
+  xZamora  if installed = 1, else = 0
 
 
 **** REPORT SUMMARY :        0     NONOPT
@@ -250,5 +304,5 @@ USER: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
 
 **** FILE SUMMARY
 
-Input      C:\aguadix\GITHUB\SOC\2 Mixed integer programming (MIP)\4 SetCover\SetCoverA\SetCoverA.gms
-Output     C:\aguadix\GITHUB\SOC\2 Mixed integer programming (MIP)\4 SetCover\SetCoverA\SetCoverA.lst
+Input      C:\aguadix\GITHUB\SOC\2MixedIntegerProgramming\3SetCover\SetCoverA\SetCoverA.gms
+Output     C:\aguadix\GITHUB\SOC\2MixedIntegerProgramming\3SetCover\SetCoverA\SetCoverA.lst

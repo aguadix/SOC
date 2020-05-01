@@ -1,55 +1,38 @@
 * SetPackingB.gms
-* Problema del empaquetamiento de conjunto
 
+SET
 
-
-SETS
-
-i        /S12, S24, S25, S45, S56/
-j        /P1*P6/;
-
+i        /I12, I24, I25, I45, I56/
+p        /P1*P6/;
 
 PARAMETERS
 
-b(j)
-/P1      1000
-P2       3000
-P3       1000
-P4       1000
-P5       2000
-P6       1000/;
+b(p) /P1 1, P2 3, P3 1, P4 1, P5 2, P6 1/;
 
 
 TABLE
-
-a(i,j)
+a(i,p)
            P1       P2       P3       P4       P5       P6
-S12        1        1        0        0        0        0
-S24        0        1        0        1        0        0
-S25        0        1        0        0        1        0
-S45        0        0        0        1        1        0
-S56        0        0        0        0        1        1;
+I12        1        1        0        0        0        0
+I24        0        1        0        1        0        0
+I25        0        1        0        0        1        0
+I45        0        0        0        1        1        0
+I56        0        0        0        0        1        1;
 
 
-VARIABLES
-
+FREE VARIABLE
 Z;
 
-
 BINARY VARIABLES
-
-x(j);
-
+x(p);
 
 EQUATIONS
+OBJ,
+R(i);
 
-OBJ, R(i);
-
-OBJ..     Z  =E= sum(j,b(j)*x(j));
-R(i)..    sum(j,a(i,j)*x(j)) =L= 1;
-
+OBJ..     SUM(p,b(p)*x(p))   =E= Z;
+R(i)..    SUM(p,a(i,p)*x(p)) =L= 1;
 
 MODEL SetPackingB /all/;
 
-
-SOLVE SetPackingB using MIP maximizing Z;
+SOLVE SetPackingB USING MIP MAXIMIZING Z;

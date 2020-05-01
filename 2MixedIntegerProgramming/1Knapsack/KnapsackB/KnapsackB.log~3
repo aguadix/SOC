@@ -1,4 +1,4 @@
---- Job KnapsackB.gms Start 04/29/20 22:32:39 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
+--- Job KnapsackB.gms Start 05/01/20 21:41:26 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
 --- GAMS Parameters defined
     Input C:\aguadix\GITHUB\SOC\2MixedIntegerProgramming\1Knapsack\KnapsackB\KnapsackB.gms
     PageSize 0
@@ -15,10 +15,10 @@ Licensee: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
           aguadix@ugr.es, ANTONIO MARIA GUADIX ESCOBAR                     
           Demo license for demonstration and instructional purposes only
 --- Starting compilation
---- KnapsackB.gms(44) 3 Mb
+--- KnapsackB.gms(29) 3 Mb
 --- Starting execution: elapsed 0:00:00.000
 --- Generating MIP model KnapsackB
---- KnapsackB.gms(44) 4 Mb
+--- KnapsackB.gms(29) 4 Mb
 ---   2 rows  11 columns  21 non-zeroes
 ---   10 discrete-columns
 ***
@@ -64,7 +64,7 @@ No LP presolve or aggregator reductions.
 Presolve time = 0.00 sec. (0.00 ticks)
 
 Iteration      Dual Objective            In Variable           Out Variable
-     1             631.454545                  x(I4)              RWT slack
+     1             631.454545                  x(F4)              RMT slack
 Root relaxation solution time = 0.00 sec. (0.00 ticks)
 
         Nodes                                         Cuts/
@@ -114,7 +114,7 @@ Absolute gap:            7.454545
 Relative gap:            0.011805
 
 --- Restarting execution
---- KnapsackB.gms(44) 2 Mb
+--- KnapsackB.gms(29) 2 Mb
 --- Reading solution for model KnapsackB
 *** Status: Normal completion
---- Job KnapsackB.gms Stop 04/29/20 22:32:39 elapsed 0:00:00.152
+--- Job KnapsackB.gms Stop 05/01/20 21:41:26 elapsed 0:00:00.137

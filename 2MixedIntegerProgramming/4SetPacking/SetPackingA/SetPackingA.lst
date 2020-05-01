@@ -1,142 +1,134 @@
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 12:45:35 Page 1
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/01/20 21:44:20 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
 
    1  * SetPackingA.gms
-   2  * Problema del empaquetamiento de conjunto
-   3   
-   4   
-   5  VARIABLES
-   6   
-   7  Z;
+   2   
+   3  FREE VARIABLE
+   4  Z;
+   5   
+   6  BINARY VARIABLE
+   7  x1, x2, x3, x4, x5, x6;
    8   
-   9   
-  10  BINARY VARIABLES
-  11   
-  12  X1, X2, X3, X4, X5, X6;
-  13   
+   9  EQUATION
+  10  OBJ,
+  11  I12, I24, I25, I45, I56;
+  12   
+  13  OBJ.. 1*x1 + 3*x2 + 1*x3 + 1*x4 + 2*x5 + 1*x6 =E= Z;
   14   
-  15  EQUATIONS
-  16   
-  17  OBJ, S12, S24, S25, S45, S56;
-  18   
-  19  OBJ.. Z =E= 1000*X1 + 3000*X2 + 1000*X3 + 1000*X4 + 2000*X5 + 1000*X6;
+  15  I12..   x1 +   x2                             =L= 1;
+  16  I24..          x2        +   x4               =L= 1;
+  17  I25..          x2               +   x5        =L= 1;
+  18  I45..                        x4 +   x5        =L= 1;
+  19  I56..                               x5 +   x6 =L= 1;
   20   
-  21  S12..  X1 + X2                       =L= 1;
-  22  S24..       X2       + X4            =L= 1;
-  23  S25..       X2            + X5       =L= 1;
-  24  S45..                  X4 + X5       =L= 1;
-  25  S56..                       X5 + X6  =L= 1;
-  26   
-  27   
-  28  MODEL SetPackingA /all/;
-  29   
-  30   
-  31  SOLVE SetPackingA using MIP maximizing Z;
+  21  MODEL SetPackingA /all/;
+  22   
+  23  SOLVE SetPackingA USING MIP MAXIMIZING Z;
 
 
 COMPILATION TIME     =        0.000 SECONDS      2 MB  30.3.0 rc5da09e WEX-WEI
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 12:45:35 Page 2
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/01/20 21:44:20 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Equation Listing    SOLVE SetPackingA Using MIP From line 31
+Equation Listing    SOLVE SetPackingA Using MIP From line 23
 
 
 ---- OBJ  =E=  
 
-OBJ..  Z - 1000*X1 - 3000*X2 - 1000*X3 - 1000*X4 - 2000*X5 - 1000*X6 =E= 0 ; (LHS = 0)
+OBJ..  - Z + x1 + 3*x2 + x3 + x4 + 2*x5 + x6 =E= 0 ; (LHS = 0)
      
 
----- S12  =L=  
+---- I12  =L=  
 
-S12..  X1 + X2 =L= 1 ; (LHS = 0)
+I12..  x1 + x2 =L= 1 ; (LHS = 0)
      
 
----- S24  =L=  
+---- I24  =L=  
 
-S24..  X2 + X4 =L= 1 ; (LHS = 0)
+I24..  x2 + x4 =L= 1 ; (LHS = 0)
      
 
----- S25  =L=  
+---- I25  =L=  
 
-S25..  X2 + X5 =L= 1 ; (LHS = 0)
+I25..  x2 + x5 =L= 1 ; (LHS = 0)
      
 
----- S45  =L=  
+---- I45  =L=  
 
-S45..  X4 + X5 =L= 1 ; (LHS = 0)
+I45..  x4 + x5 =L= 1 ; (LHS = 0)
      
 
----- S56  =L=  
+---- I56  =L=  
 
-S56..  X5 + X6 =L= 1 ; (LHS = 0)
+I56..  x5 + x6 =L= 1 ; (LHS = 0)
      
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 12:45:35 Page 3
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/01/20 21:44:20 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE SetPackingA Using MIP From line 31
+Column Listing      SOLVE SetPackingA Using MIP From line 23
 
 
 ---- Z  
 
 Z
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+       -1       OBJ
+
+
+---- x1  
+
+x1
+                (.LO, .L, .UP, .M = 0, 0, 1, 0)
+        1       OBJ
+        1       I12
+
+
+---- x2  
+
+x2
+                (.LO, .L, .UP, .M = 0, 0, 1, 0)
+        3       OBJ
+        1       I12
+        1       I24
+        1       I25
+
+
+---- x3  
+
+x3
+                (.LO, .L, .UP, .M = 0, 0, 1, 0)
         1       OBJ
 
 
----- X1  
+---- x4  
 
-X1
+x4
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-    -1000       OBJ
-        1       S12
+        1       OBJ
+        1       I24
+        1       I45
 
 
----- X2  
+---- x5  
 
-X2
+x5
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-    -3000       OBJ
-        1       S12
-        1       S24
-        1       S25
+        2       OBJ
+        1       I25
+        1       I45
+        1       I56
 
 
----- X3  
+---- x6  
 
-X3
+x6
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-    -1000       OBJ
+        1       OBJ
+        1       I56
 
-
----- X4  
-
-X4
-                (.LO, .L, .UP, .M = 0, 0, 1, 0)
-    -1000       OBJ
-        1       S24
-        1       S45
-
-
----- X5  
-
-X5
-                (.LO, .L, .UP, .M = 0, 0, 1, 0)
-    -2000       OBJ
-        1       S25
-        1       S45
-        1       S56
-
-
----- X6  
-
-X6
-                (.LO, .L, .UP, .M = 0, 0, 1, 0)
-    -1000       OBJ
-        1       S56
-
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 12:45:35 Page 4
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/01/20 21:44:20 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Model Statistics    SOLVE SetPackingA Using MIP From line 31
+Model Statistics    SOLVE SetPackingA Using MIP From line 23
 
 
 MODEL STATISTICS
@@ -146,26 +138,26 @@ BLOCKS OF VARIABLES           7     SINGLE VARIABLES            7
 NON ZERO ELEMENTS            17     DISCRETE VARIABLES          6
 
 
-GENERATION TIME      =        0.047 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
+GENERATION TIME      =        0.015 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
 
 
-EXECUTION TIME       =        0.047 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 12:45:35 Page 5
+EXECUTION TIME       =        0.015 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/01/20 21:44:20 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE SetPackingA Using MIP From line 31
+Solution Report     SOLVE SetPackingA Using MIP From line 23
 
 
                S O L V E      S U M M A R Y
 
      MODEL   SetPackingA         OBJECTIVE  Z
      TYPE    MIP                 DIRECTION  MAXIMIZE
-     SOLVER  CPLEX               FROM LINE  31
+     SOLVER  CPLEX               FROM LINE  23
 
 **** SOLVER STATUS     1 Normal Completion         
 **** MODEL STATUS      1 Optimal                   
-**** OBJECTIVE VALUE             5000.0000
+**** OBJECTIVE VALUE                5.0000
 
- RESOURCE USAGE, LIMIT          0.000      1000.000
+ RESOURCE USAGE, LIMIT          0.032      1000.000
  ITERATION COUNT, LIMIT         0    2000000000
 
 IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
@@ -181,32 +173,32 @@ Fixed MIP status(1): optimal
 Cplex Time: 0.00sec (det. 0.00 ticks)
 Proven optimal solution.
 
-MIP Solution:         5000.000000    (0 iterations, 0 nodes)
-Final Solve:          5000.000000    (0 iterations)
+MIP Solution:            5.000000    (0 iterations, 0 nodes)
+Final Solve:             5.000000    (0 iterations)
 
-Best possible:        5000.000000
+Best possible:           5.000000
 Absolute gap:            0.000000
 Relative gap:            0.000000
 
 
                            LOWER          LEVEL          UPPER         MARGINAL
 
----- EQU OBJ                 .              .              .             1.0000      
----- EQU S12               -INF            1.0000         1.0000          .          
----- EQU S24               -INF            1.0000         1.0000          .          
----- EQU S25               -INF            1.0000         1.0000          .          
----- EQU S45               -INF             .             1.0000          .          
----- EQU S56               -INF            1.0000         1.0000          .          
+---- EQU OBJ                 .              .              .            -1.0000      
+---- EQU I12               -INF            1.0000         1.0000          .          
+---- EQU I24               -INF            1.0000         1.0000          .          
+---- EQU I25               -INF            1.0000         1.0000          .          
+---- EQU I45               -INF             .             1.0000          .          
+---- EQU I56               -INF            1.0000         1.0000          .          
 
                            LOWER          LEVEL          UPPER         MARGINAL
 
----- VAR Z                 -INF         5000.0000        +INF             .          
----- VAR X1                  .              .             1.0000      1000.0000      
----- VAR X2                  .             1.0000         1.0000      3000.0000      
----- VAR X3                  .             1.0000         1.0000      1000.0000      
----- VAR X4                  .              .             1.0000      1000.0000      
----- VAR X5                  .              .             1.0000      2000.0000      
----- VAR X6                  .             1.0000         1.0000      1000.0000      
+---- VAR Z                 -INF            5.0000        +INF             .          
+---- VAR x1                  .              .             1.0000         1.0000      
+---- VAR x2                  .             1.0000         1.0000         3.0000      
+---- VAR x3                  .             1.0000         1.0000         1.0000      
+---- VAR x4                  .              .             1.0000         1.0000      
+---- VAR x5                  .              .             1.0000         2.0000      
+---- VAR x6                  .             1.0000         1.0000         1.0000      
 
 
 **** REPORT SUMMARY :        0     NONOPT
@@ -223,5 +215,5 @@ USER: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
 
 **** FILE SUMMARY
 
-Input      C:\aguadix\GITHUB\SOC\2 Mixed integer programming (MIP)\5 SetPacking\SetPackingA\SetPackingA.gms
-Output     C:\aguadix\GITHUB\SOC\2 Mixed integer programming (MIP)\5 SetPacking\SetPackingA\SetPackingA.lst
+Input      C:\aguadix\GITHUB\SOC\2MixedIntegerProgramming\4SetPacking\SetPackingA\SetPackingA.gms
+Output     C:\aguadix\GITHUB\SOC\2MixedIntegerProgramming\4SetPacking\SetPackingA\SetPackingA.lst

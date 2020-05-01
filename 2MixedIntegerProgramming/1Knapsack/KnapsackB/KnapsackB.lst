@@ -1,4 +1,4 @@
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/29/20 22:39:01 Page 1
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/01/20 21:43:25 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -6,28 +6,28 @@ C o m p i l a t i o n
    1  * KnapsackB.gms
    2   
    3  SET
-   4  i       'items' / I1 * I10/;
+   4  f       'fermented'   /F1*F10/;
    5   
-   6  PARAMETERS
-   7  v(i)    '$'     /I1 23, I2 79, I3 35, I4 54, I5 13, I6 83, I7 86, I8 57, I9 28, I10 11/
-   8  w(i)    'ton'   /I1 72, I2 99, I3 68, I4 22, I5 44, I6 72, I7 34, I8 57, I9 35, I10 51/
-   9  xup(i)  'units' /I1  4, I2  5, I3  4, I4  2, I5  3, I6  2, I7  2, I8  2, I9  1, I10  5/;
+   6  PARAMETER
+   7  b(f)    '$/batch'     /F1 23, F2 79, F3 35, F4 54, F5 13, F6 83, F7 86, F8 57, F9 28, F10 11/
+   8  m(f)    'ton/batch'   /F1 72, F2 99, F3 68, F4 22, F5 44, F6 72, F7 34, F8 57, F9 35, F10 51/
+   9  xup(f)  'batch/week'  /F1  4, F2  5, F3  4, F4  2, F5  3, F6  2, F7  2, F8  2, F9  1, F10  5/;
   10   
   11  SCALAR
-  12  WT      'ton'   /250/;
+  12  MT      'ton/week'   /250/;
   13   
   14  FREE VARIABLE
-  15  Z   '$';
+  15  Z       '$/week';
   16   
-  17  INTEGER VARIABLES
+  17  INTEGER VARIABLE
   18  *BINARY VARIABLES
-  19  x(i)    'units';
-  20  *x.up(i) = xup(i);
+  19  x(f)    'batch/week';
+  20  *x.up(f) = xup(f);
   21   
-  22  EQUATIONS
-  23  OBJ '$', RWT 'ton';
-  24  OBJ..   SUM(i,v(i)*x(i)) =E= Z;
-  25  RWT..   SUM(i,w(i)*x(i)) =L= WT;
+  22  EQUATION
+  23  OBJ '$/week', RMT 'ton/week';
+  24  OBJ..   SUM(f,b(f)*x(f)) =E= Z;
+  25  RMT..   SUM(f,m(f)*x(f)) =L= MT;
   26   
   27  MODEL KnapsackB /all/;
   28   
@@ -35,55 +35,55 @@ C o m p i l a t i o n
 
 
 COMPILATION TIME     =        0.000 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/29/20 22:39:01 Page 2
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/01/20 21:43:25 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE KnapsackB Using MIP From line 29
 
 
----- OBJ  =E=  $
+---- OBJ  =E=  $/week
 
-OBJ..  - Z + 23*x(I1) + 79*x(I2) + 35*x(I3) + 54*x(I4) + 13*x(I5) + 83*x(I6) + 86*x(I7) + 57*x(I8) + 28*x(I9) + 11*x(I10) =E= 0 ; (LHS = 0)
+OBJ..  - Z + 23*x(F1) + 79*x(F2) + 35*x(F3) + 54*x(F4) + 13*x(F5) + 83*x(F6) + 86*x(F7) + 57*x(F8) + 28*x(F9) + 11*x(F10) =E= 0 ; (LHS = 0)
      
 
----- RWT  =L=  ton
+---- RMT  =L=  ton/week
 
-RWT..  72*x(I1) + 99*x(I2) + 68*x(I3) + 22*x(I4) + 44*x(I5) + 72*x(I6) + 34*x(I7) + 57*x(I8) + 35*x(I9) + 51*x(I10) =L= 250 ; (LHS = 0)
+RMT..  72*x(F1) + 99*x(F2) + 68*x(F3) + 22*x(F4) + 44*x(F5) + 72*x(F6) + 34*x(F7) + 57*x(F8) + 35*x(F9) + 51*x(F10) =L= 250 ; (LHS = 0)
      
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/29/20 22:39:01 Page 3
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/01/20 21:43:25 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE KnapsackB Using MIP From line 29
 
 
----- Z  $
+---- Z  $/week
 
 Z
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
        -1       OBJ
 
 
----- x  units
+---- x  batch/week
 
-x(I1)
+x(F1)
                 (.LO, .L, .UP, .M = 0, 0, 100, 0)
        23       OBJ
-       72       RWT
+       72       RMT
 
-x(I2)
+x(F2)
                 (.LO, .L, .UP, .M = 0, 0, 100, 0)
        79       OBJ
-       99       RWT
+       99       RMT
 
-x(I3)
+x(F3)
                 (.LO, .L, .UP, .M = 0, 0, 100, 0)
        35       OBJ
-       68       RWT
+       68       RMT
 
 REMAINING 7 ENTRIES SKIPPED
 
 ****
 ****  10 Integer +INF Bounds have been reset to 100 (see Option IntVarUp)
 ****
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/29/20 22:39:01 Page 4
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/01/20 21:43:25 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Statistics    SOLVE KnapsackB Using MIP From line 29
 
@@ -95,11 +95,11 @@ BLOCKS OF VARIABLES           2     SINGLE VARIABLES           11
 NON ZERO ELEMENTS            21     DISCRETE VARIABLES         10
 
 
-GENERATION TIME      =        0.016 SECONDS      4 MB  30.3.0 rc5da09e WEX-WEI
+GENERATION TIME      =        0.031 SECONDS      4 MB  30.3.0 rc5da09e WEX-WEI
 
 
-EXECUTION TIME       =        0.016 SECONDS      4 MB  30.3.0 rc5da09e WEX-WEI
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/29/20 22:39:01 Page 5
+EXECUTION TIME       =        0.031 SECONDS      4 MB  30.3.0 rc5da09e WEX-WEI
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/01/20 21:43:25 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE KnapsackB Using MIP From line 29
 
@@ -124,7 +124,7 @@ Cplex 12.10.0.0
 Space for names approximately 0.00 Mb
 Use option 'names no' to turn use of names off
 MIP status(102): integer optimal, tolerance
-Cplex Time: 0.02sec (det. 0.04 ticks)
+Cplex Time: 0.00sec (det. 0.04 ticks)
 Fixing integer variables, and solving final LP...
 Fixed MIP status(1): optimal
 Cplex Time: 0.00sec (det. 0.00 ticks)
@@ -141,31 +141,31 @@ Relative gap:            0.011805
                            LOWER          LEVEL          UPPER         MARGINAL
 
 ---- EQU OBJ                 .              .              .            -1.0000      
----- EQU RWT               -INF          248.0000       250.0000          .          
+---- EQU RMT               -INF          248.0000       250.0000          .          
 
-  OBJ  $
-  RWT  ton
+  OBJ  $/week
+  RMT  ton/week
 
                            LOWER          LEVEL          UPPER         MARGINAL
 
 ---- VAR Z                 -INF          624.0000        +INF             .          
 
-  Z  $
+  Z  $/week
 
----- VAR x  units
+---- VAR x  batch/week
 
            LOWER          LEVEL          UPPER         MARGINAL
 
-I1           .              .           100.0000        23.0000      
-I2           .              .           100.0000        79.0000      
-I3           .              .           100.0000        35.0000      
-I4           .             2.0000       100.0000        54.0000      
-I5           .              .           100.0000        13.0000      
-I6           .              .           100.0000        83.0000      
-I7           .             6.0000       100.0000        86.0000      
-I8           .              .           100.0000        57.0000      
-I9           .              .           100.0000        28.0000      
-I10          .              .           100.0000        11.0000      
+F1           .              .           100.0000        23.0000      
+F2           .              .           100.0000        79.0000      
+F3           .              .           100.0000        35.0000      
+F4           .             2.0000       100.0000        54.0000      
+F5           .              .           100.0000        13.0000      
+F6           .              .           100.0000        83.0000      
+F7           .             6.0000       100.0000        86.0000      
+F8           .              .           100.0000        57.0000      
+F9           .              .           100.0000        28.0000      
+F10          .              .           100.0000        11.0000      
 
 
 **** REPORT SUMMARY :        0     NONOPT

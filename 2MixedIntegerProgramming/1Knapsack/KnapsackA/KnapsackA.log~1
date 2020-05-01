@@ -1,4 +1,4 @@
---- Job KnapsackA.gms Start 04/29/20 22:36:04 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
+--- Job KnapsackA.gms Start 05/01/20 21:24:49 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
 --- GAMS Parameters defined
     Input C:\aguadix\GITHUB\SOC\2MixedIntegerProgramming\1Knapsack\KnapsackA\KnapsackA.gms
     PageSize 0
@@ -15,13 +15,15 @@ Licensee: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
           aguadix@ugr.es, ANTONIO MARIA GUADIX ESCOBAR                     
           Demo license for demonstration and instructional purposes only
 --- Starting compilation
---- KnapsackA.gms(29) 2 Mb
+--- KnapsackA.gms(18) 2 Mb
 --- Starting execution: elapsed 0:00:00.000
---- KnapsackA.gms(13) 3 Mb
 --- Generating MIP model KnapsackA
---- KnapsackA.gms(29) 3 Mb
+--- KnapsackA.gms(18) 3 Mb
 ---   2 rows  11 columns  21 non-zeroes
 ---   10 discrete-columns
+***
+***   10 Integer +INF Bounds have been reset to 100 (see Option IntVarUp)
+***
 --- Executing CPLEX: elapsed 0:00:00.015
 
 IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
@@ -48,14 +50,12 @@ Found incumbent of value 0.000000 after 0.00 sec. (0.00 ticks)
 Tried aggregator 1 time.
 MIP Presolve eliminated 1 rows and 1 columns.
 Reduced MIP has 1 rows, 10 columns, and 10 nonzeros.
-Reduced MIP has 1 binaries, 9 generals, 0 SOSs, and 0 indicators.
+Reduced MIP has 0 binaries, 10 generals, 0 SOSs, and 0 indicators.
 Presolve time = 0.00 sec. (0.01 ticks)
-Probing time = 0.00 sec. (0.00 ticks)
 Tried aggregator 1 time.
 Reduced MIP has 1 rows, 10 columns, and 10 nonzeros.
-Reduced MIP has 1 binaries, 9 generals, 0 SOSs, and 0 indicators.
+Reduced MIP has 0 binaries, 10 generals, 0 SOSs, and 0 indicators.
 Presolve time = 0.00 sec. (0.01 ticks)
-Probing time = 0.00 sec. (0.00 ticks)
 MIP emphasis: balance optimality and feasibility.
 MIP search method: dynamic search.
 Parallel mode: none, using 1 thread.
@@ -64,28 +64,26 @@ No LP presolve or aggregator reductions.
 Presolve time = 0.00 sec. (0.00 ticks)
 
 Iteration      Dual Objective            In Variable           Out Variable
-     1             439.083333                     x6              RWT slack
+     1             631.454545                     x4              RMT slack
 Root relaxation solution time = 0.00 sec. (0.00 ticks)
 
         Nodes                                         Cuts/
    Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
 
-*     0+    0                            0.0000     1003.0000              --- 
+*     0+    0                            0.0000     2310.0000              --- 
 Found incumbent of value 0.000000 after 0.00 sec. (0.03 ticks)
-      0     0      439.0833     1        0.0000      439.0833        1     --- 
-*     0+    0                          392.0000      439.0833            12.01%
-Found incumbent of value 392.000000 after 0.00 sec. (0.04 ticks)
-*     0+    0                          420.0000      439.0833             4.54%
-Found incumbent of value 420.000000 after 0.00 sec. (0.04 ticks)
+      0     0      631.4545     1        0.0000      631.4545        1     --- 
+*     0+    0                          624.0000      631.4545             1.19%
+Found incumbent of value 624.000000 after 0.02 sec. (0.03 ticks)
 
 Root node processing (before b&c):
-  Real time             =    0.00 sec. (0.04 ticks)
+  Real time             =    0.02 sec. (0.04 ticks)
 Sequential b&c:
   Real time             =    0.00 sec. (0.00 ticks)
                           ------------
-Total (root+branch&cut) =    0.00 sec. (0.04 ticks)
+Total (root+branch&cut) =    0.02 sec. (0.04 ticks)
 MIP status(102): integer optimal, tolerance
-Cplex Time: 0.00sec (det. 0.04 ticks)
+Cplex Time: 0.02sec (det. 0.04 ticks)
 Fixing integer variables, and solving final LP...
 Version identifier: 12.10.0.0 | 2019-11-26 | 843d4de2ae
 CPXPARAM_Advance                                 2
@@ -108,15 +106,15 @@ Cplex Time: 0.00sec (det. 0.00 ticks)
 
 Solution satisfies tolerances.
 
-MIP Solution:          420.000000    (1 iterations, 0 nodes)
-Final Solve:           420.000000    (0 iterations)
+MIP Solution:          624.000000    (1 iterations, 0 nodes)
+Final Solve:           624.000000    (0 iterations)
 
-Best possible:         439.083333
-Absolute gap:           19.083333
-Relative gap:            0.043462
+Best possible:         631.454545
+Absolute gap:            7.454545
+Relative gap:            0.011805
 
 --- Restarting execution
---- KnapsackA.gms(29) 2 Mb
+--- KnapsackA.gms(18) 2 Mb
 --- Reading solution for model KnapsackA
 *** Status: Normal completion
---- Job KnapsackA.gms Stop 04/29/20 22:36:05 elapsed 0:00:00.186
+--- Job KnapsackA.gms Stop 05/01/20 21:24:49 elapsed 0:00:00.137

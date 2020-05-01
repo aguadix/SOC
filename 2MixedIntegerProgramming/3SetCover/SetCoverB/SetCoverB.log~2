@@ -1,8 +1,8 @@
---- Job SetCoverB.gms Start 04/22/20 12:17:04 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
+--- Job SetCoverB.gms Start 05/01/20 22:00:23 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
 --- GAMS Parameters defined
-    Input C:\aguadix\GITHUB\SOC\2 Mixed integer programming (MIP)\4 SetCover\SetCoverB\SetCoverB.gms
+    Input C:\aguadix\GITHUB\SOC\2MixedIntegerProgramming\3SetCover\SetCoverB\SetCoverB.gms
     PageSize 0
-    ScrDir C:\aguadix\GITHUB\SOC\2 Mixed integer programming (MIP)\4 SetCover\SetCoverB\225a\
+    ScrDir C:\aguadix\GITHUB\SOC\2MixedIntegerProgramming\3SetCover\SetCoverB\225a\
     SysDir C:\GAMS\win64\30.3\
     LogOption 3
     ErrMsg 1
@@ -15,13 +15,13 @@ Licensee: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
           aguadix@ugr.es, ANTONIO MARIA GUADIX ESCOBAR                     
           Demo license for demonstration and instructional purposes only
 --- Starting compilation
---- SetCoverB.gms(57) 3 Mb
---- Starting execution: elapsed 0:00:00.006
+--- SetCoverB.gms(44) 3 Mb
+--- Starting execution: elapsed 0:00:00.000
 --- Generating MIP model SetCoverB
---- SetCoverB.gms(57) 4 Mb
----   9 rows  7 columns  23 non-zeroes
----   6 discrete-columns
---- Executing CPLEX: elapsed 0:00:00.029
+--- SetCoverB.gms(39) 4 Mb
+---   10 rows  10 columns  52 non-zeroes
+---   9 discrete-columns
+--- Executing CPLEX: elapsed 0:00:00.016
 
 IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
 *** This solver runs with a demo license. No commercial use.
@@ -42,23 +42,20 @@ CPXPARAM_TimeLimit                               1000
 CPXPARAM_Tune_TimeLimit                          200
 CPXPARAM_MIP_Tolerances_AbsMIPGap                0
 CPXPARAM_MIP_Tolerances_MIPGap                   0.10000000000000001
-CPXPARAM_WorkDir                                 "C:\aguadix\GITHUB\SOC\2 Mixed integer programming (MIP)\4 SetCover\SetCoverB\225a\"
-Found incumbent of value 18.000000 after 0.00 sec. (0.00 ticks)
-Tried aggregator 2 times.
-MIP Presolve eliminated 5 rows and 1 columns.
-MIP Presolve modified 3 coefficients.
-Aggregator did 1 substitutions.
-Reduced MIP has 3 rows, 5 columns, and 9 nonzeros.
-Reduced MIP has 5 binaries, 0 generals, 0 SOSs, and 0 indicators.
+CPXPARAM_WorkDir                                 "C:\aguadix\GITHUB\SOC\2MixedIntegerProgramming\3SetCover\SetCoverB\225a\"
+Found incumbent of value 4.000000 after 0.00 sec. (0.00 ticks)
+Tried aggregator 1 time.
+MIP Presolve eliminated 5 rows and 3 columns.
+Reduced MIP has 5 rows, 7 columns, and 15 nonzeros.
+Reduced MIP has 7 binaries, 0 generals, 0 SOSs, and 0 indicators.
 Presolve time = 0.00 sec. (0.02 ticks)
 Probing time = 0.00 sec. (0.00 ticks)
 Tried aggregator 1 time.
 Detecting symmetries...
-Reduced MIP has 3 rows, 5 columns, and 9 nonzeros.
-Reduced MIP has 5 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Reduced MIP has 5 rows, 7 columns, and 15 nonzeros.
+Reduced MIP has 7 binaries, 0 generals, 0 SOSs, and 0 indicators.
 Presolve time = 0.00 sec. (0.01 ticks)
 Probing time = 0.00 sec. (0.00 ticks)
-Clique table members: 5.
 MIP emphasis: balance optimality and feasibility.
 MIP search method: dynamic search.
 Parallel mode: none, using 1 thread.
@@ -67,28 +64,29 @@ No LP presolve or aggregator reductions.
 Presolve time = 0.00 sec. (0.00 ticks)
 
 Iteration      Dual Objective            In Variable           Out Variable
-     1               6.000000                  x(N4)           R(A45) slack
-     2               8.000000                  x(N2)           R(A23) artif
-     3              11.000000           R(A45) slack           R(A12) artif
-Root relaxation solution time = 0.00 sec. (0.00 ticks)
+     1               1.500000             x(Segovia)         R(Avila) slack
+     2               2.000000          x(Valladolid)          R(Leon) slack
+     3               2.500000                x(Leon)         R(Soria) slack
+     4               3.000000               x(Soria)     R(Salamanca) slack
+Root relaxation solution time = 0.00 sec. (0.01 ticks)
 
         Nodes                                         Cuts/
    Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
 
-*     0+    0                           18.0000        1.0000            94.44%
-Found incumbent of value 18.000000 after 0.00 sec. (0.04 ticks)
-*     0     0      integral     0       11.0000       11.0000        3    0.00%
-Elapsed time = 0.00 sec. (0.04 ticks, tree = 0.00 MB, solutions = 2)
-Found incumbent of value 11.000000 after 0.00 sec. (0.04 ticks)
+*     0+    0                            4.0000        0.0000           100.00%
+Found incumbent of value 4.000000 after 0.00 sec. (0.05 ticks)
+*     0     0      integral     0        3.0000        3.0000        4    0.00%
+Elapsed time = 0.00 sec. (0.05 ticks, tree = 0.00 MB, solutions = 1)
+Found incumbent of value 3.000000 after 0.00 sec. (0.05 ticks)
 
 Root node processing (before b&c):
-  Real time             =    0.00 sec. (0.04 ticks)
+  Real time             =    0.00 sec. (0.05 ticks)
 Sequential b&c:
   Real time             =    0.00 sec. (0.00 ticks)
                           ------------
-Total (root+branch&cut) =    0.00 sec. (0.04 ticks)
+Total (root+branch&cut) =    0.00 sec. (0.05 ticks)
 MIP status(101): integer optimal solution
-Cplex Time: 0.00sec (det. 0.04 ticks)
+Cplex Time: 0.00sec (det. 0.05 ticks)
 Fixing integer variables, and solving final LP...
 Version identifier: 12.10.0.0 | 2019-11-26 | 843d4de2ae
 CPXPARAM_Advance                                 2
@@ -101,9 +99,9 @@ CPXPARAM_TimeLimit                               1000
 CPXPARAM_Tune_TimeLimit                          200
 CPXPARAM_MIP_Tolerances_AbsMIPGap                0
 CPXPARAM_MIP_Tolerances_MIPGap                   0.10000000000000001
-CPXPARAM_WorkDir                                 "C:\aguadix\GITHUB\SOC\2 Mixed integer programming (MIP)\4 SetCover\SetCoverB\225a\"
+CPXPARAM_WorkDir                                 "C:\aguadix\GITHUB\SOC\2MixedIntegerProgramming\3SetCover\SetCoverB\225a\"
 Tried aggregator 1 time.
-LP Presolve eliminated 9 rows and 7 columns.
+LP Presolve eliminated 10 rows and 10 columns.
 All rows and columns eliminated.
 Presolve time = 0.00 sec. (0.00 ticks)
 Fixed MIP status(1): optimal
@@ -111,15 +109,15 @@ Cplex Time: 0.00sec (det. 0.01 ticks)
 
 Proven optimal solution.
 
-MIP Solution:           11.000000    (3 iterations, 0 nodes)
-Final Solve:            11.000000    (0 iterations)
+MIP Solution:            3.000000    (4 iterations, 0 nodes)
+Final Solve:             3.000000    (0 iterations)
 
-Best possible:          11.000000
+Best possible:           3.000000
 Absolute gap:            0.000000
 Relative gap:            0.000000
 
 --- Restarting execution
---- SetCoverB.gms(57) 2 Mb
+--- SetCoverB.gms(39) 2 Mb
 --- Reading solution for model SetCoverB
 *** Status: Normal completion
---- Job SetCoverB.gms Stop 04/22/20 12:17:04 elapsed 0:00:00.170
+--- Job SetCoverB.gms Stop 05/01/20 22:00:23 elapsed 0:00:00.151

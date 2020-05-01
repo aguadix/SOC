@@ -1,8 +1,8 @@
---- Job BinPackingB.gms Start 04/22/20 11:17:54 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
+--- Job BinPackingB.gms Start 05/01/20 22:08:57 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
 --- GAMS Parameters defined
-    Input C:\aguadix\GITHUB\SOC\2 Mixed integer programming (MIP)\3 BinPacking\BinPackingB\BinPackingB.gms
+    Input C:\aguadix\GITHUB\SOC\2MixedIntegerProgramming\2BinPacking\BinPackingB\BinPackingB.gms
     PageSize 0
-    ScrDir C:\aguadix\GITHUB\SOC\2 Mixed integer programming (MIP)\3 BinPacking\BinPackingB\225a\
+    ScrDir C:\aguadix\GITHUB\SOC\2MixedIntegerProgramming\2BinPacking\BinPackingB\225a\
     SysDir C:\GAMS\win64\30.3\
     LogOption 3
     ErrMsg 1
@@ -15,13 +15,13 @@ Licensee: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
           aguadix@ugr.es, ANTONIO MARIA GUADIX ESCOBAR                     
           Demo license for demonstration and instructional purposes only
 --- Starting compilation
---- BinPackingB.gms(64) 2 Mb
---- Starting execution: elapsed 0:00:00.000
---- Generating MIP model BinPackingB
---- BinPackingB.gms(64) 3 Mb
+--- BinPackingB.gms(31) 3 Mb
+--- Starting execution: elapsed 0:00:00.005
+--- Generating MIP model BinPackingA
+--- BinPackingB.gms(31) 4 Mb
 ---   17 rows  67 columns  133 non-zeroes
 ---   66 discrete-columns
---- Executing CPLEX: elapsed 0:00:00.016
+--- Executing CPLEX: elapsed 0:00:00.022
 
 IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
 *** This solver runs with a demo license. No commercial use.
@@ -42,19 +42,19 @@ CPXPARAM_TimeLimit                               1000
 CPXPARAM_Tune_TimeLimit                          200
 CPXPARAM_MIP_Tolerances_AbsMIPGap                0
 CPXPARAM_MIP_Tolerances_MIPGap                   0.10000000000000001
-CPXPARAM_WorkDir                                 "C:\aguadix\GITHUB\SOC\2 Mixed integer programming (MIP)\3 BinPacking\BinPackingB\225a\"
+CPXPARAM_WorkDir                                 "C:\aguadix\GITHUB\SOC\2MixedIntegerProgramming\2BinPacking\BinPackingB\225a\"
 Tried aggregator 1 time.
 MIP Presolve eliminated 1 rows and 1 columns.
 Reduced MIP has 16 rows, 66 columns, and 126 nonzeros.
 Reduced MIP has 66 binaries, 0 generals, 0 SOSs, and 0 indicators.
-Presolve time = 0.00 sec. (0.09 ticks)
-Found incumbent of value 6.000000 after 0.00 sec. (0.24 ticks)
+Presolve time = 0.02 sec. (0.09 ticks)
+Found incumbent of value 6.000000 after 0.20 sec. (0.24 ticks)
 Probing time = 0.00 sec. (0.05 ticks)
 Tried aggregator 1 time.
 Detecting symmetries...
 Reduced MIP has 16 rows, 66 columns, and 126 nonzeros.
 Reduced MIP has 66 binaries, 0 generals, 0 SOSs, and 0 indicators.
-Presolve time = 0.00 sec. (0.14 ticks)
+Presolve time = 0.02 sec. (0.14 ticks)
 Probing time = 0.00 sec. (0.05 ticks)
 Clique table members: 52.
 MIP emphasis: balance optimality and feasibility.
@@ -66,60 +66,56 @@ Presolve time = 0.00 sec. (0.02 ticks)
 Initializing dual steep norms . . .
 
 Iteration      Dual Objective            In Variable           Out Variable
-     1               0.000000                   X104             Cap1 slack
-     2               0.000000                    X45             Cap5 slack
-     3               0.000000                   X106             Cap4 slack
-     4               0.000000                    X73             Cap3 slack
-     5               0.000000                    X64                   X104
-     6               0.000000                    X42             Cap6 slack
-     7               0.000000                    X16                   X106
-     8               4.000000                     Y2             Cap2 slack
-     9               4.000000                     Y6                    X16
-    10               4.000000                     Y5                    X45
-    11               4.000000                     Y4                    X64
-    12               4.000000                   X103                    X71
-    13               4.000000                    X75                    X73
-    14               4.000000                     Y3                   X103
-    15               4.000000                     Y1                     Y2
-    16               4.000000                   X102                    X42
-    17               4.000000                   X105                     Y5
-    18               4.000000                    X85                   X105
-    19               4.000000                    X65                    X61
-    20               4.000000                   X103                     Y1
-    21               4.000000                    X92                   X101
-    22               4.000000                    X71                    X85
-Root relaxation solution time = 0.00 sec. (0.07 ticks)
+     1               0.000000                x(J.T2)          RVT(T1) slack
+     2               0.000000                x(G.T3)          RVT(T3) slack
+     3               0.000000                x(G.T4)          RVT(T4) slack
+     4               0.000000                x(G.T5)          RVT(T5) slack
+     5               0.000000                x(G.T6)          RVT(T6) slack
+     6               4.000000                  y(T2)          RVT(T2) slack
+     7               4.000000                  y(T4)                x(G.T4)
+     8               4.000000                  y(T5)                x(G.T5)
+     9               4.000000                  y(T6)                x(G.T6)
+    10               4.000000                x(J.T3)                x(G.T1)
+    11               4.000000                  y(T1)                x(J.T1)
+    12               4.000000                x(F.T2)                x(F.T1)
+    13               4.000000                x(G.T6)                x(G.T3)
+    14               4.000000                  y(T3)                x(J.T3)
+    15               4.000000                x(I.T2)                  y(T1)
+    16               4.000000                x(J.T3)                  y(T2)
+    17               4.000000                x(H.T2)                x(H.T1)
+    18               4.000000                x(J.T4)                  y(T3)
+Root relaxation solution time = 0.00 sec. (0.06 ticks)
 
         Nodes                                         Cuts/
    Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
 
 *     0+    0                            6.0000        0.0000           100.00%
-Found incumbent of value 6.000000 after 0.00 sec. (0.63 ticks)
-      0     0        4.0000     9        6.0000        4.0000       22   33.33%
+Found incumbent of value 6.000000 after 0.22 sec. (0.62 ticks)
+      0     0        4.0000     4        6.0000        4.0000       18   33.33%
 *     0+    0                            5.0000        4.0000            20.00%
-Found incumbent of value 5.000000 after 0.00 sec. (0.67 ticks)
-      0     0        4.0000     9        5.0000      Cuts: 27       33   20.00%
-*     0+    0                            4.0000        4.0000             0.00%
-Found incumbent of value 4.000000 after 0.02 sec. (0.97 ticks)
-      0     0        cutoff              4.0000        4.0000       33    0.00%
-Elapsed time = 0.02 sec. (0.97 ticks, tree = 0.01 MB, solutions = 3)
+Found incumbent of value 5.000000 after 0.22 sec. (0.66 ticks)
+      0     0        4.0000     4        5.0000      Cuts: 19       32   20.00%
+      0     0        4.0000     4        5.0000       Cuts: 7       38   20.00%
+*     0     0      integral     0        4.0000      Cuts: 12       42    0.00%
+Found incumbent of value 4.000000 after 0.34 sec. (1.88 ticks)
+      0     0        cutoff              4.0000        4.0000       42    0.00%
+Elapsed time = 0.34 sec. (1.88 ticks, tree = 0.01 MB, solutions = 3)
 
-Clique cuts applied:  2
-Cover cuts applied:  4
-Flow cuts applied:  1
-Mixed integer rounding cuts applied:  2
+Clique cuts applied:  1
+Cover cuts applied:  6
+Flow cuts applied:  6
+Mixed integer rounding cuts applied:  3
 Zero-half cuts applied:  2
-Lift and project cuts applied:  1
-Gomory fractional cuts applied:  2
+Lift and project cuts applied:  2
 
 Root node processing (before b&c):
-  Real time             =    0.02 sec. (0.98 ticks)
+  Real time             =    0.34 sec. (1.88 ticks)
 Sequential b&c:
   Real time             =    0.00 sec. (0.00 ticks)
                           ------------
-Total (root+branch&cut) =    0.02 sec. (0.98 ticks)
+Total (root+branch&cut) =    0.34 sec. (1.88 ticks)
 MIP status(101): integer optimal solution
-Cplex Time: 0.02sec (det. 0.98 ticks)
+Cplex Time: 0.34sec (det. 1.88 ticks)
 Fixing integer variables, and solving final LP...
 Version identifier: 12.10.0.0 | 2019-11-26 | 843d4de2ae
 CPXPARAM_Advance                                 2
@@ -132,17 +128,17 @@ CPXPARAM_TimeLimit                               1000
 CPXPARAM_Tune_TimeLimit                          200
 CPXPARAM_MIP_Tolerances_AbsMIPGap                0
 CPXPARAM_MIP_Tolerances_MIPGap                   0.10000000000000001
-CPXPARAM_WorkDir                                 "C:\aguadix\GITHUB\SOC\2 Mixed integer programming (MIP)\3 BinPacking\BinPackingB\225a\"
+CPXPARAM_WorkDir                                 "C:\aguadix\GITHUB\SOC\2MixedIntegerProgramming\2BinPacking\BinPackingB\225a\"
 Tried aggregator 1 time.
 LP Presolve eliminated 17 rows and 67 columns.
 All rows and columns eliminated.
-Presolve time = 0.00 sec. (0.02 ticks)
+Presolve time = 0.02 sec. (0.02 ticks)
 Fixed MIP status(1): optimal
-Cplex Time: 0.00sec (det. 0.03 ticks)
+Cplex Time: 0.02sec (det. 0.03 ticks)
 
 Proven optimal solution.
 
-MIP Solution:            4.000000    (33 iterations, 0 nodes)
+MIP Solution:            4.000000    (42 iterations, 0 nodes)
 Final Solve:             4.000000    (0 iterations)
 
 Best possible:           4.000000
@@ -150,7 +146,7 @@ Absolute gap:            0.000000
 Relative gap:            0.000000
 
 --- Restarting execution
---- BinPackingB.gms(64) 2 Mb
---- Reading solution for model BinPackingB
+--- BinPackingB.gms(31) 2 Mb
+--- Reading solution for model BinPackingA
 *** Status: Normal completion
---- Job BinPackingB.gms Stop 04/22/20 11:17:54 elapsed 0:00:00.162
+--- Job BinPackingB.gms Stop 05/01/20 22:08:58 elapsed 0:00:00.768

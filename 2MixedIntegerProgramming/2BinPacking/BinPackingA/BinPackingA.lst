@@ -1,705 +1,685 @@
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 12:53:13 Page 1
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/01/20 22:50:15 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
 
    1  * BinPackingA.gms
-   2  * Problema de empaquetamiento en contenedores
-   3   
-   4  VARIABLES
+   2   
+   3  FREE VARIABLE
+   4  Z       'number of trucks used';
    5   
-   6  * Número de cajas usadas;
-   7  N;
-   8   
-   9   
-  10  BINARY VARIABLES
-  11  * Xij  ¿se mete el objeto i en la caja j?
-  12  X11, X21, X31, X41, X51, X61, X71, X81, X91, X101,
-  13  X12, X22, X32, X42, X52, X62, X72, X82, X92, X102,
-  14  X13, X23, X33, X43, X53, X63, X73, X83, X93, X103,
-  15  X14, X24, X34, X44, X54, X64, X74, X84, X94, X104,
-  16  X15, X25, X35, X45, X55, X65, X75, X85, X95, X105,
-  17  X16, X26, X36, X46, X56, X66, X76, X86, X96, X106
-  18   
-  19   
-  20  *Yj  ¿se usa la caja j?;
-  21  Y1, Y2, Y3, Y4, Y5, Y6;
+   6  BINARY VARIABLE
+   7  xA1, xB1, xC1, xD1, xE1, xF1, xG1, xH1, xI1, xJ1,
+   8  xA2, xB2, xC2, xD2, xE2, xF2, xG2, xH2, xI2, xJ2,
+   9  xA3, xB3, xC3, xD3, xE3, xF3, xG3, xH3, xI3, xJ3,
+  10  xA4, xB4, xC4, xD4, xE4, xF4, xG4, xH4, xI4, xJ4,
+  11  xA5, xB5, xC5, xD5, xE5, xF5, xG5, xH5, xI5, xJ5,
+  12  xA6, xB6, xC6, xD6, xE6, xF6, xG6, xH6, xI6, xJ6 'if farm is collected by truck = 1, else = 0'
+  13   
+  14  y1, y2, y3, y4, y5, y6  'if truck is used = 1, else = 0';
+  15   
+  16  EQUATION
+  17  OBJ 'number of trucks used'
+  18  ROA, ROB, ROC, ROD, ROE, ROF, ROG, ROH, ROI, ROJ '-'
+  19  RVT1, RVT2, RVT3, RVT4, RVT5, RVT6 'm3';
+  20   
+  21  OBJ..   y1 + y2 + y3 + y4 + y5 + y6 =E= Z;
   22   
-  23  EQUATIONS
-  24   
-  25  *Obj, Asigna(i), Cap(j);
-  26  Obj,
-  27  Asigna1, Asigna2, Asigna3, Asigna4, Asigna5, Asigna6, Asigna7, Asigna8, Asigna9, Asigna10,
-  28  Cap1, Cap2, Cap3, Cap4, Cap5, Cap6;
-  29   
-  30   
-  31   
-  32  * Obj..         N =E= sum(j,y(j)) ;
-  33  Obj..           N =E= Y1 + Y2 + Y3 + Y4 + Y5 + Y6;
-  34   
-  35   
-  36  * Asigna(i)..   sum(j,x(i,j)) =E= 1 ;
-  37  * Cada objeto en una caja
-  38  Asigna1..       X11 + X12 + X13 + X14 + X15 + X16 =E= 1;
-  39  Asigna2..       X21 + X22 + X23 + X24 + X25 + X26 =E= 1;
-  40  Asigna3..       X31 + X32 + X33 + X34 + X35 + X36 =E= 1;
-  41  Asigna4..       X41 + X42 + X43 + X44 + X45 + X46 =E= 1;
-  42  Asigna5..       X51 + X52 + X53 + X54 + X55 + X56 =E= 1;
-  43  Asigna6..       X61 + X62 + X63 + X64 + X65 + X66 =E= 1;
-  44  Asigna7..       X71 + X72 + X73 + X74 + X75 + X76 =E= 1;
-  45  Asigna8..       X81 + X82 + X83 + X84 + X85 + X86 =E= 1;
-  46  Asigna9..       X91 + X92 + X93 + X94 + X95 + X96 =E= 1;
-  47  Asigna10..      X101 + X102 + X103 + X104 + X105 + X106 =E= 1;
-  48   
-  49   
-  50  * Cap(j)..      sum(i,w(i)*x(i,j)) =L= V*y(j);
-  51  * No superar la capacidad de la caja
-  52  Cap1..          1*X11 + 1*X21 + 2*X31 + 2*X41 + 4*X51 + 4*X61 + 5*X71 + 6*X81 + 7*X91 + 8*X101 =L= 10*Y1;
-  53  Cap2..          1*X12 + 1*X22 + 2*X32 + 2*X42 + 4*X52 + 4*X62 + 5*X72 + 6*X82 + 7*X92 + 8*X102 =L= 10*Y2;
-  54  Cap3..          1*X13 + 1*X23 + 2*X33 + 2*X43 + 4*X53 + 4*X63 + 5*X73 + 6*X83 + 7*X93 + 8*X103 =L= 10*Y3;
-  55  Cap4..          1*X14 + 1*X24 + 2*X34 + 2*X44 + 4*X54 + 4*X64 + 5*X74 + 6*X84 + 7*X94 + 8*X104 =L= 10*Y4;
-  56  Cap5..          1*X15 + 1*X25 + 2*X35 + 2*X45 + 4*X55 + 4*X65 + 5*X75 + 6*X85 + 7*X95 + 8*X105 =L= 10*Y5;
-  57  Cap6..          1*X16 + 1*X26 + 2*X36 + 2*X46 + 4*X56 + 4*X66 + 5*X76 + 6*X86 + 7*X96 + 8*X106 =L= 10*Y6;
-  58   
-  59   
-  60  MODEL BinPackingB /all/;
-  61   
-  62   
-  63  SOLVE BinPackingB using MIP minimizing N;
+  23  ROA..   xA1  + xA2  + xA3  + xA4  + xA5  + xA6  =E= 1;
+  24  ROB..   xB1  + xB2  + xB3  + xB4  + xB5  + xB6  =E= 1;
+  25  ROC..   xC1  + xC2  + xC3  + xC4  + xC5  + xC6  =E= 1;
+  26  ROD..   xD1  + xD2  + xD3  + xD4  + xD5  + xD6  =E= 1;
+  27  ROE..   xE1  + xE2  + xE3  + xE4  + xE5  + xE6  =E= 1;
+  28  ROF..   xF1  + xF2  + xF3  + xF4  + xF5  + xF6  =E= 1;
+  29  ROG..   xG1  + xG2  + xG3  + xG4  + xG5  + xG6  =E= 1;
+  30  ROH..   xH1  + xH2  + xH3  + xH4  + xH5  + xH6  =E= 1;
+  31  ROI..   xI1  + xI2  + xI3  + xI4  + xI5  + xI6  =E= 1;
+  32  ROJ..   xJ1  + xJ2  + xJ3  + xJ4  + xJ5  + xJ6  =E= 1;
+  33   
+  34  RVT1..  1*xA1 + 1*xB1 + 2*xC1 + 2*xD1 + 4*xE1 + 4*xF1 + 5*xG1 + 6*xH1 + 7*xI1 + 8*xJ1 =L= 10*y1;
+  35  RVT2..  1*xA2 + 1*xB2 + 2*xC2 + 2*xD2 + 4*xE2 + 4*xF2 + 5*xG2 + 6*xH2 + 7*xI2 + 8*xJ2 =L= 10*y2;
+  36  RVT3..  1*xA3 + 1*xB3 + 2*xC3 + 2*xD3 + 4*xE3 + 4*xF3 + 5*xG3 + 6*xH3 + 7*xI3 + 8*xJ3 =L= 10*y3;
+  37  RVT4..  1*xA4 + 1*xB4 + 2*xC4 + 2*xD4 + 4*xE4 + 4*xF4 + 5*xG4 + 6*xH4 + 7*xI4 + 8*xJ4 =L= 10*y4;
+  38  RVT5..  1*xA5 + 1*xB5 + 2*xC5 + 2*xD5 + 4*xE5 + 4*xF5 + 5*xG5 + 6*xH5 + 7*xI5 + 8*xJ5 =L= 10*y5;
+  39  RVT6..  1*xA6 + 1*xB6 + 2*xC6 + 2*xD6 + 4*xE6 + 4*xF6 + 5*xG6 + 6*xH6 + 7*xI6 + 8*xJ6 =L= 10*y6;
+  40   
+  41  MODEL BinPackingB /all/;
+  42   
+  43  SOLVE BinPackingB USING MIP MINIMIZING Z;
 
 
 COMPILATION TIME     =        0.000 SECONDS      2 MB  30.3.0 rc5da09e WEX-WEI
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 12:53:13 Page 2
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/01/20 22:50:15 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Equation Listing    SOLVE BinPackingB Using MIP From line 63
+Equation Listing    SOLVE BinPackingB Using MIP From line 43
 
 
----- Obj  =E=  
+---- OBJ  =E=  number of trucks used
 
-Obj..  N - Y1 - Y2 - Y3 - Y4 - Y5 - Y6 =E= 0 ; (LHS = 0)
+OBJ..  - Z + y1 + y2 + y3 + y4 + y5 + y6 =E= 0 ; (LHS = 0)
      
 
----- Asigna1  =E=  
+---- ROA  =E=  
 
-Asigna1..  X11 + X12 + X13 + X14 + X15 + X16 =E= 1 ; (LHS = 0, INFES = 1 ****)
+ROA..  xA1 + xA2 + xA3 + xA4 + xA5 + xA6 =E= 1 ; (LHS = 0, INFES = 1 ****)
      
 
----- Asigna2  =E=  
+---- ROB  =E=  
 
-Asigna2..  X21 + X22 + X23 + X24 + X25 + X26 =E= 1 ; (LHS = 0, INFES = 1 ****)
+ROB..  xB1 + xB2 + xB3 + xB4 + xB5 + xB6 =E= 1 ; (LHS = 0, INFES = 1 ****)
      
 
----- Asigna3  =E=  
+---- ROC  =E=  
 
-Asigna3..  X31 + X32 + X33 + X34 + X35 + X36 =E= 1 ; (LHS = 0, INFES = 1 ****)
+ROC..  xC1 + xC2 + xC3 + xC4 + xC5 + xC6 =E= 1 ; (LHS = 0, INFES = 1 ****)
      
 
----- Asigna4  =E=  
+---- ROD  =E=  
 
-Asigna4..  X41 + X42 + X43 + X44 + X45 + X46 =E= 1 ; (LHS = 0, INFES = 1 ****)
+ROD..  xD1 + xD2 + xD3 + xD4 + xD5 + xD6 =E= 1 ; (LHS = 0, INFES = 1 ****)
      
 
----- Asigna5  =E=  
+---- ROE  =E=  
 
-Asigna5..  X51 + X52 + X53 + X54 + X55 + X56 =E= 1 ; (LHS = 0, INFES = 1 ****)
+ROE..  xE1 + xE2 + xE3 + xE4 + xE5 + xE6 =E= 1 ; (LHS = 0, INFES = 1 ****)
      
 
----- Asigna6  =E=  
+---- ROF  =E=  
 
-Asigna6..  X61 + X62 + X63 + X64 + X65 + X66 =E= 1 ; (LHS = 0, INFES = 1 ****)
+ROF..  xF1 + xF2 + xF3 + xF4 + xF5 + xF6 =E= 1 ; (LHS = 0, INFES = 1 ****)
      
 
----- Asigna7  =E=  
+---- ROG  =E=  
 
-Asigna7..  X71 + X72 + X73 + X74 + X75 + X76 =E= 1 ; (LHS = 0, INFES = 1 ****)
+ROG..  xG1 + xG2 + xG3 + xG4 + xG5 + xG6 =E= 1 ; (LHS = 0, INFES = 1 ****)
      
 
----- Asigna8  =E=  
+---- ROH  =E=  
 
-Asigna8..  X81 + X82 + X83 + X84 + X85 + X86 =E= 1 ; (LHS = 0, INFES = 1 ****)
+ROH..  xH1 + xH2 + xH3 + xH4 + xH5 + xH6 =E= 1 ; (LHS = 0, INFES = 1 ****)
      
 
----- Asigna9  =E=  
+---- ROI  =E=  
 
-Asigna9..  X91 + X92 + X93 + X94 + X95 + X96 =E= 1 ; (LHS = 0, INFES = 1 ****)
+ROI..  xI1 + xI2 + xI3 + xI4 + xI5 + xI6 =E= 1 ; (LHS = 0, INFES = 1 ****)
      
 
----- Asigna10  =E=  
+---- ROJ  =E=  -
 
-Asigna10..  X101 + X102 + X103 + X104 + X105 + X106 =E= 1 ; (LHS = 0, INFES = 1 ****)
+ROJ..  xJ1 + xJ2 + xJ3 + xJ4 + xJ5 + xJ6 =E= 1 ; (LHS = 0, INFES = 1 ****)
      
 
----- Cap1  =L=  
+---- RVT1  =L=  
 
-Cap1..  X11 + X21 + 2*X31 + 2*X41 + 4*X51 + 4*X61 + 5*X71 + 6*X81 + 7*X91 + 8*X101 - 10*Y1 =L= 0 ; (LHS = 0)
+RVT1..  xA1 + xB1 + 2*xC1 + 2*xD1 + 4*xE1 + 4*xF1 + 5*xG1 + 6*xH1 + 7*xI1 + 8*xJ1 - 10*y1 =L= 0 ; (LHS = 0)
      
 
----- Cap2  =L=  
+---- RVT2  =L=  
 
-Cap2..  X12 + X22 + 2*X32 + 2*X42 + 4*X52 + 4*X62 + 5*X72 + 6*X82 + 7*X92 + 8*X102 - 10*Y2 =L= 0 ; (LHS = 0)
+RVT2..  xA2 + xB2 + 2*xC2 + 2*xD2 + 4*xE2 + 4*xF2 + 5*xG2 + 6*xH2 + 7*xI2 + 8*xJ2 - 10*y2 =L= 0 ; (LHS = 0)
      
 
----- Cap3  =L=  
+---- RVT3  =L=  
 
-Cap3..  X13 + X23 + 2*X33 + 2*X43 + 4*X53 + 4*X63 + 5*X73 + 6*X83 + 7*X93 + 8*X103 - 10*Y3 =L= 0 ; (LHS = 0)
+RVT3..  xA3 + xB3 + 2*xC3 + 2*xD3 + 4*xE3 + 4*xF3 + 5*xG3 + 6*xH3 + 7*xI3 + 8*xJ3 - 10*y3 =L= 0 ; (LHS = 0)
      
 
----- Cap4  =L=  
+---- RVT4  =L=  
 
-Cap4..  X14 + X24 + 2*X34 + 2*X44 + 4*X54 + 4*X64 + 5*X74 + 6*X84 + 7*X94 + 8*X104 - 10*Y4 =L= 0 ; (LHS = 0)
+RVT4..  xA4 + xB4 + 2*xC4 + 2*xD4 + 4*xE4 + 4*xF4 + 5*xG4 + 6*xH4 + 7*xI4 + 8*xJ4 - 10*y4 =L= 0 ; (LHS = 0)
      
 
----- Cap5  =L=  
+---- RVT5  =L=  
 
-Cap5..  X15 + X25 + 2*X35 + 2*X45 + 4*X55 + 4*X65 + 5*X75 + 6*X85 + 7*X95 + 8*X105 - 10*Y5 =L= 0 ; (LHS = 0)
+RVT5..  xA5 + xB5 + 2*xC5 + 2*xD5 + 4*xE5 + 4*xF5 + 5*xG5 + 6*xH5 + 7*xI5 + 8*xJ5 - 10*y5 =L= 0 ; (LHS = 0)
      
 
----- Cap6  =L=  
+---- RVT6  =L=  m3
 
-Cap6..  X16 + X26 + 2*X36 + 2*X46 + 4*X56 + 4*X66 + 5*X76 + 6*X86 + 7*X96 + 8*X106 - 10*Y6 =L= 0 ; (LHS = 0)
+RVT6..  xA6 + xB6 + 2*xC6 + 2*xD6 + 4*xE6 + 4*xF6 + 5*xG6 + 6*xH6 + 7*xI6 + 8*xJ6 - 10*y6 =L= 0 ; (LHS = 0)
      
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 12:53:13 Page 3
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/01/20 22:50:15 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE BinPackingB Using MIP From line 63
+Column Listing      SOLVE BinPackingB Using MIP From line 43
 
 
----- N  
+---- Z  number of trucks used
 
-N
+Z
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
-        1       Obj
+       -1       OBJ
 
 
----- X11  
+---- xA1  
 
-X11
+xA1
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna1
-        1       Cap1
+        1       ROA
+        1       RVT1
 
 
----- X21  
+---- xB1  
 
-X21
+xB1
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna2
-        1       Cap1
+        1       ROB
+        1       RVT1
 
 
----- X31  
+---- xC1  
 
-X31
+xC1
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna3
-        2       Cap1
+        1       ROC
+        2       RVT1
 
 
----- X41  
+---- xD1  
 
-X41
+xD1
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna4
-        2       Cap1
+        1       ROD
+        2       RVT1
 
 
----- X51  
+---- xE1  
 
-X51
+xE1
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna5
-        4       Cap1
+        1       ROE
+        4       RVT1
 
 
----- X61  
+---- xF1  
 
-X61
+xF1
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna6
-        4       Cap1
+        1       ROF
+        4       RVT1
 
 
----- X71  
+---- xG1  
 
-X71
+xG1
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna7
-        5       Cap1
+        1       ROG
+        5       RVT1
 
 
----- X81  
+---- xH1  
 
-X81
+xH1
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna8
-        6       Cap1
+        1       ROH
+        6       RVT1
 
 
----- X91  
+---- xI1  
 
-X91
+xI1
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna9
-        7       Cap1
+        1       ROI
+        7       RVT1
 
 
----- X101  
+---- xJ1  
 
-X101
+xJ1
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna10
-        8       Cap1
+        1       ROJ
+        8       RVT1
 
 
----- X12  
+---- xA2  
 
-X12
+xA2
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna1
-        1       Cap2
+        1       ROA
+        1       RVT2
 
 
----- X22  
+---- xB2  
 
-X22
+xB2
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna2
-        1       Cap2
+        1       ROB
+        1       RVT2
 
 
----- X32  
+---- xC2  
 
-X32
+xC2
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna3
-        2       Cap2
+        1       ROC
+        2       RVT2
 
 
----- X42  
+---- xD2  
 
-X42
+xD2
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna4
-        2       Cap2
+        1       ROD
+        2       RVT2
 
 
----- X52  
+---- xE2  
 
-X52
+xE2
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna5
-        4       Cap2
+        1       ROE
+        4       RVT2
 
 
----- X62  
+---- xF2  
 
-X62
+xF2
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna6
-        4       Cap2
+        1       ROF
+        4       RVT2
 
 
----- X72  
+---- xG2  
 
-X72
+xG2
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna7
-        5       Cap2
+        1       ROG
+        5       RVT2
 
 
----- X82  
+---- xH2  
 
-X82
+xH2
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna8
-        6       Cap2
+        1       ROH
+        6       RVT2
 
 
----- X92  
+---- xI2  
 
-X92
+xI2
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna9
-        7       Cap2
+        1       ROI
+        7       RVT2
 
 
----- X102  
+---- xJ2  
 
-X102
+xJ2
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna10
-        8       Cap2
+        1       ROJ
+        8       RVT2
 
 
----- X13  
+---- xA3  
 
-X13
+xA3
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna1
-        1       Cap3
+        1       ROA
+        1       RVT3
 
 
----- X23  
+---- xB3  
 
-X23
+xB3
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna2
-        1       Cap3
+        1       ROB
+        1       RVT3
 
 
----- X33  
+---- xC3  
 
-X33
+xC3
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna3
-        2       Cap3
+        1       ROC
+        2       RVT3
 
 
----- X43  
+---- xD3  
 
-X43
+xD3
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna4
-        2       Cap3
+        1       ROD
+        2       RVT3
 
 
----- X53  
+---- xE3  
 
-X53
+xE3
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna5
-        4       Cap3
+        1       ROE
+        4       RVT3
 
 
----- X63  
+---- xF3  
 
-X63
+xF3
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna6
-        4       Cap3
+        1       ROF
+        4       RVT3
 
 
----- X73  
+---- xG3  
 
-X73
+xG3
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna7
-        5       Cap3
+        1       ROG
+        5       RVT3
 
 
----- X83  
+---- xH3  
 
-X83
+xH3
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna8
-        6       Cap3
+        1       ROH
+        6       RVT3
 
 
----- X93  
+---- xI3  
 
-X93
+xI3
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna9
-        7       Cap3
+        1       ROI
+        7       RVT3
 
 
----- X103  
+---- xJ3  
 
-X103
+xJ3
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna10
-        8       Cap3
+        1       ROJ
+        8       RVT3
 
 
----- X14  
+---- xA4  
 
-X14
+xA4
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna1
-        1       Cap4
+        1       ROA
+        1       RVT4
 
 
----- X24  
+---- xB4  
 
-X24
+xB4
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna2
-        1       Cap4
+        1       ROB
+        1       RVT4
 
 
----- X34  
+---- xC4  
 
-X34
+xC4
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna3
-        2       Cap4
+        1       ROC
+        2       RVT4
 
 
----- X44  
+---- xD4  
 
-X44
+xD4
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna4
-        2       Cap4
+        1       ROD
+        2       RVT4
 
 
----- X54  
+---- xE4  
 
-X54
+xE4
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna5
-        4       Cap4
+        1       ROE
+        4       RVT4
 
 
----- X64  
+---- xF4  
 
-X64
+xF4
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna6
-        4       Cap4
+        1       ROF
+        4       RVT4
 
 
----- X74  
+---- xG4  
 
-X74
+xG4
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna7
-        5       Cap4
+        1       ROG
+        5       RVT4
 
 
----- X84  
+---- xH4  
 
-X84
+xH4
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna8
-        6       Cap4
+        1       ROH
+        6       RVT4
 
 
----- X94  
+---- xI4  
 
-X94
+xI4
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna9
-        7       Cap4
+        1       ROI
+        7       RVT4
 
 
----- X104  
+---- xJ4  
 
-X104
+xJ4
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna10
-        8       Cap4
+        1       ROJ
+        8       RVT4
 
 
----- X15  
+---- xA5  
 
-X15
+xA5
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna1
-        1       Cap5
+        1       ROA
+        1       RVT5
 
 
----- X25  
+---- xB5  
 
-X25
+xB5
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna2
-        1       Cap5
+        1       ROB
+        1       RVT5
 
 
----- X35  
+---- xC5  
 
-X35
+xC5
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna3
-        2       Cap5
+        1       ROC
+        2       RVT5
 
 
----- X45  
+---- xD5  
 
-X45
+xD5
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna4
-        2       Cap5
+        1       ROD
+        2       RVT5
 
 
----- X55  
+---- xE5  
 
-X55
+xE5
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna5
-        4       Cap5
+        1       ROE
+        4       RVT5
 
 
----- X65  
+---- xF5  
 
-X65
+xF5
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna6
-        4       Cap5
+        1       ROF
+        4       RVT5
 
 
----- X75  
+---- xG5  
 
-X75
+xG5
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna7
-        5       Cap5
+        1       ROG
+        5       RVT5
 
 
----- X85  
+---- xH5  
 
-X85
+xH5
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna8
-        6       Cap5
+        1       ROH
+        6       RVT5
 
 
----- X95  
+---- xI5  
 
-X95
+xI5
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna9
-        7       Cap5
+        1       ROI
+        7       RVT5
 
 
----- X105  
+---- xJ5  
 
-X105
+xJ5
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna10
-        8       Cap5
+        1       ROJ
+        8       RVT5
 
 
----- X16  
+---- xA6  
 
-X16
+xA6
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna1
-        1       Cap6
+        1       ROA
+        1       RVT6
 
 
----- X26  
+---- xB6  
 
-X26
+xB6
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna2
-        1       Cap6
+        1       ROB
+        1       RVT6
 
 
----- X36  
+---- xC6  
 
-X36
+xC6
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna3
-        2       Cap6
+        1       ROC
+        2       RVT6
 
 
----- X46  
+---- xD6  
 
-X46
+xD6
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna4
-        2       Cap6
+        1       ROD
+        2       RVT6
 
 
----- X56  
+---- xE6  
 
-X56
+xE6
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna5
-        4       Cap6
+        1       ROE
+        4       RVT6
 
 
----- X66  
+---- xF6  
 
-X66
+xF6
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna6
-        4       Cap6
+        1       ROF
+        4       RVT6
 
 
----- X76  
+---- xG6  
 
-X76
+xG6
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna7
-        5       Cap6
+        1       ROG
+        5       RVT6
 
 
----- X86  
+---- xH6  
 
-X86
+xH6
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna8
-        6       Cap6
+        1       ROH
+        6       RVT6
 
 
----- X96  
+---- xI6  
 
-X96
+xI6
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna9
-        7       Cap6
+        1       ROI
+        7       RVT6
 
 
----- X106  
+---- xJ6  if farm is collected by truck = 1, else = 0
 
-X106
+xJ6
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-        1       Asigna10
-        8       Cap6
+        1       ROJ
+        8       RVT6
 
 
----- Y1  
+---- y1  
 
-Y1
+y1
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-       -1       Obj
-      -10       Cap1
+        1       OBJ
+      -10       RVT1
 
 
----- Y2  
+---- y2  
 
-Y2
+y2
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-       -1       Obj
-      -10       Cap2
+        1       OBJ
+      -10       RVT2
 
 
----- Y3  
+---- y3  
 
-Y3
+y3
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-       -1       Obj
-      -10       Cap3
+        1       OBJ
+      -10       RVT3
 
 
----- Y4  
+---- y4  
 
-Y4
+y4
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-       -1       Obj
-      -10       Cap4
+        1       OBJ
+      -10       RVT4
 
 
----- Y5  
+---- y5  
 
-Y5
+y5
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-       -1       Obj
-      -10       Cap5
+        1       OBJ
+      -10       RVT5
 
 
----- Y6  
+---- y6  if truck is used = 1, else = 0
 
-Y6
+y6
                 (.LO, .L, .UP, .M = 0, 0, 1, 0)
-       -1       Obj
-      -10       Cap6
+        1       OBJ
+      -10       RVT6
 
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 12:53:13 Page 4
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/01/20 22:50:15 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Model Statistics    SOLVE BinPackingB Using MIP From line 63
+Model Statistics    SOLVE BinPackingB Using MIP From line 43
 
 
 MODEL STATISTICS
@@ -709,26 +689,26 @@ BLOCKS OF VARIABLES          67     SINGLE VARIABLES           67
 NON ZERO ELEMENTS           133     DISCRETE VARIABLES         66
 
 
-GENERATION TIME      =        0.031 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
+GENERATION TIME      =        0.016 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
 
 
-EXECUTION TIME       =        0.031 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 04/22/20 12:53:13 Page 5
+EXECUTION TIME       =        0.016 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/01/20 22:50:15 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE BinPackingB Using MIP From line 63
+Solution Report     SOLVE BinPackingB Using MIP From line 43
 
 
                S O L V E      S U M M A R Y
 
-     MODEL   BinPackingB         OBJECTIVE  N
+     MODEL   BinPackingB         OBJECTIVE  Z
      TYPE    MIP                 DIRECTION  MINIMIZE
-     SOLVER  CPLEX               FROM LINE  63
+     SOLVER  CPLEX               FROM LINE  43
 
 **** SOLVER STATUS     1 Normal Completion         
 **** MODEL STATUS      1 Optimal                   
 **** OBJECTIVE VALUE                4.0000
 
- RESOURCE USAGE, LIMIT          0.016      1000.000
+ RESOURCE USAGE, LIMIT          0.031      1000.000
  ITERATION COUNT, LIMIT        33    2000000000
 
 IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
@@ -738,7 +718,7 @@ Cplex 12.10.0.0
 Space for names approximately 0.00 Mb
 Use option 'names no' to turn use of names off
 MIP status(101): integer optimal solution
-Cplex Time: 0.02sec (det. 0.98 ticks)
+Cplex Time: 0.00sec (det. 0.98 ticks)
 Fixing integer variables, and solving final LP...
 Fixed MIP status(1): optimal
 Cplex Time: 0.00sec (det. 0.03 ticks)
@@ -754,93 +734,101 @@ Relative gap:            0.000000
 
                            LOWER          LEVEL          UPPER         MARGINAL
 
----- EQU Obj                 .              .              .             1.0000      
----- EQU Asigna1            1.0000         1.0000         1.0000          .          
----- EQU Asigna2            1.0000         1.0000         1.0000          .          
----- EQU Asigna3            1.0000         1.0000         1.0000          .          
----- EQU Asigna4            1.0000         1.0000         1.0000          .          
----- EQU Asigna5            1.0000         1.0000         1.0000          .          
----- EQU Asigna6            1.0000         1.0000         1.0000          .          
----- EQU Asigna7            1.0000         1.0000         1.0000          .          
----- EQU Asigna8            1.0000         1.0000         1.0000          .          
----- EQU Asigna9            1.0000         1.0000         1.0000          .          
----- EQU Asigna10           1.0000         1.0000         1.0000          .          
----- EQU Cap1              -INF             .              .              .          
----- EQU Cap2              -INF             .              .              .          
----- EQU Cap3              -INF             .              .              .          
----- EQU Cap4              -INF             .              .              .          
----- EQU Cap5              -INF             .              .              .          
----- EQU Cap6              -INF             .              .              .          
+---- EQU OBJ                 .              .              .            -1.0000      
+---- EQU ROA                1.0000         1.0000         1.0000          .          
+---- EQU ROB                1.0000         1.0000         1.0000          .          
+---- EQU ROC                1.0000         1.0000         1.0000          .          
+---- EQU ROD                1.0000         1.0000         1.0000          .          
+---- EQU ROE                1.0000         1.0000         1.0000          .          
+---- EQU ROF                1.0000         1.0000         1.0000          .          
+---- EQU ROG                1.0000         1.0000         1.0000          .          
+---- EQU ROH                1.0000         1.0000         1.0000          .          
+---- EQU ROI                1.0000         1.0000         1.0000          .          
+---- EQU ROJ                1.0000         1.0000         1.0000          .          
+---- EQU RVT1              -INF             .              .              .          
+---- EQU RVT2              -INF             .              .              .          
+---- EQU RVT3              -INF             .              .              .          
+---- EQU RVT4              -INF             .              .              .          
+---- EQU RVT5              -INF             .              .              .          
+---- EQU RVT6              -INF             .              .              .          
+
+  OBJ  number of trucks used
+  ROJ  -
+  RVT6  m3
 
                            LOWER          LEVEL          UPPER         MARGINAL
 
----- VAR N                 -INF            4.0000        +INF             .          
----- VAR X11                 .             1.0000         1.0000         EPS         
----- VAR X21                 .              .             1.0000         EPS         
----- VAR X31                 .              .             1.0000         EPS         
----- VAR X41                 .              .             1.0000         EPS         
----- VAR X51                 .             1.0000         1.0000         EPS         
----- VAR X61                 .              .             1.0000         EPS         
----- VAR X71                 .             1.0000         1.0000         EPS         
----- VAR X81                 .              .             1.0000         EPS         
----- VAR X91                 .              .             1.0000         EPS         
----- VAR X101                .              .             1.0000         EPS         
----- VAR X12                 .              .             1.0000         EPS         
----- VAR X22                 .              .             1.0000         EPS         
----- VAR X32                 .             1.0000         1.0000         EPS         
----- VAR X42                 .              .             1.0000         EPS         
----- VAR X52                 .              .             1.0000         EPS         
----- VAR X62                 .              .             1.0000         EPS         
----- VAR X72                 .              .             1.0000         EPS         
----- VAR X82                 .              .             1.0000         EPS         
----- VAR X92                 .              .             1.0000         EPS         
----- VAR X102                .             1.0000         1.0000         EPS         
----- VAR X13                 .              .             1.0000         EPS         
----- VAR X23                 .              .             1.0000         EPS         
----- VAR X33                 .              .             1.0000         EPS         
----- VAR X43                 .              .             1.0000         EPS         
----- VAR X53                 .              .             1.0000         EPS         
----- VAR X63                 .              .             1.0000         EPS         
----- VAR X73                 .              .             1.0000         EPS         
----- VAR X83                 .              .             1.0000         EPS         
----- VAR X93                 .              .             1.0000         EPS         
----- VAR X103                .              .             1.0000         EPS         
----- VAR X14                 .              .             1.0000         EPS         
----- VAR X24                 .              .             1.0000         EPS         
----- VAR X34                 .              .             1.0000         EPS         
----- VAR X44                 .              .             1.0000         EPS         
----- VAR X54                 .              .             1.0000         EPS         
----- VAR X64                 .             1.0000         1.0000         EPS         
----- VAR X74                 .              .             1.0000         EPS         
----- VAR X84                 .             1.0000         1.0000         EPS         
----- VAR X94                 .              .             1.0000         EPS         
----- VAR X104                .              .             1.0000         EPS         
----- VAR X15                 .              .             1.0000         EPS         
----- VAR X25                 .             1.0000         1.0000         EPS         
----- VAR X35                 .              .             1.0000         EPS         
----- VAR X45                 .             1.0000         1.0000         EPS         
----- VAR X55                 .              .             1.0000         EPS         
----- VAR X65                 .              .             1.0000         EPS         
----- VAR X75                 .              .             1.0000         EPS         
----- VAR X85                 .              .             1.0000         EPS         
----- VAR X95                 .             1.0000         1.0000         EPS         
----- VAR X105                .              .             1.0000         EPS         
----- VAR X16                 .              .             1.0000         EPS         
----- VAR X26                 .              .             1.0000         EPS         
----- VAR X36                 .              .             1.0000         EPS         
----- VAR X46                 .              .             1.0000         EPS         
----- VAR X56                 .              .             1.0000         EPS         
----- VAR X66                 .              .             1.0000         EPS         
----- VAR X76                 .              .             1.0000         EPS         
----- VAR X86                 .              .             1.0000         EPS         
----- VAR X96                 .              .             1.0000         EPS         
----- VAR X106                .              .             1.0000         EPS         
----- VAR Y1                  .             1.0000         1.0000         1.0000      
----- VAR Y2                  .             1.0000         1.0000         1.0000      
----- VAR Y3                  .              .             1.0000         1.0000      
----- VAR Y4                  .             1.0000         1.0000         1.0000      
----- VAR Y5                  .             1.0000         1.0000         1.0000      
----- VAR Y6                  .              .             1.0000         1.0000      
+---- VAR Z                 -INF            4.0000        +INF             .          
+---- VAR xA1                 .             1.0000         1.0000         EPS         
+---- VAR xB1                 .              .             1.0000         EPS         
+---- VAR xC1                 .              .             1.0000         EPS         
+---- VAR xD1                 .              .             1.0000         EPS         
+---- VAR xE1                 .             1.0000         1.0000         EPS         
+---- VAR xF1                 .              .             1.0000         EPS         
+---- VAR xG1                 .             1.0000         1.0000         EPS         
+---- VAR xH1                 .              .             1.0000         EPS         
+---- VAR xI1                 .              .             1.0000         EPS         
+---- VAR xJ1                 .              .             1.0000         EPS         
+---- VAR xA2                 .              .             1.0000         EPS         
+---- VAR xB2                 .              .             1.0000         EPS         
+---- VAR xC2                 .             1.0000         1.0000         EPS         
+---- VAR xD2                 .              .             1.0000         EPS         
+---- VAR xE2                 .              .             1.0000         EPS         
+---- VAR xF2                 .              .             1.0000         EPS         
+---- VAR xG2                 .              .             1.0000         EPS         
+---- VAR xH2                 .              .             1.0000         EPS         
+---- VAR xI2                 .              .             1.0000         EPS         
+---- VAR xJ2                 .             1.0000         1.0000         EPS         
+---- VAR xA3                 .              .             1.0000         EPS         
+---- VAR xB3                 .              .             1.0000         EPS         
+---- VAR xC3                 .              .             1.0000         EPS         
+---- VAR xD3                 .              .             1.0000         EPS         
+---- VAR xE3                 .              .             1.0000         EPS         
+---- VAR xF3                 .              .             1.0000         EPS         
+---- VAR xG3                 .              .             1.0000         EPS         
+---- VAR xH3                 .              .             1.0000         EPS         
+---- VAR xI3                 .              .             1.0000         EPS         
+---- VAR xJ3                 .              .             1.0000         EPS         
+---- VAR xA4                 .              .             1.0000         EPS         
+---- VAR xB4                 .              .             1.0000         EPS         
+---- VAR xC4                 .              .             1.0000         EPS         
+---- VAR xD4                 .              .             1.0000         EPS         
+---- VAR xE4                 .              .             1.0000         EPS         
+---- VAR xF4                 .             1.0000         1.0000         EPS         
+---- VAR xG4                 .              .             1.0000         EPS         
+---- VAR xH4                 .             1.0000         1.0000         EPS         
+---- VAR xI4                 .              .             1.0000         EPS         
+---- VAR xJ4                 .              .             1.0000         EPS         
+---- VAR xA5                 .              .             1.0000         EPS         
+---- VAR xB5                 .             1.0000         1.0000         EPS         
+---- VAR xC5                 .              .             1.0000         EPS         
+---- VAR xD5                 .             1.0000         1.0000         EPS         
+---- VAR xE5                 .              .             1.0000         EPS         
+---- VAR xF5                 .              .             1.0000         EPS         
+---- VAR xG5                 .              .             1.0000         EPS         
+---- VAR xH5                 .              .             1.0000         EPS         
+---- VAR xI5                 .             1.0000         1.0000         EPS         
+---- VAR xJ5                 .              .             1.0000         EPS         
+---- VAR xA6                 .              .             1.0000         EPS         
+---- VAR xB6                 .              .             1.0000         EPS         
+---- VAR xC6                 .              .             1.0000         EPS         
+---- VAR xD6                 .              .             1.0000         EPS         
+---- VAR xE6                 .              .             1.0000         EPS         
+---- VAR xF6                 .              .             1.0000         EPS         
+---- VAR xG6                 .              .             1.0000         EPS         
+---- VAR xH6                 .              .             1.0000         EPS         
+---- VAR xI6                 .              .             1.0000         EPS         
+---- VAR xJ6                 .              .             1.0000         EPS         
+---- VAR y1                  .             1.0000         1.0000         1.0000      
+---- VAR y2                  .             1.0000         1.0000         1.0000      
+---- VAR y3                  .              .             1.0000         1.0000      
+---- VAR y4                  .             1.0000         1.0000         1.0000      
+---- VAR y5                  .             1.0000         1.0000         1.0000      
+---- VAR y6                  .              .             1.0000         1.0000      
+
+  Z  number of trucks used
+  xJ6  if farm is collected by truck = 1, else = 0
+  y6  if truck is used = 1, else = 0
 
 
 **** REPORT SUMMARY :        0     NONOPT
@@ -857,5 +845,5 @@ USER: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
 
 **** FILE SUMMARY
 
-Input      C:\aguadix\GITHUB\SOC\2 Mixed integer programming (MIP)\3 BinPacking\BinPackingA\BinPackingA.gms
-Output     C:\aguadix\GITHUB\SOC\2 Mixed integer programming (MIP)\3 BinPacking\BinPackingA\BinPackingA.lst
+Input      C:\aguadix\GITHUB\SOC\2MixedIntegerProgramming\2BinPacking\BinPackingA\BinPackingA.gms
+Output     C:\aguadix\GITHUB\SOC\2MixedIntegerProgramming\2BinPacking\BinPackingA\BinPackingA.lst

@@ -1,17 +1,17 @@
 B 3 C o m p i l a t i o n
-B 54 Equation Listing    SOLVE BinPackingA Using MIP From line 43
-D 57 Obj
-D 62 Asigna
-D 73 Cap
-B 85 Column Listing      SOLVE BinPackingA Using MIP From line 43
-E 88 N
-E 95 x
-E 114 y
-B 134 Model Statistics    SOLVE BinPackingA Using MIP From line 43
-B 150 Solution Report     SOLVE BinPackingA Using MIP From line 43
-F 189 Obj
-F 191 Asigna
-F 206 Cap
-G 219 N
-G 223 x
-G 288 y
+B 42 Equation Listing    SOLVE BinPackingA Using MIP From line 31
+D 45 OBJ
+D 50 RO
+D 61 RVT
+B 73 Column Listing      SOLVE BinPackingA Using MIP From line 31
+E 76 Z
+E 83 x
+E 102 y
+B 122 Model Statistics    SOLVE BinPackingA Using MIP From line 31
+B 138 Solution Report     SOLVE BinPackingA Using MIP From line 31
+F 177 OBJ
+F 181 RO
+F 196 RVT
+G 209 Z
+G 213 x
+G 278 y
