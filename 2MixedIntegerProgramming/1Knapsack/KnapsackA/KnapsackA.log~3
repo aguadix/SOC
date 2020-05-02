@@ -1,4 +1,4 @@
---- Job KnapsackA.gms Start 05/01/20 21:19:42 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
+--- Job KnapsackA.gms Start 05/01/20 21:20:54 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
 --- GAMS Parameters defined
     Input C:\aguadix\GITHUB\SOC\2MixedIntegerProgramming\1Knapsack\KnapsackA\KnapsackA.gms
     PageSize 0
@@ -15,10 +15,10 @@ Licensee: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
           aguadix@ugr.es, ANTONIO MARIA GUADIX ESCOBAR                     
           Demo license for demonstration and instructional purposes only
 --- Starting compilation
---- KnapsackA.gms(19) 2 Mb
+--- KnapsackA.gms(18) 2 Mb
 --- Starting execution: elapsed 0:00:00.000
 --- Generating MIP model KnapsackA
---- KnapsackA.gms(19) 3 Mb
+--- KnapsackA.gms(18) 3 Mb
 ---   2 rows  11 columns  21 non-zeroes
 ---   10 discrete-columns
 ***
@@ -46,7 +46,7 @@ CPXPARAM_Tune_TimeLimit                          200
 CPXPARAM_MIP_Tolerances_AbsMIPGap                0
 CPXPARAM_MIP_Tolerances_MIPGap                   0.10000000000000001
 CPXPARAM_WorkDir                                 "C:\aguadix\GITHUB\SOC\2MixedIntegerProgramming\1Knapsack\KnapsackA\225a\"
-Found incumbent of value 0.000000 after 0.02 sec. (0.00 ticks)
+Found incumbent of value 0.000000 after 0.00 sec. (0.00 ticks)
 Tried aggregator 1 time.
 MIP Presolve eliminated 1 rows and 1 columns.
 Reduced MIP has 1 rows, 10 columns, and 10 nonzeros.
@@ -71,19 +71,19 @@ Root relaxation solution time = 0.00 sec. (0.00 ticks)
    Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
 
 *     0+    0                            0.0000     2310.0000              --- 
-Found incumbent of value 0.000000 after 0.02 sec. (0.03 ticks)
+Found incumbent of value 0.000000 after 0.01 sec. (0.03 ticks)
       0     0      631.4545     1        0.0000      631.4545        1     --- 
 *     0+    0                          624.0000      631.4545             1.19%
-Found incumbent of value 624.000000 after 0.02 sec. (0.03 ticks)
+Found incumbent of value 624.000000 after 0.01 sec. (0.03 ticks)
 
 Root node processing (before b&c):
-  Real time             =    0.02 sec. (0.04 ticks)
+  Real time             =    0.01 sec. (0.04 ticks)
 Sequential b&c:
   Real time             =    0.00 sec. (0.00 ticks)
                           ------------
-Total (root+branch&cut) =    0.02 sec. (0.04 ticks)
+Total (root+branch&cut) =    0.01 sec. (0.04 ticks)
 MIP status(102): integer optimal, tolerance
-Cplex Time: 0.02sec (det. 0.04 ticks)
+Cplex Time: 0.01sec (det. 0.04 ticks)
 Fixing integer variables, and solving final LP...
 Version identifier: 12.10.0.0 | 2019-11-26 | 843d4de2ae
 CPXPARAM_Advance                                 2
@@ -114,7 +114,7 @@ Absolute gap:            7.454545
 Relative gap:            0.011805
 
 --- Restarting execution
---- KnapsackA.gms(19) 2 Mb
+--- KnapsackA.gms(18) 2 Mb
 --- Reading solution for model KnapsackA
 *** Status: Normal completion
---- Job KnapsackA.gms Stop 05/01/20 21:19:42 elapsed 0:00:00.137
+--- Job KnapsackA.gms Stop 05/01/20 21:20:54 elapsed 0:00:00.152

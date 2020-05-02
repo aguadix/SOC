@@ -1,7 +1,7 @@
 * KnapsackB.gms
 
 SET
-f       'fermented'   /F1*F10/;
+f       'ferment'   /F1*F10/;
 
 PARAMETER
 b(f)    '$/batch'     /F1 23, F2 79, F3 35, F4 54, F5 13, F6 83, F7 86, F8 57, F9 28, F10 11/
@@ -17,7 +17,7 @@ Z       '$/week';
 INTEGER VARIABLE
 *BINARY VARIABLES
 x(f)    'batch/week';
-*x.up(f) = xup(f);
+x.up(f) = xup(f);
 
 EQUATION
 OBJ '$/week', RMT 'ton/week';

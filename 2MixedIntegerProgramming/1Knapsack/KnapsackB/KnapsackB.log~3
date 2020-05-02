@@ -1,4 +1,4 @@
---- Job KnapsackB.gms Start 05/01/20 21:41:26 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
+--- Job KnapsackB.gms Start 05/01/20 21:41:30 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
 --- GAMS Parameters defined
     Input C:\aguadix\GITHUB\SOC\2MixedIntegerProgramming\1Knapsack\KnapsackB\KnapsackB.gms
     PageSize 0
@@ -24,7 +24,7 @@ Licensee: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
 ***
 ***   10 Integer +INF Bounds have been reset to 100 (see Option IntVarUp)
 ***
---- Executing CPLEX: elapsed 0:00:00.031
+--- Executing CPLEX: elapsed 0:00:00.015
 
 IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
 *** This solver runs with a demo license. No commercial use.
@@ -117,4 +117,4 @@ Relative gap:            0.011805
 --- KnapsackB.gms(29) 2 Mb
 --- Reading solution for model KnapsackB
 *** Status: Normal completion
---- Job KnapsackB.gms Stop 05/01/20 21:41:26 elapsed 0:00:00.137
+--- Job KnapsackB.gms Stop 05/01/20 21:41:30 elapsed 0:00:00.136

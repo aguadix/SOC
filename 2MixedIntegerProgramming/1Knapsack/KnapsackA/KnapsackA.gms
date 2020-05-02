@@ -6,7 +6,7 @@ Z   '$/week';
 INTEGER VARIABLE
 *BINARY VARIABLES
 x1,x2, x3, x4, x5, x6, x7, x8, x9, x10  'batch/week';
-*x1.up = 4; x2.up = 5; x3.up = 4; x4.up = 2; x5.up = 3; x6.up = 2; x7.up = 2; x8.up = 2; x9.up = 1; x10.up = 5;
+x1.up = 4; x2.up = 5; x3.up = 4; x4.up = 2; x5.up = 3; x6.up = 2; x7.up = 2; x8.up = 2; x9.up = 1; x10.up = 5;
 
 EQUATION
 OBJ '$/week', RMT 'ton/week';

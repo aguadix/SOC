@@ -1,4 +1,4 @@
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/01/20 21:40:21 Page 1
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/02/20 11:08:13 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -11,7 +11,7 @@ C o m p i l a t i o n
    6  INTEGER VARIABLE
    7  *BINARY VARIABLES
    8  x1,x2, x3, x4, x5, x6, x7, x8, x9, x10  'batch/week';
-   9  *x1.up = 4; x2.up = 5; x3.up = 4; x4.up = 2; x5.up = 3; x6.up = 2; x7.up = 2; x8.up = 2; x9.up = 1; x10.up = 5;
+   9  x1.up = 4; x2.up = 5; x3.up = 4; x4.up = 2; x5.up = 3; x6.up = 2; x7.up = 2; x8.up = 2; x9.up = 1; x10.up = 5;
   10   
   11  EQUATION
   12  OBJ '$/week', RMT 'ton/week';
@@ -24,7 +24,7 @@ C o m p i l a t i o n
 
 
 COMPILATION TIME     =        0.000 SECONDS      2 MB  30.3.0 rc5da09e WEX-WEI
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/01/20 21:40:21 Page 2
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/02/20 11:08:13 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE KnapsackA Using MIP From line 18
 
@@ -38,7 +38,7 @@ OBJ..  - Z + 23*x1 + 79*x2 + 35*x3 + 54*x4 + 13*x5 + 83*x6 + 86*x7 + 57*x8 + 28*
 
 RMT..  72*x1 + 99*x2 + 68*x3 + 22*x4 + 44*x5 + 72*x6 + 34*x7 + 57*x8 + 35*x9 + 51*x10 =L= 250 ; (LHS = 0)
      
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/01/20 21:40:21 Page 3
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/02/20 11:08:13 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE KnapsackA Using MIP From line 18
 
@@ -53,7 +53,7 @@ Z
 ---- x1  
 
 x1
-                (.LO, .L, .UP, .M = 0, 0, 100, 0)
+                (.LO, .L, .UP, .M = 0, 0, 4, 0)
        23       OBJ
        72       RMT
 
@@ -61,7 +61,7 @@ x1
 ---- x2  
 
 x2
-                (.LO, .L, .UP, .M = 0, 0, 100, 0)
+                (.LO, .L, .UP, .M = 0, 0, 5, 0)
        79       OBJ
        99       RMT
 
@@ -69,7 +69,7 @@ x2
 ---- x3  
 
 x3
-                (.LO, .L, .UP, .M = 0, 0, 100, 0)
+                (.LO, .L, .UP, .M = 0, 0, 4, 0)
        35       OBJ
        68       RMT
 
@@ -77,7 +77,7 @@ x3
 ---- x4  
 
 x4
-                (.LO, .L, .UP, .M = 0, 0, 100, 0)
+                (.LO, .L, .UP, .M = 0, 0, 2, 0)
        54       OBJ
        22       RMT
 
@@ -85,7 +85,7 @@ x4
 ---- x5  
 
 x5
-                (.LO, .L, .UP, .M = 0, 0, 100, 0)
+                (.LO, .L, .UP, .M = 0, 0, 3, 0)
        13       OBJ
        44       RMT
 
@@ -93,7 +93,7 @@ x5
 ---- x6  
 
 x6
-                (.LO, .L, .UP, .M = 0, 0, 100, 0)
+                (.LO, .L, .UP, .M = 0, 0, 2, 0)
        83       OBJ
        72       RMT
 
@@ -101,7 +101,7 @@ x6
 ---- x7  
 
 x7
-                (.LO, .L, .UP, .M = 0, 0, 100, 0)
+                (.LO, .L, .UP, .M = 0, 0, 2, 0)
        86       OBJ
        34       RMT
 
@@ -109,7 +109,7 @@ x7
 ---- x8  
 
 x8
-                (.LO, .L, .UP, .M = 0, 0, 100, 0)
+                (.LO, .L, .UP, .M = 0, 0, 2, 0)
        57       OBJ
        57       RMT
 
@@ -117,7 +117,7 @@ x8
 ---- x9  
 
 x9
-                (.LO, .L, .UP, .M = 0, 0, 100, 0)
+                (.LO, .L, .UP, .M = 0, 0, 1, 0)
        28       OBJ
        35       RMT
 
@@ -125,15 +125,11 @@ x9
 ---- x10  batch/week
 
 x10
-                (.LO, .L, .UP, .M = 0, 0, 100, 0)
+                (.LO, .L, .UP, .M = 0, 0, 5, 0)
        11       OBJ
        51       RMT
 
-
-****
-****  10 Integer +INF Bounds have been reset to 100 (see Option IntVarUp)
-****
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/01/20 21:40:21 Page 4
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/02/20 11:08:13 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Statistics    SOLVE KnapsackA Using MIP From line 18
 
@@ -149,7 +145,7 @@ GENERATION TIME      =        0.031 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
 
 
 EXECUTION TIME       =        0.031 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/01/20 21:40:21 Page 5
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/02/20 11:08:13 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE KnapsackA Using MIP From line 18
 
@@ -162,9 +158,9 @@ Solution Report     SOLVE KnapsackA Using MIP From line 18
 
 **** SOLVER STATUS     1 Normal Completion         
 **** MODEL STATUS      8 Integer Solution          
-**** OBJECTIVE VALUE              624.0000
+**** OBJECTIVE VALUE              420.0000
 
- RESOURCE USAGE, LIMIT          0.031      1000.000
+ RESOURCE USAGE, LIMIT          0.015      1000.000
  ITERATION COUNT, LIMIT         1    2000000000
 
 IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
@@ -180,35 +176,35 @@ Fixed MIP status(1): optimal
 Cplex Time: 0.00sec (det. 0.00 ticks)
 Solution satisfies tolerances.
 
-MIP Solution:          624.000000    (1 iterations, 0 nodes)
-Final Solve:           624.000000    (0 iterations)
+MIP Solution:          420.000000    (1 iterations, 0 nodes)
+Final Solve:           420.000000    (0 iterations)
 
-Best possible:         631.454545
-Absolute gap:            7.454545
-Relative gap:            0.011805
+Best possible:         439.083333
+Absolute gap:           19.083333
+Relative gap:            0.043462
 
 
                            LOWER          LEVEL          UPPER         MARGINAL
 
 ---- EQU OBJ                 .              .              .            -1.0000      
----- EQU RMT               -INF          248.0000       250.0000          .          
+---- EQU RMT               -INF          241.0000       250.0000          .          
 
   OBJ  $/week
   RMT  ton/week
 
                            LOWER          LEVEL          UPPER         MARGINAL
 
----- VAR Z                 -INF          624.0000        +INF             .          
----- VAR x1                  .              .           100.0000        23.0000      
----- VAR x2                  .              .           100.0000        79.0000      
----- VAR x3                  .              .           100.0000        35.0000      
----- VAR x4                  .             2.0000       100.0000        54.0000      
----- VAR x5                  .              .           100.0000        13.0000      
----- VAR x6                  .              .           100.0000        83.0000      
----- VAR x7                  .             6.0000       100.0000        86.0000      
----- VAR x8                  .              .           100.0000        57.0000      
----- VAR x9                  .              .           100.0000        28.0000      
----- VAR x10                 .              .           100.0000        11.0000      
+---- VAR Z                 -INF          420.0000        +INF             .          
+---- VAR x1                  .              .             4.0000        23.0000      
+---- VAR x2                  .              .             5.0000        79.0000      
+---- VAR x3                  .              .             4.0000        35.0000      
+---- VAR x4                  .             2.0000         2.0000        54.0000      
+---- VAR x5                  .              .             3.0000        13.0000      
+---- VAR x6                  .             1.0000         2.0000        83.0000      
+---- VAR x7                  .             2.0000         2.0000        86.0000      
+---- VAR x8                  .             1.0000         2.0000        57.0000      
+---- VAR x9                  .              .             1.0000        28.0000      
+---- VAR x10                 .              .             5.0000        11.0000      
 
   Z  $/week
   x10  batch/week

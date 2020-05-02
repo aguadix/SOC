@@ -5,9 +5,9 @@ D 48 RMT
 B 54 Column Listing      SOLVE KnapsackB Using MIP From line 29
 E 57 Z
 E 64 x
-B 88 Model Statistics    SOLVE KnapsackB Using MIP From line 29
-B 104 Solution Report     SOLVE KnapsackB Using MIP From line 29
-F 143 OBJ
-F 144 RMT
-G 151 Z
-G 155 x
+B 84 Model Statistics    SOLVE KnapsackB Using MIP From line 29
+B 100 Solution Report     SOLVE KnapsackB Using MIP From line 29
+F 139 OBJ
+F 140 RMT
+G 147 Z
+G 151 x
