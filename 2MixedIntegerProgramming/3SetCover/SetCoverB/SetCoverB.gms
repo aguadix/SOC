@@ -21,8 +21,9 @@ Soria                                                          1      0         
 Valladolid                                                            1           1
 Zamora                                                                            1;
 
-* Completar la matriz simétrica
-s(pc,pi)$s(pi,pc) = s(pi,pc);
+* Completar el triángulo inferior de la matriz simétrica
+s(pc,pi) $(ord(pc)>ord(pi)) = s(pi,pc);
+
 display s;
 
 VARIABLES
@@ -41,5 +42,3 @@ R(pc).. SUM(pi,s(pc,pi)*x(pi)) =G= 1;
 MODEL SetCoverB /all/;
 
 SOLVE SetCoverB USING MIP MINIMIZING Z;
-
-
