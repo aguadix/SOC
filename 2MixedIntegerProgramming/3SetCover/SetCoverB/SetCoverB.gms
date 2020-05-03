@@ -23,7 +23,6 @@ Zamora                                                                          
 
 * Completar el triángulo inferior de la matriz simétrica
 s(pc,pi) $(ord(pc)>ord(pi)) = s(pi,pc);
-
 display s;
 
 VARIABLES

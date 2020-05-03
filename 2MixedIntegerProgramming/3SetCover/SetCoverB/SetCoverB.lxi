@@ -1,0 +1,15 @@
+B 3 C o m p i l a t i o n
+B 54 E x e c u t i o n
+I 54 s
+B 73 Equation Listing    SOLVE SetCoverB Using MIP From line 43
+D 76 OBJ
+D 81 R
+B 93 Column Listing      SOLVE SetCoverB Using MIP From line 43
+E 96 Z
+E 103 x
+B 133 Model Statistics    SOLVE SetCoverB Using MIP From line 43
+B 149 Solution Report     SOLVE SetCoverB Using MIP From line 43
+F 188 OBJ
+F 192 R
+G 208 Z
+G 212 x
