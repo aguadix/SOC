@@ -12,14 +12,18 @@ TABLE
 s(pc,pi)    'if pc is covered by pi = 1, else 0'
             Avila  Burgos  Leon  Palencia  Salamanca  Segovia  Soria  Valladolid  Zamora
 Avila       1      0       0     0         1          1        0      1           0
-Burgos      0      1       0     1         0          1        1      1           0    
-Leon        0      0       1     1         0          0        0      1           1
-Palencia    0      1       1     1         0          0        0      1           0
-Salamanca   1      0       0     0         1          0        0      1           1
-Segovia     1      1       0     0         0          1        1      1           0
-Soria       0      1       0     0         0          1        1      0           0
-Valladolid  1      1       1     1         1          1        0      1           1
-Zamora      0      0       1     0         1          0        0      1           1;
+Burgos             1       0     1         0          1        1      1           0    
+Leon                       1     1         0          0        0      1           1
+Palencia                         1         0          0        0      1           0
+Salamanca                                  1          0        0      1           1
+Segovia                                               1        1      1           0
+Soria                                                          1      0           0
+Valladolid                                                            1           1
+Zamora                                                                            1;
+
+* Completar la matriz simétrica
+s(pc,pi)$s(pi,pc) = s(pi,pc);
+display s;
 
 VARIABLES
 Z       '$';
@@ -37,3 +41,5 @@ R(pc).. SUM(pi,s(pc,pi)*x(pi)) =G= 1;
 MODEL SetCoverB /all/;
 
 SOLVE SetCoverB USING MIP MINIMIZING Z;
+
+
