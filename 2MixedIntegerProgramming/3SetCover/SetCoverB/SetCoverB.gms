@@ -12,7 +12,7 @@ TABLE
 s(pc,pi)    'if pc is covered by pi = 1, else 0'
             Avila  Burgos  Leon  Palencia  Salamanca  Segovia  Soria  Valladolid  Zamora
 Avila       1      0       0     0         1          1        0      1           0
-Burgos      0      1       0     1         0          1        1      1           1    
+Burgos      0      1       0     1         0          1        1      1           0    
 Leon        0      0       1     1         0          0        0      1           1
 Palencia    0      1       1     1         0          0        0      1           0
 Salamanca   1      0       0     0         1          0        0      1           1
