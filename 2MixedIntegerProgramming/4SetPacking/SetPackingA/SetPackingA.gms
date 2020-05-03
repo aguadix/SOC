@@ -1,14 +1,14 @@
 * SetPackingA.gms
 
 FREE VARIABLE
-Z;
+Z   '$';
 
 BINARY VARIABLE
-x1, x2, x3, x4, x5, x6;
+x1, x2, x3, x4, x5, x6  'if project is performed = 1, else 0';
 
 EQUATION
-OBJ,
-I12, I24, I25, I45, I56;
+OBJ '$',
+I12, I24, I25, I45, I56 '-';
 
 OBJ.. 1*x1 + 3*x2 + 1*x3 + 1*x4 + 2*x5 + 1*x6 =E= Z;
 
