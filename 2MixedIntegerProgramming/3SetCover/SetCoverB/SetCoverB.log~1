@@ -1,4 +1,4 @@
---- Job SetCoverB.gms Start 05/03/20 16:13:45 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
+--- Job SetCoverB.gms Start 05/03/20 13:06:41 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
 --- GAMS Parameters defined
     Input C:\aguadix\GITHUB\SOC\2MixedIntegerProgramming\3SetCover\SetCoverB\SetCoverB.gms
     PageSize 0
@@ -16,13 +16,13 @@ Licensee: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
           Demo license for demonstration and instructional purposes only
 --- Starting compilation
 --- SetCoverB.gms(43) 3 Mb
---- Starting execution: elapsed 0:00:00.000
+--- Starting execution: elapsed 0:00:00.015
 --- SetCoverB.gms(26) 4 Mb
 --- Generating MIP model SetCoverB
 --- SetCoverB.gms(43) 4 Mb
 ---   10 rows  10 columns  51 non-zeroes
 ---   9 discrete-columns
---- Executing CPLEX: elapsed 0:00:00.016
+--- Executing CPLEX: elapsed 0:00:00.031
 
 IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
 *** This solver runs with a demo license. No commercial use.
@@ -75,19 +75,19 @@ Root relaxation solution time = 0.00 sec. (0.01 ticks)
    Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
 
 *     0+    0                            4.0000        0.0000           100.00%
-Found incumbent of value 4.000000 after 0.00 sec. (0.05 ticks)
+Found incumbent of value 4.000000 after 0.02 sec. (0.05 ticks)
 *     0     0      integral     0        3.0000        3.0000        4    0.00%
-Elapsed time = 0.00 sec. (0.05 ticks, tree = 0.00 MB, solutions = 1)
-Found incumbent of value 3.000000 after 0.00 sec. (0.05 ticks)
+Elapsed time = 0.02 sec. (0.05 ticks, tree = 0.00 MB, solutions = 1)
+Found incumbent of value 3.000000 after 0.02 sec. (0.05 ticks)
 
 Root node processing (before b&c):
-  Real time             =    0.00 sec. (0.05 ticks)
+  Real time             =    0.02 sec. (0.05 ticks)
 Sequential b&c:
   Real time             =    0.00 sec. (0.00 ticks)
                           ------------
-Total (root+branch&cut) =    0.00 sec. (0.05 ticks)
+Total (root+branch&cut) =    0.02 sec. (0.05 ticks)
 MIP status(101): integer optimal solution
-Cplex Time: 0.00sec (det. 0.05 ticks)
+Cplex Time: 0.02sec (det. 0.05 ticks)
 Fixing integer variables, and solving final LP...
 Version identifier: 12.10.0.0 | 2019-11-26 | 843d4de2ae
 CPXPARAM_Advance                                 2
@@ -121,4 +121,4 @@ Relative gap:            0.000000
 --- SetCoverB.gms(43) 2 Mb
 --- Reading solution for model SetCoverB
 *** Status: Normal completion
---- Job SetCoverB.gms Stop 05/03/20 16:13:45 elapsed 0:00:00.217
+--- Job SetCoverB.gms Stop 05/03/20 13:06:41 elapsed 0:00:00.152

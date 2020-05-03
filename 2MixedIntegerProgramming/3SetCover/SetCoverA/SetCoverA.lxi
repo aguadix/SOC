@@ -1,0 +1,45 @@
+B 3 C o m p i l a t i o n
+B 38 Equation Listing    SOLVE SetCoverA Using MIP From line 27
+D 41 OBJ
+D 46 RAvila
+D 51 RBurgos
+D 56 RLeon
+D 61 RPalencia
+D 66 RSalamanca
+D 71 RSegovia
+D 76 RSoria
+D 81 RValladolid
+D 86 RZamora
+B 92 Column Listing      SOLVE SetCoverA Using MIP From line 27
+E 95 Z
+E 102 xAvila
+E 113 xBurgos
+E 125 xLeon
+E 136 xPalencia
+E 147 xSalamanca
+E 158 xSegovia
+E 170 xSoria
+E 180 xValladolid
+E 195 xZamora
+B 207 Model Statistics    SOLVE SetCoverA Using MIP From line 27
+B 223 Solution Report     SOLVE SetCoverA Using MIP From line 27
+F 262 OBJ
+F 263 RAvila
+F 264 RBurgos
+F 265 RLeon
+F 266 RPalencia
+F 267 RSalamanca
+F 268 RSegovia
+F 269 RSoria
+F 270 RValladolid
+F 271 RZamora
+G 278 Z
+G 279 xAvila
+G 280 xBurgos
+G 281 xLeon
+G 282 xPalencia
+G 283 xSalamanca
+G 284 xSegovia
+G 285 xSoria
+G 286 xValladolid
+G 287 xZamora

@@ -1,4 +1,4 @@
---- Job SetPackingB.gms Start 05/01/20 00:02:35 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
+--- Job SetPackingB.gms Start 05/03/20 16:14:38 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
 --- GAMS Parameters defined
     Input C:\aguadix\GITHUB\SOC\2MixedIntegerProgramming\4SetPacking\SetPackingB\SetPackingB.gms
     PageSize 0
@@ -15,13 +15,13 @@ Licensee: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
           aguadix@ugr.es, ANTONIO MARIA GUADIX ESCOBAR                     
           Demo license for demonstration and instructional purposes only
 --- Starting compilation
---- SetPackingB.gms(38) 3 Mb
---- Starting execution: elapsed 0:00:00.007
+--- SetPackingB.gms(36) 3 Mb
+--- Starting execution: elapsed 0:00:00.000
 --- Generating MIP model SetPackingB
---- SetPackingB.gms(38) 4 Mb
+--- SetPackingB.gms(36) 4 Mb
 ---   6 rows  7 columns  17 non-zeroes
 ---   6 discrete-columns
---- Executing CPLEX: elapsed 0:00:00.025
+--- Executing CPLEX: elapsed 0:00:00.016
 
 IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
 *** This solver runs with a demo license. No commercial use.
@@ -89,7 +89,7 @@ Absolute gap:            0.000000
 Relative gap:            0.000000
 
 --- Restarting execution
---- SetPackingB.gms(38) 2 Mb
+--- SetPackingB.gms(36) 2 Mb
 --- Reading solution for model SetPackingB
 *** Status: Normal completion
---- Job SetPackingB.gms Stop 05/01/20 00:02:35 elapsed 0:00:00.152
+--- Job SetPackingB.gms Stop 05/03/20 16:14:38 elapsed 0:00:00.184

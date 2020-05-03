@@ -1,4 +1,4 @@
---- Job SetPackingA.gms Start 04/30/20 23:57:27 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
+--- Job SetPackingA.gms Start 05/03/20 16:13:54 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
 --- GAMS Parameters defined
     Input C:\aguadix\GITHUB\SOC\2MixedIntegerProgramming\4SetPacking\SetPackingA\SetPackingA.gms
     PageSize 0
@@ -21,7 +21,7 @@ Licensee: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
 --- SetPackingA.gms(23) 3 Mb
 ---   6 rows  7 columns  17 non-zeroes
 ---   6 discrete-columns
---- Executing CPLEX: elapsed 0:00:00.047
+--- Executing CPLEX: elapsed 0:00:00.015
 
 IBM ILOG CPLEX   30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
 *** This solver runs with a demo license. No commercial use.
@@ -92,4 +92,4 @@ Relative gap:            0.000000
 --- SetPackingA.gms(23) 2 Mb
 --- Reading solution for model SetPackingA
 *** Status: Normal completion
---- Job SetPackingA.gms Stop 04/30/20 23:57:27 elapsed 0:00:00.292
+--- Job SetPackingA.gms Stop 05/03/20 16:13:54 elapsed 0:00:00.215

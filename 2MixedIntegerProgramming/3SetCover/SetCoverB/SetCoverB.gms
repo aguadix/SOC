@@ -25,13 +25,13 @@ Zamora                                                                          
 s(pc,pi) $(ord(pc)>ord(pi)) = s(pi,pc);
 display s;
 
-VARIABLES
+FREE VARIABLE
 Z       '$';
 
-BINARY VARIABLES
+BINARY VARIABLE
 x(pi)   'if installed = 1, else = 0';
 
-EQUATIONS
+EQUATION
 OBJ     '$',
 R(pc)   '-';
 
