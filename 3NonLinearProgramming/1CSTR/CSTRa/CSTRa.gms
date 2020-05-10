@@ -1,4 +1,4 @@
-* CSTR.gms
+* CSTRa.gms
 
 * 1) A => B
 * 2) B => C
@@ -58,6 +58,6 @@ dCDdt..     0 =E= F*(CD0-CD)/V + r3;
 
 dTdt..      0 =E= F*(T0-T)/V - (H1*r1+H2*r2+H3*r3)/(RHO*CP) + UA*(TJ-T)/(V*RHO*CP);
 
-MODEL CSTR /all/;
+MODEL CSTRa /all/;
 
-SOLVE CSTR USING NLP MAXIMIZING CC;
+SOLVE CSTRa USING NLP MAXIMIZING CC;

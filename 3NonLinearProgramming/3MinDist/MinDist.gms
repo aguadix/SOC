@@ -1,9 +1,5 @@
 * MinDist.gms
 
-* 1) A => B
-* 2) B => C
-* 3) B => D
-
 SCALAR
 * Ellipse
 ae / 3/
