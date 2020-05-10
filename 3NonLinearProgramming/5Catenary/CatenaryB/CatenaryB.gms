@@ -1,4 +1,4 @@
-* Catenary.gms
+* CatenaryB.gms
 
 SET
 i /0*10/;
@@ -24,6 +24,6 @@ d(i,j), obj;
 d(i,j) $(ord(i)+1=ord(j))..  sqrt(sqr(x(i)-x(j))+sqr(y(i)-y(j))) =L= 2;
 obj..                        SUM(j,y(j))                         =E= Z;
 
-MODEL Catenary /all/;
+MODEL CatenaryB /all/;
 
-SOLVE Catenary USING NLP MINIMIZING Z;
+SOLVE CatenaryB USING NLP MINIMIZING Z;
