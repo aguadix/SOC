@@ -71,5 +71,3 @@ OBJ..           Z  =E= SUM(m,sqr(yexp(m)-ycal(m)));
 MODEL NLR /all/;
 
 SOLVE NLR USING NLP MINIMIZING Z;
-
-display ycal.l
