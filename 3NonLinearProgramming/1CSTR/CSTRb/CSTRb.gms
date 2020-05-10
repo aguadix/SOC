@@ -17,7 +17,7 @@ CP  'cal/(g*K)'     /    1/;
 
 PARAMETER
 Conc0(c) 'mol/L'    /A 1, B 0, C 0, D 0/,
-H(r)     'cal/mol'  /AB -1000, BC -2000, BD -5000/,
+H(r)     'cal/mol'  /AB -1000, BC -2000, BD -500/,
 EAR(r)              /AB 2600,  BC 2200,  BD 6200/,
 lnk0(r)             /AB 6,     BC 7,     BD 17/;
 
