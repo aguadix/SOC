@@ -1,5 +1,9 @@
 * CatenaryA.gms
 
+SCALAR
+L 'length' /20/,
+P 'points' /11/;
+
 FREE VARIABLE
 x0, y0
 x1,y1,
@@ -12,6 +16,7 @@ x7,y7,
 x8,y8,
 x9,y9,
 x10,y10,
+LS,
 Z;
 
 * Fixed values
@@ -30,18 +35,20 @@ x8.l = 8; y8.l = 10;
 x9.l = 9; y9.l = 10;
 
 EQUATION
-d01, d12, d23, d34, d45, d56, d67, d78, d89, d910, obj;
+calLS, d01, d12, d23, d34, d45, d56, d67, d78, d89, d910, obj;
 
-d01..  sqrt(sqr(x0-x1)  + sqr(y0-y1))    =L= 2;
-d12..  sqrt(sqr(x1-x2)  + sqr(y1-y2))    =L= 2;
-d23..  sqrt(sqr(x2-x3)  + sqr(y2-y3))    =L= 2;
-d34..  sqrt(sqr(x3-x4)  + sqr(y3-y4))    =L= 2;
-d45..  sqrt(sqr(x4-x5)  + sqr(y4-y5))    =L= 2;
-d56..  sqrt(sqr(x5-x6)  + sqr(y5-y6))    =L= 2;
-d67..  sqrt(sqr(x6-x7)  + sqr(y6-y7))    =L= 2;
-d78..  sqrt(sqr(x7-x8)  + sqr(y7-y8))    =L= 2;
-d89..  sqrt(sqr(x8-x9)  + sqr(y8-y9))    =L= 2;
-d910.. sqrt(sqr(x9-x10) + sqr(y9-y10))   =L= 2;
+calLS..   LS =E= L/(P-1);
+
+d01..  sqrt(sqr(x0-x1)  + sqr(y0-y1))    =L= LS;
+d12..  sqrt(sqr(x1-x2)  + sqr(y1-y2))    =L= LS;
+d23..  sqrt(sqr(x2-x3)  + sqr(y2-y3))    =L= LS;
+d34..  sqrt(sqr(x3-x4)  + sqr(y3-y4))    =L= LS;
+d45..  sqrt(sqr(x4-x5)  + sqr(y4-y5))    =L= LS;
+d56..  sqrt(sqr(x5-x6)  + sqr(y5-y6))    =L= LS;
+d67..  sqrt(sqr(x6-x7)  + sqr(y6-y7))    =L= LS;
+d78..  sqrt(sqr(x7-x8)  + sqr(y7-y8))    =L= LS;
+d89..  sqrt(sqr(x8-x9)  + sqr(y8-y9))    =L= LS;
+d910.. sqrt(sqr(x9-x10) + sqr(y9-y10))   =L= LS;
 
 obj..  y0+y1+y2+y3+y4+y5+y6+y7+y8+y9+y10 =E= Z;
 

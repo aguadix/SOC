@@ -1,4 +1,4 @@
---- Job CatenaryA.gms Start 05/10/20 17:33:20 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
+--- Job CatenaryA.gms Start 05/10/20 17:30:51 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
 --- GAMS Parameters defined
     Input C:\aguadix\GITHUB\SOC\3NonLinearProgramming\5Catenary\CatenaryA\CatenaryA.gms
     PageSize 0
@@ -23,7 +23,7 @@ Licensee: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
 ---   12 rows  24 columns  63 non-zeroes
 ---   100 nl-code  40 nl-non-zeroes
 --- CatenaryA.gms(57) 3 Mb
---- Executing CONOPT: elapsed 0:00:00.016
+--- Executing CONOPT: elapsed 0:00:00.032
 CONOPT 3         30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
 *** This solver runs with a demo license. No commercial use.
  
@@ -60,4 +60,4 @@ CONOPT 3         30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
 --- CatenaryA.gms(57) 2 Mb
 --- Reading solution for model CatenaryA
 *** Status: Normal completion
---- Job CatenaryA.gms Stop 05/10/20 17:33:20 elapsed 0:00:00.150
+--- Job CatenaryA.gms Stop 05/10/20 17:30:51 elapsed 0:00:00.201

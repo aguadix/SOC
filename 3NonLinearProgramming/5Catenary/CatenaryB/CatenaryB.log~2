@@ -1,4 +1,4 @@
---- Job CatenaryB.gms Start 05/10/20 17:36:35 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
+--- Job CatenaryB.gms Start 05/10/20 17:23:15 30.3.0 rc5da09e WEX-WEI x86 64bit/MS Windows
 --- GAMS Parameters defined
     Input C:\aguadix\GITHUB\SOC\3NonLinearProgramming\5Catenary\CatenaryB\CatenaryB.gms
     PageSize 0
@@ -15,15 +15,15 @@ Licensee: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN
           aguadix@ugr.es, ANTONIO MARIA GUADIX ESCOBAR                     
           Demo license for demonstration and instructional purposes only
 --- Starting compilation
---- CatenaryB.gms(33) 3 Mb
---- Starting execution: elapsed 0:00:00.000
---- CatenaryB.gms(23) 4 Mb
+--- CatenaryB.gms(29) 3 Mb
+--- Starting execution: elapsed 0:00:00.011
+--- CatenaryB.gms(20) 4 Mb
 --- Generating NLP model CatenaryB
---- CatenaryB.gms(33) 6 Mb
----   12 rows  24 columns  63 non-zeroes
+--- CatenaryB.gms(29) 6 Mb
+---   11 rows  23 columns  52 non-zeroes
 ---   100 nl-code  40 nl-non-zeroes
---- CatenaryB.gms(33) 4 Mb
---- Executing CONOPT: elapsed 0:00:00.032
+--- CatenaryB.gms(29) 4 Mb
+--- Executing CONOPT: elapsed 0:00:00.022
 CONOPT 3         30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
 *** This solver runs with a demo license. No commercial use.
  
@@ -35,33 +35,33 @@ CONOPT 3         30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
  
  
    Iter Phase Ninf   Infeasibility   RGmax    NSB   Step InItr MX OK
-      0   0        4.6142135624E+01 (Input point)
+      0   0        4.0142135624E+01 (Input point)
  
-                   Pre-triangular equations:   1
+                   Pre-triangular equations:   0
                    Post-triangular equations:  1
  
       1   0        2.0142135624E+01 (After pre-processing)
       2   0        4.0355339059E+00 (After scaling)
       6   1     2  3.0353064272E+00 1.0E+00     2 6.1E-02    2 T  T
-     11   1     2  1.9233214657E+00 2.5E-01     6 2.3E-01      F  F
-     16   1     2  1.3903984345E+00 3.6E-01     6 5.5E-02    1 F  T
-     21   2     2  9.5072536107E-01 1.0E+00     8 5.0E-01    3 F  F
-     31   1     1  6.0348218195E-01 4.5E-01     9 2.2E-01      F  T
-     41   1     1  2.1289928444E-01 1.0E+00     1 2.3E-03      F  F
-     46   2     1  9.8929670629E-02 2.6E-01     9 2.2E+00      F  T
+     11   1     2  1.9233214629E+00 2.5E-01     6 2.3E-01      F  F
+     16   1     2  1.3903988568E+00 3.6E-01     6 5.5E-02    1 F  T
+     21   2     2  9.5070926821E-01 1.0E+00     8 5.0E-01    3 F  F
+     31   1     1  6.0347468724E-01 4.5E-01     9 2.2E-01      F  T
+     41   1     1  2.1289877503E-01 1.0E+00     1 2.3E-03      F  F
+     46   2     1  9.8918950147E-02 2.6E-01     9 2.2E+00      F  T
  
- ** Feasible solution. Value of objective =    66.7566369513
+ ** Feasible solution. Value of objective =    66.7563715055
  
    Iter Phase Ninf     Objective     RGmax    NSB   Step InItr MX OK
-     51   4        6.5512678346E+01 4.5E+00     8 1.0E+00      F  T
-     56   4        6.4706302238E+01 5.0E+00     8 4.1E-01    3 F  T
-     61   4        6.4601517507E+01 2.5E-01     8 1.0E+00    4 F  T
-     64   4        6.4601516664E+01 3.9E-08     8
+     51   4        6.5512657752E+01 4.5E+00     8 1.0E+00      F  T
+     56   4        6.4706332926E+01 5.0E+00     8 4.1E-01    3 F  T
+     61   4        6.4601517523E+01 2.5E-01     8 1.0E+00    4 F  T
+     64   4        6.4601516664E+01 3.8E-08     8
  
  ** Optimal solution. Reduced gradient less than tolerance.
  
 --- Restarting execution
---- CatenaryB.gms(33) 2 Mb
+--- CatenaryB.gms(29) 2 Mb
 --- Reading solution for model CatenaryB
 *** Status: Normal completion
---- Job CatenaryB.gms Stop 05/10/20 17:36:35 elapsed 0:00:00.177
+--- Job CatenaryB.gms Stop 05/10/20 17:23:15 elapsed 0:00:00.185

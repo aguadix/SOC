@@ -1,4 +1,4 @@
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/10/20 17:23:15 Page 1
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/10/20 17:38:03 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -7,46 +7,55 @@ C o m p i l a t i o n
    2   
    3  SET
    4  i /0*10/;
-   5  alias(i,j)
+   5  alias(i,j);
    6   
-   7  FREE VARIABLE
-   8  x(i), y(i), Z;
+   7  SCALAR
+   8  L 'length' /20/;
    9   
-  10  * Fixed values
-  11  *x.fx('0')  =   0;
-  12  *y.fx('0')  =  10;
-  13  *x.fx('10') =  10;
-  14  *y.fx('10') =  10;
-  15   
-  16  * Fixed values (other way)
-  17  x.fx(i) $(ord(i)=1)       =   0;
-  18  y.fx(i) $(ord(i)=1)       =  10;
-  19  x.fx(i) $(ord(i)=card(i)) =  10;
-  20  y.fx(i) $(ord(i)=card(i)) =  10;
-  21   
-  22  EQUATION
-  23  d(i,j), obj;
-  24  d(i,j) $(ord(i)+1=ord(j))..  sqrt(sqr(x(i)-x(j))+sqr(y(i)-y(j))) =L= 2;
-  25  obj..                        SUM(j,y(j))                         =E= Z;
-  26   
-  27  MODEL CatenaryB /all/;
-  28   
-  29  SOLVE CatenaryB USING NLP MINIMIZING Z;
+  10  FREE VARIABLE
+  11  x(i), y(i), LS, Z;
+  12   
+  13  * Fixed values
+  14  *x.fx('0')  =   0;
+  15  *y.fx('0')  =  10;
+  16  *x.fx('10') =  10;
+  17  *y.fx('10') =  10;
+  18   
+  19  * Fixed values (other way)
+  20  x.fx(i) $(ord(i)=1)       =   0;
+  21  y.fx(i) $(ord(i)=1)       =  10;
+  22  x.fx(i) $(ord(i)=card(i)) =  10;
+  23  y.fx(i) $(ord(i)=card(i)) =  10;
+  24   
+  25  EQUATION
+  26  calLS, d(i,j), obj;
+  27  calLs..                                            L/(card(i)-1) =E= LS;
+  28  d(i,j) $(ord(i)+1=ord(j))..  sqrt(sqr(x(i)-x(j))+sqr(y(i)-y(j))) =L= LS;
+  29  obj..                        SUM(j,y(j))                         =E= Z;
+  30   
+  31  MODEL CatenaryB /all/;
+  32   
+  33  SOLVE CatenaryB USING NLP MINIMIZING Z;
 
 
-COMPILATION TIME     =        0.000 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/10/20 17:23:15 Page 2
+COMPILATION TIME     =        0.015 SECONDS      3 MB  30.3.0 rc5da09e WEX-WEI
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/10/20 17:38:03 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Equation Listing    SOLVE CatenaryB Using NLP From line 29
+Equation Listing    SOLVE CatenaryB Using NLP From line 33
 
+
+---- calLS  =E=  
+
+calLS..  - LS =E= -2 ; (LHS = 0, INFES = 2 ****)
+     
 
 ---- d  =L=  
 
-d(0,1)..  (0)*x(0) + (0)*x(1) + (1)*y(0) - (1)*y(1) =L= 2 ; (LHS = 10, INFES = 8 ****)
+d(0,1)..  (0)*x(0) + (0)*x(1) + (1)*y(0) - (1)*y(1) - LS =L= 0 ; (LHS = 10, INFES = 10 ****)
      
-d(1,2)..  (0)*x(1) + (0)*x(2) + (0)*y(1) + (0)*y(2) =L= 2 ; (LHS = 0)
+d(1,2)..  (0)*x(1) + (0)*x(2) + (0)*y(1) + (0)*y(2) - LS =L= 0 ; (LHS = 0)
      
-d(2,3)..  (0)*x(2) + (0)*x(3) + (0)*y(2) + (0)*y(3) =L= 2 ; (LHS = 0)
+d(2,3)..  (0)*x(2) + (0)*x(3) + (0)*y(2) + (0)*y(3) - LS =L= 0 ; (LHS = 0)
      
 REMAINING 7 ENTRIES SKIPPED
 
@@ -55,9 +64,9 @@ REMAINING 7 ENTRIES SKIPPED
 
 obj..  y(0) + y(1) + y(2) + y(3) + y(4) + y(5) + y(6) + y(7) + y(8) + y(9) + y(10) - Z =E= 0 ; (LHS = 20, INFES = 20 ****)
      
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/10/20 17:23:15 Page 3
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/10/20 17:38:03 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE CatenaryB Using NLP From line 29
+Column Listing      SOLVE CatenaryB Using NLP From line 33
 
 
 ---- x  
@@ -99,46 +108,63 @@ y(2)
 
 REMAINING 8 ENTRIES SKIPPED
 
+---- LS  
+
+LS
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+       -1       calLS
+       -1       d(0,1)
+       -1       d(1,2)
+       -1       d(2,3)
+       -1       d(3,4)
+       -1       d(4,5)
+       -1       d(5,6)
+       -1       d(6,7)
+       -1       d(7,8)
+       -1       d(8,9)
+       -1       d(9,10)
+
+
 ---- Z  
 
 Z
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
        -1       obj
 
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/10/20 17:23:15 Page 4
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/10/20 17:38:03 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Model Statistics    SOLVE CatenaryB Using NLP From line 29
+Model Statistics    SOLVE CatenaryB Using NLP From line 33
 
 
 MODEL STATISTICS
 
-BLOCKS OF EQUATIONS           2     SINGLE EQUATIONS           11
-BLOCKS OF VARIABLES           3     SINGLE VARIABLES           23
-NON ZERO ELEMENTS            52     NON LINEAR N-Z             40
+BLOCKS OF EQUATIONS           3     SINGLE EQUATIONS           12
+BLOCKS OF VARIABLES           4     SINGLE VARIABLES           24
+NON ZERO ELEMENTS            63     NON LINEAR N-Z             40
 DERIVATIVE POOL              20     CONSTANT POOL              16
 CODE LENGTH                 100
 
 
-GENERATION TIME      =        0.000 SECONDS      4 MB  30.3.0 rc5da09e WEX-WEI
+GENERATION TIME      =        0.016 SECONDS      4 MB  30.3.0 rc5da09e WEX-WEI
 
 
-EXECUTION TIME       =        0.000 SECONDS      4 MB  30.3.0 rc5da09e WEX-WEI
-GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/10/20 17:23:15 Page 5
+EXECUTION TIME       =        0.016 SECONDS      4 MB  30.3.0 rc5da09e WEX-WEI
+GAMS 30.3.0  rc5da09e Released Mar  6, 2020 WEX-WEI x86 64bit/MS Windows - 05/10/20 17:38:03 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE CatenaryB Using NLP From line 29
+Solution Report     SOLVE CatenaryB Using NLP From line 33
 
 
                S O L V E      S U M M A R Y
 
      MODEL   CatenaryB           OBJECTIVE  Z
      TYPE    NLP                 DIRECTION  MINIMIZE
-     SOLVER  CONOPT              FROM LINE  29
+     SOLVER  CONOPT              FROM LINE  33
 
 **** SOLVER STATUS     1 Normal Completion         
 **** MODEL STATUS      2 Locally Optimal           
 **** OBJECTIVE VALUE               64.6015
 
- RESOURCE USAGE, LIMIT          0.016      1000.000
+ RESOURCE USAGE, LIMIT          0.015      1000.000
  ITERATION COUNT, LIMIT        64    2000000000
  EVALUATION ERRORS              0             0
 CONOPT 3         30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
@@ -151,45 +177,49 @@ CONOPT 3         30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
                     DK-2880 Bagsvaerd, Denmark
  
  
-    The model has 23 variables and 11 constraints
-    with 52 Jacobian elements, 40 of which are nonlinear.
+    The model has 24 variables and 12 constraints
+    with 63 Jacobian elements, 40 of which are nonlinear.
     The Hessian of the Lagrangian has 22 elements on the diagonal,
     51 elements below the diagonal, and 22 nonlinear variables.
  
  ** Warning **  The number of nonlinear derivatives equal to zero
-                in the initial point is large (= 65 percent).
+                in the initial point is large (= 53 percent).
                 A better initial point will probably help the
                 optimization.
  
  
-                   Pre-triangular equations:   0
+                   Pre-triangular equations:   1
                    Post-triangular equations:  1
  
  
  ** Optimal solution. Reduced gradient less than tolerance.
  
  
- CONOPT time Total                            0.008 seconds
-   of which: Function evaluations             0.004 = 50.0%
-             1st Derivative evaluations       0.001 = 12.5%
+ CONOPT time Total                            0.015 seconds
+   of which: Function evaluations             0.004 = 26.7%
+             1st Derivative evaluations       0.001 =  6.7%
              2nd Derivative evaluations       0.000 =  0.0%
              Directional 2nd Derivative       0.000 =  0.0%
  
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU calLS             -2.0000        -2.0000        -2.0000        28.4362      
 
 ---- EQU d  
 
             LOWER          LEVEL          UPPER         MARGINAL
 
-0.1         -INF            2.0000         2.0000        -4.6440      
-1.2         -INF            2.0000         2.0000        -3.6833      
-2.3         -INF            2.0000         2.0000        -2.7507      
-3.4         -INF            2.0000         2.0000        -1.8885      
-4.5         -INF            2.0000         2.0000        -1.2516      
-5.6         -INF            2.0000         2.0000        -1.2516      
-6.7         -INF            2.0000         2.0000        -1.8885      
-7.8         -INF            2.0000         2.0000        -2.7507      
-8.9         -INF            2.0000         2.0000        -3.6833      
-9.10        -INF            2.0000         2.0000        -4.6440      
+0.1         -INF             .              .            -4.6440      
+1.2         -INF             .              .            -3.6833      
+2.3         -INF             .              .            -2.7507      
+3.4         -INF             .              .            -1.8885      
+4.5         -INF             .              .            -1.2516      
+5.6         -INF             .              .            -1.2516      
+6.7         -INF             .              .            -1.8885      
+7.8         -INF             .              .            -2.7507      
+8.9         -INF             .              .            -3.6833      
+9.10        -INF             .              .            -4.6440      
 
                            LOWER          LEVEL          UPPER         MARGINAL
 
@@ -200,15 +230,15 @@ CONOPT 3         30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
           LOWER          LEVEL          UPPER         MARGINAL
 
 0           .              .              .            -1.1474      
-1         -INF            0.4941        +INF      1.5322088E-9      
-2         -INF            1.1172        +INF      -5.678949E-9      
-3         -INF            1.9514        +INF      1.2246875E-9      
-4         -INF            3.1665        +INF      8.2847453E-9      
+1         -INF            0.4941        +INF      1.4499064E-9      
+2         -INF            1.1172        +INF      -5.495222E-9      
+3         -INF            1.9514        +INF      1.3390076E-9      
+4         -INF            3.1665        +INF      8.3838576E-9      
 5         -INF            5.0000        +INF             .          
 6         -INF            6.8335        +INF             .          
-7         -INF            8.0486        +INF      -2.421885E-9      
+7         -INF            8.0486        +INF      -2.573536E-9      
 8         -INF            8.8828        +INF             .          
-9         -INF            9.5059        +INF      -4.734433E-9      
+9         -INF            9.5059        +INF      -4.823814E-9      
 10        10.0000        10.0000        10.0000         1.1474      
 
 ---- VAR y  
@@ -220,8 +250,8 @@ CONOPT 3         30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
 2         -INF            6.1615        +INF             .          
 3         -INF            4.3438        +INF             .          
 4         -INF            2.7553        +INF             .          
-5         -INF            1.9563        +INF      -1.672973E-9      
-6         -INF            2.7553        +INF      5.4763044E-9      
+5         -INF            1.9563        +INF      -1.037191E-9      
+6         -INF            2.7553        +INF      5.7183264E-9      
 7         -INF            4.3438        +INF             .          
 8         -INF            6.1615        +INF             .          
 9         -INF            8.0620        +INF             .          
@@ -229,6 +259,7 @@ CONOPT 3         30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
 
                            LOWER          LEVEL          UPPER         MARGINAL
 
+---- VAR LS                -INF            2.0000        +INF             .          
 ---- VAR Z                 -INF           64.6015        +INF             .          
 
 
@@ -238,7 +269,7 @@ CONOPT 3         30.3.0 rc5da09e Released Mar 06, 2020 WEI x86 64bit/MS Window
                              0     ERRORS
 
 
-EXECUTION TIME       =        0.016 SECONDS      2 MB  30.3.0 rc5da09e WEX-WEI
+EXECUTION TIME       =        0.000 SECONDS      2 MB  30.3.0 rc5da09e WEX-WEI
 
 
 USER: GAMS Demo license for ANTONIO MARIA GUADIX ESCOG200420|0002CO-GEN

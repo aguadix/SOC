@@ -1,15 +1,19 @@
 B 3 C o m p i l a t i o n
-B 40 Equation Listing    SOLVE CatenaryB Using NLP From line 29
-D 43 d
-D 54 obj
-B 60 Column Listing      SOLVE CatenaryB Using NLP From line 29
-E 63 x
-E 81 y
-E 102 Z
-B 110 Model Statistics    SOLVE CatenaryB Using NLP From line 29
-B 128 Solution Report     SOLVE CatenaryB Using NLP From line 29
-F 179 d
-F 196 obj
-G 198 x
-G 214 y
-G 232 Z
+B 44 Equation Listing    SOLVE CatenaryB Using NLP From line 33
+D 47 calLS
+D 52 d
+D 63 obj
+B 69 Column Listing      SOLVE CatenaryB Using NLP From line 33
+E 72 x
+E 90 y
+E 111 LS
+E 128 Z
+B 136 Model Statistics    SOLVE CatenaryB Using NLP From line 33
+B 154 Solution Report     SOLVE CatenaryB Using NLP From line 33
+F 207 calLS
+F 209 d
+F 226 obj
+G 228 x
+G 244 y
+G 262 LS
+G 263 Z
