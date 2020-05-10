@@ -1,4 +1,4 @@
-* MaxRad.gms
+* CirclePacking.gms
 
 SET
 c /C1*C3/;
@@ -30,6 +30,6 @@ down..         yc0           =G=  R0;
 right..        xc0           =L=  L-R0;
 up..           yc0           =L=  L-R0;
 
-MODEL MaxRad /all/;
+MODEL CirclePacking /all/;
 
-SOLVE MaxRad USING NLP MAXIMIZING R0;
+SOLVE CirclePacking USING NLP MAXIMIZING R0;
