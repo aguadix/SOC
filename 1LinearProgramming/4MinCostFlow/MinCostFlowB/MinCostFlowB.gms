@@ -1,4 +1,4 @@
-* MinCostFlowB.gms
+* MinCostFlowB.gms 
 
 
 SETS
