@@ -1,4 +1,4 @@
-* SetCoverB.gms
+* SetCoverB.gms 
 
 SET
 pc   'province to cover'    /Avila, Burgos, Leon, Palencia, Salamanca, Segovia, Soria, Valladolid, Zamora/;
@@ -21,7 +21,7 @@ Soria                                                          1      0         
 Valladolid                                                            1           1
 Zamora                                                                            1;
 
-* Completar el triángulo inferior de la matriz simétrica
+* Completar el triï¿½ngulo inferior de la matriz simï¿½trica
 s(pc,pi) $(ord(pc)>ord(pi)) = s(pi,pc);
 display s;
 

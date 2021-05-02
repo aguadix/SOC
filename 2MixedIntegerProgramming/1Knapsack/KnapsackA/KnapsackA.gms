@@ -1,7 +1,7 @@
-* KnapsackA.gms
+* KnapsackA.gms 
 
 FREE VARIABLE
-Z   '$/week';
+Z   '$/week'; 
 
 INTEGER VARIABLE
 *BINARY VARIABLES

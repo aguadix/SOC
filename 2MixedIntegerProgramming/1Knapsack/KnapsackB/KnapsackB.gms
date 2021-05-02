@@ -1,4 +1,4 @@
-* KnapsackB.gms
+* KnapsackB.gms 
 
 SET
 f       'ferment'   /F1*F10/;

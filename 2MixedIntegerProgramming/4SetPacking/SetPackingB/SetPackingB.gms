@@ -1,4 +1,4 @@
-* SetPackingB.gms
+* SetPackingB.gms 
 
 SET
 i     'incompatibility' /I12, I24, I25, I45, I56/

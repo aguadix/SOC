@@ -1,4 +1,4 @@
-* SetCoverA.gms
+* SetCoverA.gms 
 
 FREE VARIABLE
 Z '$';

@@ -1,4 +1,4 @@
-* BinPackingA.gms
+* BinPackingA.gms 
 
 FREE VARIABLE
 Z       'number of trucks used';
