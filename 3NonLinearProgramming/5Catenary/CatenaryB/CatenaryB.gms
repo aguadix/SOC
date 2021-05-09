@@ -1,4 +1,4 @@
-* CatenaryB.gms
+* CatenaryB.gms 
 
 SET
 i /0*10/;

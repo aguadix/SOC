@@ -1,4 +1,4 @@
-* CSTRb.gms
+* CSTRb.gms 
 
 * 1) A => B
 * 2) B => C
