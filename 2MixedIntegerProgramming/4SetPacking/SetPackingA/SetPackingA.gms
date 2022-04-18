@@ -1,4 +1,4 @@
-* SetPackingA.gms 
+* SetPackingA.gms
 
 FREE VARIABLE
 Z   '$';

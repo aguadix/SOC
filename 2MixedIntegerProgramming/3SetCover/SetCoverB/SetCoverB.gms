@@ -1,4 +1,4 @@
-* SetCoverB.gms 
+* SetCoverB.gms
 
 SET
 pc   'province to cover'    /Avila, Burgos, Leon, Palencia, Salamanca, Segovia, Soria, Valladolid, Zamora/;

@@ -1,4 +1,4 @@
-* KnapsackA.gms 
+* KnapsackA.gms
 
 FREE VARIABLE
 Z   '$/week'; 
