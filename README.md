@@ -1,6 +1,6 @@
 # SOC
 
-Bloque de Optimización
+Bloque de Optimización 
 
 Simulación, Optimización y Control de Procesos Químicos 
  
