@@ -1,4 +1,4 @@
-* AssignmentA.gms 
+* AssignmentA.gms
 
 
 FREE VARIABLES

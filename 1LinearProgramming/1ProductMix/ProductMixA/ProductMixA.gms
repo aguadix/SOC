@@ -1,4 +1,4 @@
-* ProductMixA.gms 
+* ProductMixA.gms
 
 
 FREE VARIABLES

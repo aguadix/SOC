@@ -1,4 +1,4 @@
-* MinCostFlowA.gms 
+* MinCostFlowA.gms
 
 
 FREE VARIABLES
