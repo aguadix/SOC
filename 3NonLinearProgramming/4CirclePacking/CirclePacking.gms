@@ -1,4 +1,4 @@
-* CirclePacking.gms 
+* CirclePacking.gms
 
 SET
 c /C1*C3/;

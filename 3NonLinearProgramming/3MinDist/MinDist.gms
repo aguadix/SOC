@@ -1,4 +1,4 @@
-* MinDist.gms 
+* MinDist.gms
 
 SCALAR
 * Ellipse
